@@ -1,38 +1,54 @@
-# Getting Started with Create React App
+# Grubber 
+## "The Tinder of Food"
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Your team name
+Da Grubbrs Band
 
-## Available Scripts
+## Each team member's assigned role
+Cory - Turtle - Creating API and Linking Restaurant
+Lindsay - Llama- Front, React work, Routes
+Eddy - Liger - Research for API w/ Turtle
+Ana - Zoo Keeper - Front End, Wireframe, READme
+Your elevator pitch for your website
 
-In the project directory, you can run:
+## Elevator Pitch
+When “Restaurant goers” can’t decide what they want to eat, Grubbr can help them swipe through restaurants nearby or in searched cities with your friends. The user will be able to add friends that have common restaurants and start chatting or set up a date!
 
-### `npm start`
+## User Stories
+The User: Anyone who likes to go to restaurants, especially people who like to try new restaurants and also needs a date, either a friend or a romantic one.
+Well, have you ever been with a partner/friend and you get into an argument because you both cant figure out what to eat? Grubbr can help people make friends based on the same types of restaurants they like.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Wireframe
+[Grubbr (2).pdf](https://github.com/anaismveras/Grubbr-client/files/7695524/Grubbr.2.pdf)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## How
+“BY CODING…IDK” - Eddy
 
+![ERD_and_site_flow](https://user-images.githubusercontent.com/78924263/145642518-055b132d-a2f4-46da-9948-568099b80896.PNG)
 
-## Learn More
+- User:
+     - When the user first goes to the app they will have to sign up, they will use information like their full name, email, password, ZipCode-required, preference (Vegan, vegetarian, meat-eater etc.), an array of visited restaurants, an array of liked restaurants and an array of “matches”
+    - Matches are other users that a user has connected with based on their common restaurants liked
+- Restaurant:
+    - The information of the restaurants will be called from the Yelp API, where we will get the name, the address and photos
+- Comments:
+	- The body of the comment will be written by the user
+- The restaurant will also have comments but it would only be comments from users on the app, where every user would be able to review the restaurants they have been to.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Tech Stack
+Mongoose, Express.js, React, Node.js, MongoDB
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## What your current status is on the project
+Discussed what the app does in user experience
+Designed what pages and routes of the pages
+In process of designing wireframe
 
-### Code Splitting
+## What your plan is for each day of the project work time, preferably broken down into daily sprints.
+First: Getting API built and making sure that Yelp API is giving us the info needed
+Second: React app - Build and connect components
+Third: React finishing - Testing 
+Fourth: Bug squashing - Designing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Resources
+Yelp API- Yelp API
+    - https://fusion.yelp.com/
