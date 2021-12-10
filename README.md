@@ -19,7 +19,7 @@ The User: Anyone who likes to go to restaurants, especially people who like to t
 Well, have you ever been with a partner/friend and you get into an argument because you both cant figure out what to eat? Grubbr can help people make friends based on the same types of restaurants they like.
 
 ## Wireframe
-[Grubbr (2).pdf](https://github.com/anaismveras/Grubbr-client/files/7695524/Grubbr.2.pdf)
+![Grubbr (1)](https://user-images.githubusercontent.com/78924263/145644970-a77836fd-5d43-40c1-b99a-6a4762e25d26.jpg)
 
 ## How
 “BY CODING…IDK” - Eddy
