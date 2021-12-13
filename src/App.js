@@ -12,16 +12,17 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
-require('dotenv').config()
 import RestaurantSlide from './components/main/RestaurantSlide'
 import axios from 'axios'
+require('dotenv').config()
 
-
+const App = () => {
 
 	const [user, setUser] = useState(null)
 	const [msgAlerts, setMsgAlerts] = useState([])
 	const [restaurants, setRestaurants] = useState([])
 
+	
 
 
 	console.log('user in app', user)
@@ -45,10 +46,6 @@ import axios from 'axios'
 			)
 		})
 	}
-
-
-
-
 
 	return (
 		<Fragment>
