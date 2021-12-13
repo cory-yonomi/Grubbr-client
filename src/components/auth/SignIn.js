@@ -62,7 +62,7 @@ const SignIn = (props) => {
                 <div className="form-inputs">
                 <Form onSubmit={onSignIn}>
                     <Form.Group controlId='email'>
-                        <Form.Label className="form-label">Email address</Form.Label>
+                        <Form.Label>Email address</Form.Label>
                         <Form.Control
                             required
                             type='email'
@@ -73,7 +73,7 @@ const SignIn = (props) => {
                         />
                     </Form.Group>
                     <Form.Group controlId='password'>
-                        <Form.Label className="form-label">Password</Form.Label>
+                        <Form.Label>Password</Form.Label>
                         <Form.Control
                             required
                             name='password'
@@ -83,7 +83,7 @@ const SignIn = (props) => {
                             onChange={e => setPassword(e.target.value)}
                         />
                     </Form.Group>
-                    <Button className="signIn" variant="secondary" type='submit'>
+                    <Button className="signIn" variant="secondary btn-lg" type='submit'>
                         Sign In
                     </Button>
                 </Form>
