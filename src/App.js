@@ -21,9 +21,7 @@ const App = () => {
 	const [user, setUser] = useState(null)
 	const [msgAlerts, setMsgAlerts] = useState([])
 	const [restaurants, setRestaurants] = useState([])
-
-	
-
+	const [dbToken, setdbToken] = useState('');
 
 	console.log('user in app', user)
 	console.log('message alerts', msgAlerts)
@@ -54,11 +52,11 @@ const App = () => {
 				<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
 				<Route
 					path='/sign-up'
-					element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
+					element={<SignUp setdbToken={setdbToken} msgAlert={msgAlert} setUser={setUser} />}
 				/>
 				<Route
 					path='/sign-in'
-					element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
+					element={<SignIn setdbToken={setdbToken} msgAlert={msgAlert} setUser={setUser} />}
 				/>
 				<Route
 					path='/sign-out'
@@ -79,7 +77,7 @@ const App = () => {
 					path='/restaurant-slide'
 					element={
 						<RequireAuth user={user}>
-							<RestaurantSlide user={user} msgAlert={msgAlert}/>
+							<RestaurantSlide setRestaurants={setRestaurants} user={user} msgAlert={msgAlert}/>
 						</RequireAuth>}
 						/>
 			</Routes>

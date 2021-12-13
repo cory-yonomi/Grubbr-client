@@ -20,26 +20,10 @@ const SignIn = (props) => {
   // }
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [dbToken, setdbToken] = useState("");
+//   const [dbToken, setdbToken] = useState("");
 
   const navigate = useNavigate();
 
-  // const callingDB = () => {
-  //     axios.post('http://localhost:8000/sign-in', {
-  //         body: {
-  //             'email': email,
-  //             'password': password
-  //         }
-  //     })
-  //     .then(response => {
-  //         console.log('this is res', response)
-  //     })
-  // }
-
-  // handleChange = (event) =>
-  // 	this.setState({
-  // 		[event.target.name]: event.target.value,
-  // 	})
 
   const onSignIn = (event) => {
     event.preventDefault();
@@ -49,17 +33,7 @@ const SignIn = (props) => {
     const credentials = { email, password };
 
     signIn(credentials)
-      .then(() => {
-        axios.post("http://localhost:8000/sign-in", {
-          credentials: {
-            email: email,
-            password: password,
-          },
-        })
-        .then((response) => {
-            // console.log("this is res", response.data.user.token)
-        })
-    })
+    
     .then((res) => setUser(res.data.user))
     .then(() =>
     msgAlert({
