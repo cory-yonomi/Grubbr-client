@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import './SignIn.css'
 
 import { signIn } from '../../api/auth'
 import messages from '../shared/AutoDismissAlert/messages'
@@ -56,11 +57,12 @@ const SignIn = (props) => {
 
     return (
         <div className='row'>
-            <div className='col-sm-10 col-md-8 mx-auto mt-5'>
-                <h3>Sign In</h3>
+            <div className='col-sm-10 col-md-8 mx-auto mt-5 signIn-div'>
+                <h3 className="form-label">Sign In</h3>
+                <div className="form-inputs">
                 <Form onSubmit={onSignIn}>
                     <Form.Group controlId='email'>
-                        <Form.Label>Email address</Form.Label>
+                        <Form.Label className="form-label">Email address</Form.Label>
                         <Form.Control
                             required
                             type='email'
@@ -71,7 +73,7 @@ const SignIn = (props) => {
                         />
                     </Form.Group>
                     <Form.Group controlId='password'>
-                        <Form.Label>Password</Form.Label>
+                        <Form.Label className="form-label">Password</Form.Label>
                         <Form.Control
                             required
                             name='password'
@@ -85,6 +87,7 @@ const SignIn = (props) => {
                         Submit
                     </Button>
                 </Form>
+                </div>
             </div>
         </div>
     )

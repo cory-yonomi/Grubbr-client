@@ -1,0 +1,19 @@
+.row {
+    background-image: url('../images/background.jpeg');
+    background-size:cover;
+    height: 100vh
+}
+
+.signIn-div {
+    background-color: #5D8233;
+    height: 50vh;
+    padding-top: 30px;
+}
+
+.form-inputs {
+    opacity: 100%;
+}
+
+.form-label {
+    text-align: center;
+}
