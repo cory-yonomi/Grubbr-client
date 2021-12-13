@@ -1,5 +1,5 @@
 import '../css/SignIn.css'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { signIn } from '../../api/auth'
@@ -7,6 +7,7 @@ import messages from '../shared/AutoDismissAlert/messages'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import axios from 'axios'
 
 const SignIn = (props) => {
 	// constructor(props) {
@@ -21,6 +22,7 @@ const SignIn = (props) => {
     const [password, setPassword] = useState('')
 
     const navigate = useNavigate()
+
 
 	// handleChange = (event) =>
 	// 	this.setState({
