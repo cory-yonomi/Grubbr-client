@@ -5,15 +5,19 @@
 }
 
 .signIn-div {
-    background-color: #5D8233;
+    background-color: rgba(93, 130, 51, 0.7);
     height: 50vh;
     padding-top: 30px;
-}
-
-.form-inputs {
-    opacity: 100%;
+    border-radius: 20px;
 }
 
 .form-label {
     text-align: center;
+    color: #FFFFFF;
+    font-weight: bold;
 }
+
+.signIn {
+    margin-top: 10px;
+}
+

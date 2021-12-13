@@ -1,6 +1,6 @@
+import '../css/SignIn.css'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import './SignIn.css'
 
 import { signIn } from '../../api/auth'
 import messages from '../shared/AutoDismissAlert/messages'
@@ -83,8 +83,8 @@ const SignIn = (props) => {
                             onChange={e => setPassword(e.target.value)}
                         />
                     </Form.Group>
-                    <Button variant='primary' type='submit'>
-                        Submit
+                    <Button className="signIn" variant="secondary" type='submit'>
+                        Sign In
                     </Button>
                 </Form>
                 </div>
