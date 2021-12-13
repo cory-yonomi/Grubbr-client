@@ -1,0 +1,23 @@
+.row {
+    background-image: url('../images/background.jpeg');
+    background-size:cover;
+    height: 100vh
+}
+
+.signIn-div {
+    background-color: rgba(93, 130, 51, 0.7);
+    height: 50vh;
+    padding-top: 30px;
+    border-radius: 20px;
+}
+
+.form-label {
+    text-align: center;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.signIn {
+    margin-top: 10px;
+}
+
