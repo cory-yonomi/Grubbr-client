@@ -8,6 +8,7 @@ import messages from '../shared/AutoDismissAlert/messages'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import axios from "axios";
 
 const SignUp = (props) => {
 	// constructor(props) {
@@ -34,6 +35,18 @@ const SignUp = (props) => {
 
 		signUp(credentials)
 			.then(() => signIn(credentials))
+            .then(() => {
+                axios.post("http://localhost:8000/sign-in", {
+                  credentials: {
+                    email: email,
+                    password: password
+                  }
+                })
+                .then((response) => {
+                    // console.log("this is res", response.data.user.token)
+                    props.setdbToken(response.data.user.token)
+                })
+            })
 			.then((res) => setUser(res.data.user))
 			.then(() =>
 				msgAlert({
