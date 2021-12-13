@@ -13,15 +13,16 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import RestaurantSlide from './components/main/RestaurantSlide'
+
 import axios from 'axios'
 require('dotenv').config()
 
-const App = () => {
 
+const App = () => {
 	const [user, setUser] = useState(null)
 	const [msgAlerts, setMsgAlerts] = useState([])
 	const [restaurants, setRestaurants] = useState([])
-	const [dbToken, setdbToken] = useState('');
+
 
 	console.log('user in app', user)
 	console.log('message alerts', msgAlerts)
