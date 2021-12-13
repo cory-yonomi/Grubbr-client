@@ -6,6 +6,15 @@ const linkStyle = {
     color: 'white',
     textDecoration: 'none'
 }
+const buttonStyle = {
+	color: 'black',
+	textDecoration: 'none',
+	// marginLeft: '60vh',
+    backgroundColor: '#E7D9EA',
+    fontSize: 'large',
+    fontWeight: '600',
+    padding: '5px 40px',
+}
 const authenticatedOptions = (
 	<>
 		<Nav.Link>
@@ -28,11 +37,11 @@ const authenticatedOptions = (
 
 const unauthenticatedOptions = (
 	<>
-        <Nav.Link>
+        {/* <Nav.Link>
 		    <Link to='sign-up' style={linkStyle}>Sign Up</Link>
-        </Nav.Link>
-        <Nav.Link>
-		    <Link to='sign-in' style={linkStyle}>Sign In</Link>
+        </Nav.Link> */}
+        <Nav.Link align='right'>
+		    <Link to='sign-in' style={buttonStyle}>Log In</Link>
         </Nav.Link>
 	</>
 )
@@ -51,7 +60,7 @@ const Header = ({ user }) => (
 	<Navbar bg='primary' variant='dark' expand='md'>
 		<Navbar.Brand>
             <Link to='/' style={linkStyle}>
-                react-auth-template
+                Grubbr
             </Link>
         </Navbar.Brand>
 		<Navbar.Toggle aria-controls='basic-navbar-nav' />

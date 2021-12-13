@@ -1,0 +1,39 @@
+button {
+
+    margin: 20px;
+    background-color: #E7D9EA;
+    font-size: large;
+    font-weight: 600;
+    padding: 5px 40px;
+}
+
+.intro {
+    height: 100vh;
+    /* width: 100vh; */
+    overflow: auto;
+    text-align: center;
+    color: white;
+    padding-top: 10%;
+    background-image: url('/src/components/introbackground.jpeg');
+    background-size: cover;
+}
+
+.intro h1 {
+    margin: 10px;
+    font-weight: bold;
+    font-size: 100px;
+}
+
+.intro p {
+    margin-top: 10px;
+    font-size: 40px;
+    font-weight: 800;
+}
+
+.intro button {
+    margin: 20px;
+    background-color: #E7D9EA;
+    font-size: large;
+    font-weight: 600;
+    padding: 5px 40px;
+}
