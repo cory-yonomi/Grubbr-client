@@ -9,11 +9,11 @@ const linkStyle = {
 const buttonStyle = {
 	color: 'black',
 	textDecoration: 'none',
-	margin: '20px',
+	// marginLeft: '60vh',
     backgroundColor: '#E7D9EA',
     fontSize: 'large',
     fontWeight: '600',
-    padding: '5px 40px'
+    padding: '5px 40px',
 }
 const authenticatedOptions = (
 	<>
@@ -35,7 +35,7 @@ const unauthenticatedOptions = (
         {/* <Nav.Link>
 		    <Link to='sign-up' style={linkStyle}>Sign Up</Link>
         </Nav.Link> */}
-        <Nav.Link>
+        <Nav.Link align='right'>
 		    <Link to='sign-in' style={buttonStyle}>Log In</Link>
         </Nav.Link>
 	</>
