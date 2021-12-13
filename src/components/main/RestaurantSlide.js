@@ -1,4 +1,21 @@
+import { useEffect } from "react"
+import axios from "axios"
+
 const RestaurantSlide = (props) => {
+
+    useEffect(() => {
+        axios.get('http://localhost:8000/restaurants', {
+            headers: {
+                "Authorization": `Bearer ${dbKey}`
+            }
+        })
+            .then(foundRestaurants => {
+                console.log('rests', foundRestaurants)
+                setRestaurants(foundRestaurants)
+            })
+            .catch(err => console.log(err))
+    }, [])
+
     return (
         <div>
 
