@@ -10,6 +10,7 @@ const linkStyle = {
 	fontSize: '20px',
 	margin: '25px'
 }
+
 const logoStyle = {
 	height: '40px',
 	fontWeight: 'bold'
