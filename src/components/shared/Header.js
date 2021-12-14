@@ -1,3 +1,4 @@
+import './navBar.css'
 import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
@@ -57,7 +58,7 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-	<Navbar bg='transparent' variant='dark' expand='md'>
+	<Navbar className='navBar' variant='dark' expand='md'>
 		<Navbar.Brand>
             <Link to='/' style={linkStyle}>
                 Grubbr

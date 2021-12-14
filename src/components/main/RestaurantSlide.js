@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { Link } from 'react-router-dom'
 import axios from "axios"
-import RestaurantSlider from '../css/RestaurantSlider.css'
+import './RestaurantSlider.css'
 
 const RestaurantSlide = (props) => {
 
