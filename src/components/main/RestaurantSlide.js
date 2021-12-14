@@ -1,8 +1,11 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { Link } from 'react-router-dom'
 import axios from "axios"
 
 const RestaurantSlide = (props) => {
+
+    const [input, setInput] = useState('')
+    const [subValue, setSubValue] = useState('')
 
     useEffect(() => {
         axios.get('http://localhost:8000/restaurants/Yelp/92595', {
@@ -17,31 +20,45 @@ const RestaurantSlide = (props) => {
             .catch(err => console.log(err))
     }, [])
 
-    return (
-        <div className="slide-page">
+    const handleChange = (e) => {
+        console.log('input value', e.target.value)
+        setInput(e.target.value)
+    }
 
-            <div id='zipcode-search'>
-                <form action="submit">
-                    <label htmlFor="">Search by Zipcode:</label>
-                    <input type="text" />
-                    <input type="submit" />
-                </form>
-            </div>
+    const submit = () => {
+        console.log('submit value', input)
+        setSubValue(input)
+    }
 
-            <div className='rest-slide'>
-                <button onClick={props.nextButton}>X</button>
-            </div>
-            <div className='heart-button'>
-                <Link to='/restaurant-profile'><button onClick={props.heartButton}>❤️</button></Link>
-            </div>
+    if (!subValue) {
+        return (
+            <div className="slide-page">
 
-            <div className='map-restaurants'>
-                {props.mapRestaurants}
+                <div id='zipcode-search'>
+                    <form>
+                        <label htmlFor="zipcode">Search by Zipcode:</label>
+                        <input type="number" onChange={handleChange} />
+                    </form>
+                    <button onClick={submit}>Submit</button>
+                </div>
             </div>
-            
-        </div>
-    )
-
+        )
+    } else {
+        return (
+            <div>
+                <div className='rest-slide'>
+                    <button onClick={props.nextButton}>X</button>
+                </div>
+                <div className='heart-button'>
+                    <Link to='/restaurant-profile'><button onClick={props.heartButton}>❤️</button></Link>
+                </div>
+                <div className='map-restaurants'>
+                    {props.mapRestaurants}
+                </div>
+            </div >
+        )
+    }
 }
 
 export default RestaurantSlide
+
