@@ -17,10 +17,6 @@ const RestaurantSlide = (props) => {
             .catch(err => console.log(err))
     }, [])
 
-
-
-
-
     return (
         <div>
 
