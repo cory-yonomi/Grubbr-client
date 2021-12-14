@@ -26,8 +26,6 @@ const App = () => {
 	const [user, setUser] = useState(null)
 	const [msgAlerts, setMsgAlerts] = useState([])
 	const [restaurants, setRestaurants] = useState([])
-	// user DB Token when user logs in
-	const [dbToken, setdbToken] = useState('')
 	// sets current restaurant for the slideshow
 	const [currentRest, setCurrentRest] = useState(0)
 	const [likedRestaurant, setLikedRestaurant] = useState({})
@@ -134,11 +132,11 @@ const App = () => {
 				<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
 				<Route
 					path='/sign-up'
-					element={<SignUp setdbToken={setdbToken} msgAlert={msgAlert} setUser={setUser} />}
+					element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
 				/>
 				<Route
 					path='/sign-in'
-					element={<SignIn setdbToken={setdbToken} msgAlert={msgAlert} setUser={setUser} />}
+					element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
 				/>
 				<Route
 					path='/sign-out'
