@@ -13,15 +13,22 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import RestaurantSlide from './components/main/RestaurantSlide'
+import RestaurantSlider from './components/css/RestaurantSlider.css'
 
 import axios from 'axios'
 require('dotenv').config()
 
 
 const App = () => {
+
+
 	const [user, setUser] = useState(null)
 	const [msgAlerts, setMsgAlerts] = useState([])
 	const [restaurants, setRestaurants] = useState([])
+	// user DB Token when user logs in
+	const [dbToken, setdbToken] = useState('')
+	// sets current restaurant for the slideshow
+	const [currentRest, setCurrentRest] = useState(0)
 
 
 	console.log('user in app', user)
@@ -45,6 +52,48 @@ const App = () => {
 			)
 		})
 	}
+
+
+	// maps yelp restaurants in a slideshow
+	const nextSlide = () => {
+		setCurrentRest(currentRest === length - 1 ? 0 : currentRest + 1)
+	}
+	// console.log('current', currentRest)
+
+	// maps through restaurants from Yelp API
+	const mapRestaurants = restaurants.map((r, index) => {
+		// console.log('mapping rs', r)
+		return (
+			<div>
+				<div
+				className={index === currentRest ? 'r active' : 'r'}
+				key={index}
+				>
+					{index === currentRest && (
+						<div>
+						<p>{r.name}</p>
+						<img src={r.image_url} alt='restaurant-images' className='image'/>
+						</div>
+					)}
+				</div>
+			<div className='restaurant-map'>
+
+			</div>
+			</div>
+			
+		)
+	})
+
+	const length = mapRestaurants.length
+
+
+	
+
+	// if (!Array.isArray(mapRestaurants) || mapRestaurants.length <= 0) {
+	// 	return null
+	// }
+
+
 
 	return (
 		<Fragment>
@@ -78,7 +127,7 @@ const App = () => {
 					path='/restaurant-slide'
 					element={
 						<RequireAuth user={user}>
-							<RestaurantSlide setRestaurants={setRestaurants} user={user} msgAlert={msgAlert}/>
+							<RestaurantSlide setRestaurants={setRestaurants} user={user} msgAlert={msgAlert} mapRestaurants={mapRestaurants} nextSlide={nextSlide} />
 						</RequireAuth>}
 						/>
 			</Routes>
@@ -96,4 +145,5 @@ const App = () => {
 	)
 }
 
-export default App;
+export default App
+
