@@ -1,4 +1,5 @@
 import { useEffect } from "react"
+import { Link } from 'react-router-dom'
 import axios from "axios"
 import RestaurantSlider from '../css/RestaurantSlider.css'
 
@@ -22,7 +23,7 @@ const RestaurantSlide = (props) => {
 
 
     return (
-        <div>
+        <div className="slide-page">
 
             <div id='zipcode-search'>
                 <form action="">
@@ -30,11 +31,14 @@ const RestaurantSlide = (props) => {
                     <input type="text" />
                 </form>
             </div>
-            <div id='rest-slide'>
-                <button>X</button>
-                <button onClick={props.nextSlide}>❤️</button>
+            <div className='rest-slide'>
+                <button onClick={props.nextButton}>X</button>
             </div>
-            <div>
+            <div className='heart-button'>
+                <Link to='/restaurant-profile'><button onClick={props.heartButton}>❤️</button></Link>
+            </div>
+
+            <div className='map-restaurants'>
                 {props.mapRestaurants}
             </div>
 

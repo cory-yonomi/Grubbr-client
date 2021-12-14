@@ -14,6 +14,7 @@ import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import RestaurantSlide from './components/main/RestaurantSlide'
 import RestaurantSlider from './components/css/RestaurantSlider.css'
+import RestaurantProfile from './components/main/RestaurantProfile'
 
 import axios from 'axios'
 require('dotenv').config()
@@ -29,6 +30,7 @@ const App = () => {
 	const [dbToken, setdbToken] = useState('')
 	// sets current restaurant for the slideshow
 	const [currentRest, setCurrentRest] = useState(0)
+	const [likedRestaurant, setLikedRestaurant] = useState({})
 
 
 	console.log('user in app', user)
@@ -53,9 +55,13 @@ const App = () => {
 		})
 	}
 
+	const heartButton = () => {
+		setLikedRestaurant(restaurants[currentRest])
+	}
+
 
 	// maps yelp restaurants in a slideshow
-	const nextSlide = () => {
+	const nextButton = () => {
 		setCurrentRest(currentRest === length - 1 ? 0 : currentRest + 1)
 	}
 	// console.log('current', currentRest)
@@ -127,7 +133,14 @@ const App = () => {
 					path='/restaurant-slide'
 					element={
 						<RequireAuth user={user}>
-							<RestaurantSlide setRestaurants={setRestaurants} user={user} msgAlert={msgAlert} mapRestaurants={mapRestaurants} nextSlide={nextSlide} />
+							<RestaurantSlide setRestaurants={setRestaurants} user={user} msgAlert={msgAlert} mapRestaurants={mapRestaurants} nextButton={nextButton} heartButton={heartButton} />
+						</RequireAuth>}
+						/>
+						<Route
+					path='/restaurant-profile'
+					element={
+						<RequireAuth user={user}>
+							<RestaurantProfile setRestaurants={setRestaurants} user={user} msgAlert={msgAlert} mapRestaurants={mapRestaurants} likedRestaurant={likedRestaurant} />
 						</RequireAuth>}
 						/>
 			</Routes>
