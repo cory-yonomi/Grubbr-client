@@ -1,7 +1,6 @@
 import { useEffect } from "react"
 import { Link } from 'react-router-dom'
 import axios from "axios"
-import RestaurantSlider from '../css/RestaurantSlider.css'
 
 const RestaurantSlide = (props) => {
 
@@ -17,15 +16,6 @@ const RestaurantSlide = (props) => {
             })
             .catch(err => console.log(err))
     }, [])
-
-
-    const submit = (e) => {
-        console.log('value of input', e.target.value)
-        return (
-            e.target.value
-        )
-    }
-    
 
     return (
         <div className="slide-page">
@@ -51,10 +41,6 @@ const RestaurantSlide = (props) => {
             
         </div>
     )
-
-
-
-
 
 }
 
