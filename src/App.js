@@ -83,6 +83,7 @@ const App = () => {
 			// return restaurants current users
 		
 	}
+	
 
 
 	// maps yelp restaurants in a slideshow
@@ -90,6 +91,8 @@ const App = () => {
 		setCurrentRest(currentRest === length - 1 ? 0 : currentRest + 1)
 	}
 	// console.log('current', currentRest)
+
+	
 
 	// maps through restaurants from Yelp API
 	const mapRestaurants = restaurants.map((r, index) => {

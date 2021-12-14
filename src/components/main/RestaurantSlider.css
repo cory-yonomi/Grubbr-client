@@ -3,7 +3,7 @@
     background-color: rgba(93, 130, 51, .8) ;
     width: 100%;
     margin: 0 auto;
-    display: relative;
+    /* display: relative; */
     text-align: center;
 }
 
@@ -14,7 +14,5 @@
 }
 
 .rest-slide {
-display: absolute;
-top: 50%;
-left: 50%;
+margin: 50%;
 }
