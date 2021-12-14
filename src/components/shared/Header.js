@@ -47,20 +47,20 @@ const unauthenticatedOptions = (
 	</>
 )
 
-const alwaysOptions = (
-	<>
-		<Nav.Link>
-			<Link to='/' style={linkStyle}>
-				Home
-			</Link>
-		</Nav.Link>
-	</>
-)
+// const alwaysOptions = (
+// 	<>
+// 		<Nav.Link>
+// 			<Link to='/' style={linkStyle}>
+// 				Home
+// 			</Link>
+// 		</Nav.Link>
+// 	</>
+// )
 
 const Header = ({ user }) => (
 	<Navbar className='navBar' variant='dark' expand='md'>
 		<Navbar.Brand>
-            <Link to='/' style={linkStyle}>
+            <Link to='/restaurant-slide' style={linkStyle}>
                 Grubbr
             </Link>
         </Navbar.Brand>
@@ -70,11 +70,12 @@ const Header = ({ user }) => (
 				{user && (
 					<span className='navbar-text mr-2'>Welcome, {user.email}</span>
 				)}
-				{alwaysOptions}
+				{/* {alwaysOptions} */}
 				{user ? authenticatedOptions : unauthenticatedOptions}
 			</Nav>
 		</Navbar.Collapse>
 	</Navbar>
 )
-
+// below, goes after Link for Logo of "Grubbr"
+// to='/'
 export default Header

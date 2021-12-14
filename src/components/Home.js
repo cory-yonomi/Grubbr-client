@@ -4,12 +4,17 @@ const linkStyle = {
     color: 'black',
     textDecoration: 'none'
 }
+
+const homeStyle = {
+	backgroundImage: `url('/src/components/introbackground.jpeg')`,
+    backgroundSize: 'cover'
+}
 const Home = (props) => {
 	// const { msgAlert, user } = props
 	console.log('props in home', props)
 
 	return (
-		<div>
+		<div style={homeStyle}>
 			<div className="intro">
 				<h1>🍴 Grubbr</h1>
 				<h4>"The Tinder For Food"</h4>
