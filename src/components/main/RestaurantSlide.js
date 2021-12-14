@@ -19,18 +19,25 @@ const RestaurantSlide = (props) => {
     }, [])
 
 
-
-
+    const submit = (e) => {
+        console.log('value of input', e.target.value)
+        return (
+            e.target.value
+        )
+    }
+    
 
     return (
         <div className="slide-page">
 
             <div id='zipcode-search'>
-                <form action="">
+                <form action="submit">
                     <label htmlFor="">Search by Zipcode:</label>
                     <input type="text" />
+                    <input type="submit" />
                 </form>
             </div>
+
             <div className='rest-slide'>
                 <button onClick={props.nextButton}>X</button>
             </div>
@@ -41,7 +48,7 @@ const RestaurantSlide = (props) => {
             <div className='map-restaurants'>
                 {props.mapRestaurants}
             </div>
-
+            
         </div>
     )
 

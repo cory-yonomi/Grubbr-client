@@ -58,6 +58,7 @@ const App = () => {
 	const heartButton = () => {
 		setLikedRestaurant(restaurants[currentRest])
 	}
+	
 
 
 	// maps yelp restaurants in a slideshow
@@ -65,6 +66,8 @@ const App = () => {
 		setCurrentRest(currentRest === length - 1 ? 0 : currentRest + 1)
 	}
 	// console.log('current', currentRest)
+
+	
 
 	// maps through restaurants from Yelp API
 	const mapRestaurants = restaurants.map((r, index) => {
