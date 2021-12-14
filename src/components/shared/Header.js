@@ -6,7 +6,8 @@ import grubberLogo from '../images/logo.png'
 
 const linkStyle = {
     color: 'white',
-    textDecoration: 'none'
+    textDecoration: 'none',
+	fontSize: '20px'
 }
 const logoStyle = {
 	height: '40px',
