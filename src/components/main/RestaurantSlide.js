@@ -29,6 +29,9 @@ const RestaurantSlide = (props) => {
                 <button>X</button>
                 <button>❤️</button>
             </div>
+            <div id='restaurant-mapping'>
+                {props.mapRestaurants}
+            </div>
 
         </div>
     )

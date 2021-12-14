@@ -24,6 +24,8 @@ const App = () => {
 	const [user, setUser] = useState(null)
 	const [msgAlerts, setMsgAlerts] = useState([])
 	const [restaurants, setRestaurants] = useState([])
+	// user DB Token when user logs in
+	const [dbToken, setdbToken] = useState('')
 
 
 	console.log('user in app', user)
@@ -48,7 +50,21 @@ const App = () => {
 		})
 	}
 
-
+	// maps through restaurants from Yelp API
+	const mapRestaurants = restaurants.map(r => {
+		// console.log('mapping rs', r)
+		// console.log('mapping rs name', r.name)
+		// console.log('mapping rs', r.image_url)
+		return (
+			<div>
+				<li>
+				<p>{r.name}</p>
+				<img src={r.image_url} />
+				</li>
+			</div>
+			
+		)
+	})
 
 
 
@@ -84,7 +100,7 @@ const App = () => {
 					path='/restaurant-slide'
 					element={
 						<RequireAuth user={user}>
-							<RestaurantSlide setRestaurants={setRestaurants} user={user} msgAlert={msgAlert}/>
+							<RestaurantSlide setRestaurants={setRestaurants} user={user} msgAlert={msgAlert} mapRestaurants={mapRestaurants}/>
 						</RequireAuth>}
 						/>
 			</Routes>
