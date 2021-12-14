@@ -75,7 +75,7 @@ const App = () => {
 			}
 		)
 		.then(resp => {
-			console.log(resp)
+			setLikedRestaurant(resp.data)
 		})
 		// .catch(err => console.err(err))
 			// create restaurant if it doesn't exist already
