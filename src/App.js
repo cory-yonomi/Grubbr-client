@@ -74,7 +74,8 @@ const App = () => {
 				}
 			}
 		)
-		.then(resp => {
+			.then(resp => {
+			console.log(resp)
 			setLikedRestaurant(resp.data)
 		})
 		// .catch(err => console.err(err))
