@@ -1,12 +1,3 @@
-.slide-page {
-    height: 100vh;
-    background-color: rgba(93, 130, 51, .8) ;
-    width: 100%;
-    margin: 0 auto;
-    /* display: relative; */
-    text-align: center;
-}
-
 #searchZip {
     font-size: 28px;
     color: #3E215D;
@@ -14,5 +5,10 @@
 }
 
 .rest-slide {
-margin: 50%;
+    text-align: center;
+    background-color: rgba(93, 130, 51, .8) ;
+    height: 100vh;
+    padding-top: 10%;
+    /* background-image: url('../images/background.jpeg'); */
 }
+
