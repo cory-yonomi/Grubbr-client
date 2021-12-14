@@ -13,7 +13,6 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import RestaurantSlide from './components/main/RestaurantSlide'
-// import RestaurantSlider from './components/css/RestaurantSlider.css'
 import RestaurantProfile from './components/main/RestaurantProfile'
 
 import axios from 'axios'
@@ -55,8 +54,34 @@ const App = () => {
 		})
 	}
 
+	
+
 	const heartButton = () => {
-		setLikedRestaurant(restaurants[currentRest])
+		// send axios.post to api
+		// setLikedRestaurant(restaurants[currentRest])
+		console.log(restaurants[currentRest])
+		axios.post(`http://localhost:8000/restaurants`,
+			{
+					name: restaurants[currentRest].name,
+					location: restaurants[currentRest].location.display_address,
+					yelpId: restaurants[currentRest].id,
+					user: [user._id]
+			},
+			{
+				headers: {
+					"Authorization": `Bearer ${user.token}`
+				}
+			}
+		)
+			.then(resp => {
+			console.log(resp)
+			setLikedRestaurant(resp.data)
+		})
+		// .catch(err => console.err(err))
+			// create restaurant if it doesn't exist already
+			// add current user to restaurant's users
+			// return restaurants current users
+		
 	}
 
 
@@ -140,7 +165,7 @@ const App = () => {
 					path='/restaurant-profile'
 					element={
 						<RequireAuth user={user}>
-							<RestaurantProfile setRestaurants={setRestaurants} user={user} msgAlert={msgAlert} mapRestaurants={mapRestaurants} likedRestaurant={likedRestaurant} />
+							<RestaurantProfile setRestaurants={setRestaurants} user={user} msgAlert={msgAlert} mapRestaurants={mapRestaurants} likedRestaurant={likedRestaurant} heartButton={heartButton} />
 						</RequireAuth>}
 						/>
 			</Routes>

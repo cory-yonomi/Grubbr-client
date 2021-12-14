@@ -3,19 +3,30 @@ import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { Link } from 'react-router-dom'
+import grubberLogo from '../images/logo.png'
+
 const linkStyle = {
     color: 'white',
-    textDecoration: 'none'
+    textDecoration: 'none',
+	fontSize: '20px',
+	margin: '25px'
+}
+const logoStyle = {
+	height: '40px',
+	fontWeight: 'bold'
 }
 const buttonStyle = {
 	color: 'black',
 	textDecoration: 'none',
-	// marginLeft: '60vh',
     backgroundColor: '#E7D9EA',
     fontSize: 'large',
     fontWeight: '600',
     padding: '5px 40px',
 }
+const navBarStyle = {
+	backgroundColor: '#3E215D'
+}
+
 const authenticatedOptions = (
 	<>
 		<Nav.Link>
@@ -58,10 +69,10 @@ const unauthenticatedOptions = (
 // )
 
 const Header = ({ user }) => (
-	<Navbar className='navBar' variant='dark' expand='md'>
+	<Navbar style={navBarStyle} variant='dark' expand='md'>
 		<Navbar.Brand>
-            <Link to='/restaurant-slide' style={linkStyle}>
-                Grubbr
+            <Link to='/' style={linkStyle}>
+                <img src={grubberLogo} alt="" style={logoStyle}/> Grubbr
             </Link>
         </Navbar.Brand>
 		<Navbar.Toggle aria-controls='basic-navbar-nav' />

@@ -1,4 +1,20 @@
 .slide-page {
     height: 100vh;
     background-color: rgba(93, 130, 51, .8) ;
+    width: 100%;
+    margin: 0 auto;
+    display: relative;
+    text-align: center;
+}
+
+#searchZip {
+    font-size: 28px;
+    color: #3E215D;
+    font-weight: 600;
+}
+
+.rest-slide {
+display: absolute;
+top: 50%;
+left: 50%;
 }
