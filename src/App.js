@@ -13,6 +13,7 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import RestaurantSlide from './components/main/RestaurantSlide'
+import RestaurantSlider from './components/css/RestaurantSlider.css'
 
 import axios from 'axios'
 require('dotenv').config()
@@ -26,6 +27,8 @@ const App = () => {
 	const [restaurants, setRestaurants] = useState([])
 	// user DB Token when user logs in
 	const [dbToken, setdbToken] = useState('')
+	// sets current restaurant for the slideshow
+	const [currentRest, setCurrentRest] = useState(0)
 
 
 	console.log('user in app', user)
@@ -50,21 +53,45 @@ const App = () => {
 		})
 	}
 
+
+	// maps yelp restaurants in a slideshow
+	const nextSlide = () => {
+		setCurrentRest(currentRest === length - 1 ? 0 : currentRest + 1)
+	}
+	// console.log('current', currentRest)
+
 	// maps through restaurants from Yelp API
-	const mapRestaurants = restaurants.map(r => {
+	const mapRestaurants = restaurants.map((r, index) => {
 		// console.log('mapping rs', r)
-		// console.log('mapping rs name', r.name)
-		// console.log('mapping rs', r.image_url)
 		return (
 			<div>
-				<li>
-				<p>{r.name}</p>
-				<img src={r.image_url} />
-				</li>
+				<div
+				className={index === currentRest ? 'r active' : 'r'}
+				key={index}
+				>
+					{index === currentRest && (
+						<div>
+						<p>{r.name}</p>
+						<img src={r.image_url} alt='restaurant-images' className='image'/>
+						</div>
+					)}
+				</div>
+			<div className='restaurant-map'>
+
+			</div>
 			</div>
 			
 		)
 	})
+
+	const length = mapRestaurants.length
+
+
+	
+
+	// if (!Array.isArray(mapRestaurants) || mapRestaurants.length <= 0) {
+	// 	return null
+	// }
 
 
 
@@ -100,7 +127,7 @@ const App = () => {
 					path='/restaurant-slide'
 					element={
 						<RequireAuth user={user}>
-							<RestaurantSlide setRestaurants={setRestaurants} user={user} msgAlert={msgAlert} mapRestaurants={mapRestaurants}/>
+							<RestaurantSlide setRestaurants={setRestaurants} user={user} msgAlert={msgAlert} mapRestaurants={mapRestaurants} nextSlide={nextSlide} />
 						</RequireAuth>}
 						/>
 			</Routes>
@@ -119,3 +146,144 @@ const App = () => {
 }
 
 export default App
+
+
+
+
+// // import React, { Component, Fragment } from 'react'
+// import React, { useState, Fragment, useEffect } from 'react'
+// import { Route, Routes } from 'react-router-dom'
+// import { v4 as uuid } from 'uuid'
+
+// // import AuthenticatedRoute from './components/shared/AuthenticatedRoute'
+// import AutoDismissAlert from './components/shared/AutoDismissAlert/AutoDismissAlert'
+// import Header from './components/shared/Header'
+// import RequireAuth from './components/shared/RequireAuth'
+// import Home from './components/Home'
+// import SignUp from './components/auth/SignUp'
+// import SignIn from './components/auth/SignIn'
+// import SignOut from './components/auth/SignOut'
+// import ChangePassword from './components/auth/ChangePassword'
+// import RestaurantSlide from './components/main/RestaurantSlide'
+// import RestaurantSlider from './components/css/RestaurantSlider.css'
+
+// import axios from 'axios'
+// require('dotenv').config()
+
+
+// const App = () => {
+
+
+// 	const [user, setUser] = useState(null)
+// 	const [msgAlerts, setMsgAlerts] = useState([])
+// 	const [restaurants, setRestaurants] = useState([])
+// 	// user DB Token when user logs in
+// 	const [dbToken, setdbToken] = useState('')
+// 	const [currentRest, setCurrentRest] = useState(0)
+
+
+// 	console.log('user in app', user)
+// 	console.log('message alerts', msgAlerts)
+// 	const clearUser = () => {
+// 		console.log('clear user ran')
+// 		setUser(null)
+// 	}
+
+// 	const deleteAlert = (id) => {
+// 		setMsgAlerts((prevState) => {
+// 			return (prevState.filter((msg) => msg.id !== id))
+// 		})
+// 	}
+
+// 	const msgAlert = ({ heading, message, variant }) => {
+// 		const id = uuid()
+// 		setMsgAlerts(() => {
+// 			return (
+// 				[{ heading, message, variant, id }]
+// 			)
+// 		})
+// 	}
+
+
+
+// 	const nextSlide = () => {
+// 		setCurrentRest(currentRest === length - 1 ? 0 : currentRest + 1)
+// 	}
+// 	console.log('current', currentRest)
+
+// 	// maps through restaurants from Yelp API
+// 	const mapRestaurants = restaurants.map((r, index) => {
+// 		// console.log('mapping rs', r)
+// 		return (
+// 			<div className='restaurant-map'>
+// 				<p>{r.name}</p>
+// 				<img src={r.image_url} alt='restaurant-images' className='image'/>
+// 				<button>X</button>
+//                 <button onClick={nextSlide}>❤️</button>
+// 			</div>
+			
+// 		)
+// 	})
+
+// 	const length = mapRestaurants.length
+
+
+	
+
+// 	// if (!Array.isArray(mapRestaurants) || mapRestaurants.length <= 0) {
+// 	// 	return null
+// 	// }
+
+
+
+// 	return (
+// 		<Fragment>
+// 			<Header user={user} />
+// 			<Routes>
+// 				<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
+// 				<Route
+// 					path='/sign-up'
+// 					element={<SignUp setdbToken={setdbToken} msgAlert={msgAlert} setUser={setUser} />}
+// 				/>
+// 				<Route
+// 					path='/sign-in'
+// 					element={<SignIn setdbToken={setdbToken} msgAlert={msgAlert} setUser={setUser} />}
+// 				/>
+// 				<Route
+// 					path='/sign-out'
+// 					element={
+// 						<RequireAuth user={user}>
+// 							<SignOut msgAlert={msgAlert} clearUser={clearUser} user={user} />
+// 						</RequireAuth>
+// 					}
+// 				/>
+// 				<Route
+// 					path='/change-password'
+// 					element={
+// 						<RequireAuth user={user}>
+// 							<ChangePassword msgAlert={msgAlert} user={user} />
+// 						</RequireAuth>}
+// 				/>
+// 				<Route
+// 					path='/restaurant-slide'
+// 					element={
+// 						<RequireAuth user={user}>
+// 							<RestaurantSlide setRestaurants={setRestaurants} user={user} msgAlert={msgAlert} mapRestaurants={mapRestaurants} nextSlide={nextSlide} />
+// 						</RequireAuth>}
+// 						/>
+// 			</Routes>
+// 			{msgAlerts.map((msgAlert) => (
+// 				<AutoDismissAlert
+// 					key={msgAlert.id}
+// 					heading={msgAlert.heading}
+// 					variant={msgAlert.variant}
+// 					message={msgAlert.message}
+// 					id={msgAlert.id}
+// 					deleteAlert={deleteAlert}
+// 				/>
+// 			))}
+// 		</Fragment>
+// 	)
+// }
+
+// export default App

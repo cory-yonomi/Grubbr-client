@@ -1,10 +1,11 @@
 import { useEffect } from "react"
 import axios from "axios"
+import RestaurantSlider from '../css/RestaurantSlider.css'
 
 const RestaurantSlide = (props) => {
 
     useEffect(() => {
-        axios.get('http://localhost:8000/restaurants/Yelp/11422', {
+        axios.get('http://localhost:8000/restaurants/Yelp/92595', {
             headers: {
                 "Authorization": `Bearer ${props.user.token}`
             }
@@ -15,6 +16,10 @@ const RestaurantSlide = (props) => {
             })
             .catch(err => console.log(err))
     }, [])
+
+
+
+
 
     return (
         <div>
@@ -27,9 +32,9 @@ const RestaurantSlide = (props) => {
             </div>
             <div id='rest-slide'>
                 <button>X</button>
-                <button>❤️</button>
+                <button onClick={props.nextSlide}>❤️</button>
             </div>
-            <div id='restaurant-mapping'>
+            <div>
                 {props.mapRestaurants}
             </div>
 
