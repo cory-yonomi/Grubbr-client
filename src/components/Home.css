@@ -14,7 +14,7 @@ button {
     text-align: center;
     color: white;
     padding-top: 10%;
-    background-image: url('/src/components/introbackground.jpeg');
+    background-image:url('./images/background.jpeg');
     background-size: cover;
 }
 
@@ -36,4 +36,8 @@ button {
     font-size: large;
     font-weight: 600;
     padding: 5px 40px;
+}
+
+img {
+    height: 200px;
 }

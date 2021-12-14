@@ -2,14 +2,18 @@ import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { Link } from 'react-router-dom'
+import grubberLogo from '../images/logo.png'
+
 const linkStyle = {
     color: 'white',
     textDecoration: 'none'
 }
+const logoStyle = {
+	height: '40px'
+}
 const buttonStyle = {
 	color: 'black',
 	textDecoration: 'none',
-	// marginLeft: '60vh',
     backgroundColor: '#E7D9EA',
     fontSize: 'large',
     fontWeight: '600',
@@ -46,21 +50,21 @@ const unauthenticatedOptions = (
 	</>
 )
 
-const alwaysOptions = (
-	<>
-		<Nav.Link>
-			<Link to='/' style={linkStyle}>
-				Home
-			</Link>
-		</Nav.Link>
-	</>
-)
+// const alwaysOptions = (
+// 	<>
+// 		<Nav.Link>
+// 			<Link to='/' style={linkStyle}>
+// 				Home
+// 			</Link>
+// 		</Nav.Link>
+// 	</>
+// )
 
 const Header = ({ user }) => (
 	<Navbar bg='primary' variant='dark' expand='md'>
 		<Navbar.Brand>
             <Link to='/' style={linkStyle}>
-                Grubbr
+                <img src={grubberLogo} alt="" style={logoStyle}/> Grubbr
             </Link>
         </Navbar.Brand>
 		<Navbar.Toggle aria-controls='basic-navbar-nav' />
@@ -69,7 +73,7 @@ const Header = ({ user }) => (
 				{user && (
 					<span className='navbar-text mr-2'>Welcome, {user.email}</span>
 				)}
-				{alwaysOptions}
+				{/* {alwaysOptions} */}
 				{user ? authenticatedOptions : unauthenticatedOptions}
 			</Nav>
 		</Navbar.Collapse>
