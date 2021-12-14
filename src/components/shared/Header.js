@@ -9,7 +9,8 @@ const linkStyle = {
     textDecoration: 'none'
 }
 const logoStyle = {
-	height: '40px'
+	height: '40px',
+	fontWeight: 'bold'
 }
 const buttonStyle = {
 	color: 'black',
@@ -19,6 +20,10 @@ const buttonStyle = {
     fontWeight: '600',
     padding: '5px 40px',
 }
+const navBarStyle = {
+	backgroundColor: '#3E215D'
+}
+
 const authenticatedOptions = (
 	<>
 		<Nav.Link>
@@ -61,7 +66,7 @@ const unauthenticatedOptions = (
 // )
 
 const Header = ({ user }) => (
-	<Navbar bg='primary' variant='dark' expand='md'>
+	<Navbar style={navBarStyle} variant='dark' expand='md'>
 		<Navbar.Brand>
             <Link to='/' style={linkStyle}>
                 <img src={grubberLogo} alt="" style={logoStyle}/> Grubbr
