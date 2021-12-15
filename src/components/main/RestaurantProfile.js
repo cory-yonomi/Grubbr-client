@@ -1,6 +1,6 @@
 const RestaurantProfile = (props) => {
         return (
-            <div>
+            <div className='restaurantProfile'>
                 {props.likedRestaurant.name}
             </div>
             

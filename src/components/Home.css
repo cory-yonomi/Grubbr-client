@@ -1,13 +1,8 @@
-/* body {
-    background-image: url('/src/components/introbackground.jpeg');
-    background-size: cover;
-} */
-
 .intro {
     height: 100vh;
     background-size:cover;
     background-image: url('./images/background.jpeg');
-    position: relative;
+    /* position: relative; */
     /* width: 100vh; */
     /* overflow: auto; */
     text-align: center;

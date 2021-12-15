@@ -33,7 +33,6 @@ const RestaurantSlide = (props) => {
     if (!subValue) {
         return (
             <div className="rest-slide">
-                <div>
                     <div id='zipcode-search'>
                         <form>
                             <label htmlFor="zipcode">Search by Zipcode:</label>
@@ -41,22 +40,26 @@ const RestaurantSlide = (props) => {
                         </form>
                         <button className='submitbutton' onClick={submit}>Submit</button>
                     </div>
-                </div>
             </div>
         )
     } else {
         return (
-            <div>
-                <div className='rest-slide'>
+            // <div>
+            //     <div className='slide'>
+            //         <button onClick={props.nextButton}>X</button>
+            //     </div>
+            //     <div className='heart-button'>
+            //         <Link to='/restaurant-profile'><button onClick={props.heartButton}>❤️</button></Link>
+            //     </div>
+            //     <div className='map-restaurants'>
+            //         {props.mapRestaurants}
+            //     </div>
+            // </div >
+                <div className='slide'>
+                   <h3>{props.mapRestaurants}</h3>
                     <button onClick={props.nextButton}>X</button>
-                </div>
-                <div className='heart-button'>
                     <Link to='/restaurant-profile'><button onClick={props.heartButton}>❤️</button></Link>
                 </div>
-                <div className='map-restaurants'>
-                    {props.mapRestaurants}
-                </div>
-            </div >
         )
     }
 }
