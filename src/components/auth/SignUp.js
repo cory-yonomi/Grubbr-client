@@ -55,7 +55,7 @@ const SignUp = (props) => {
 					variant: 'success',
 				})
 			)
-			.then(() => navigate('/'))
+			.then(() => navigate('/restaurant-slide'))
 			.catch((error) => {
                 setEmail('')
                 setPassword('')

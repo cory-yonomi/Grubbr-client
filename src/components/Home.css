@@ -1,11 +1,17 @@
-button {
+/* body {
+    background-image: url('/src/components/introbackground.jpeg');
+    background-size: cover;
+} */
+
+/* button {
 
     margin: 20px;
     background-color: #E7D9EA;
     font-size: large;
     font-weight: 600;
     padding: 5px 40px;
-}
+    border-radius: 10px;
+} */
 
 
 .intro {
@@ -14,7 +20,7 @@ button {
     background-image: url('./images/background.jpeg');
     position: relative;
     /* width: 100vh; */
-    overflow: auto;
+    /* overflow: auto; */
     text-align: center;
     padding-top: 10%;
     color: white;
@@ -37,7 +43,8 @@ button {
     background-color: #E7D9EA;
     font-size: large;
     font-weight: 600;
-    padding: 5px 40px;
+    padding: 10px 50px;
+    border-radius: 10px;
 }
 
 img {

@@ -1,7 +1,10 @@
+body {
+    background-image: url('../images/background.jpeg');
+    background-size: cover;
+}
+
 
 .row {
-    background-image: url('../images/background.jpeg');
-    background-size:cover;
     height: 100vh
 }
 

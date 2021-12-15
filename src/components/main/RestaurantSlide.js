@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link } from 'react-router-dom'
 import axios from "axios"
-
+import './RestaurantSlider.css'
 const RestaurantSlide = (props) => {
 
     const [input, setInput] = useState('')
@@ -32,14 +32,15 @@ const RestaurantSlide = (props) => {
 
     if (!subValue) {
         return (
-            <div className="slide-page">
-
-                <div id='zipcode-search'>
-                    <form>
-                        <label htmlFor="zipcode">Search by Zipcode:</label>
-                        <input type="number" onChange={handleChange} />
-                    </form>
-                    <button onClick={submit}>Submit</button>
+            <div className="rest-slide">
+                <div>
+                    <div id='zipcode-search'>
+                        <form>
+                            <label htmlFor="zipcode">Search by Zipcode:</label>
+                            <input type="number" onChange={handleChange} />
+                        </form>
+                        <button className='submitbutton' onClick={submit}>Submit</button>
+                    </div>
                 </div>
             </div>
         )

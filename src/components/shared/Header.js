@@ -1,3 +1,4 @@
+import './navBar.css'
 import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
@@ -87,5 +88,6 @@ const Header = ({ user }) => (
 		</Navbar.Collapse>
 	</Navbar>
 )
-
+// below, goes after Link for Logo of "Grubbr"
+// to='/'
 export default Header
