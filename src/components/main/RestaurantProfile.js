@@ -9,7 +9,7 @@ const RestaurantProfile = (props) => {
                <img src={props.likedRestaurant.image_url} alt={props.likedRestaurant.name}/>
                <h4>{mapCategories}</h4>
                <div className='othersLiked'>
-                <h2 className='othersWhoLiked'>Other Who Liked This Restaurant:</h2>
+                <h2 className='othersWhoLiked'>Others Who Liked This Restaurant:</h2>
                 </div>
             </div>
         )
