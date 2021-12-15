@@ -42,10 +42,6 @@ const SignUp = (props) => {
                     password: password
                   }
                 })
-                .then((response) => {
-                    // console.log("this is res", response.data.user.token)
-                    props.setdbToken(response.data.user.token)
-                })
             })
 			.then((res) => setUser(res.data.user))
 			.then(() =>
