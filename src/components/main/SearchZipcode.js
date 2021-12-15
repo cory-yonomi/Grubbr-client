@@ -16,7 +16,6 @@ const SearchZipcode = (props) => {
         setInput(e.target.value)
     }
 
-
     // gets whole value of zipcode entered once submit is clicked and searches for restaurants specfic to that zipcode
     const submit = (e) => {
         e.preventDefault()
