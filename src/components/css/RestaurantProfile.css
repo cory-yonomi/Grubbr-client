@@ -2,4 +2,14 @@
     text-align: center;
     background-color: rgba(93, 130, 51, 0.5);
     height: 100vh;
+    color: whitesmoke;
+}
+
+.restaurantsProfile img {
+    width: 300px;
+    height: 300px; 
+}
+
+.othersWhoLiked {
+    
 }
