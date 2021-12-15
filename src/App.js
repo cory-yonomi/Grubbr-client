@@ -52,18 +52,51 @@ const App = () => {
 		})
 	}
 
-	
+	// const restaurantCall = () => {
+	// 	return axios.post(`http://localhost:8000/restaurants`,
+	// 		{
+	// 			name: restaurants[currentRest].name,
+	// 			location: restaurants[currentRest].location.display_address,
+	// 			yelpId: restaurants[currentRest].id,
+	// 			categories: restaurants[currentRest].categories,
+	// 			image_url: restaurants[currentRest].image_url,
+	// 			rating: restaurants[currentRest].rating,
+	// 			price: restaurants[currentRest].price,
+	// 			user: [user._id]
+	// 		},
+	// 		{
+	// 			headers: {
+	// 				"Authorization": `Bearer ${user.token}`
+	// 			}
+	// 		}
+	// 	)
+	// }
+
+	// const profileCall = (userId) => {
+	// 	return axios.patch(`http://localhost:8000/profile/${userId}`,
+	// 		{
+	// 			userId: user._id,
+	// 			restaurant: restaurants[currentRest].id
+	// 		},
+	// 		{
+	// 			headers: {
+	// 				"Authorization": `Bearer ${user.token}`
+	// 			}
+	// 		}
+	// 	)
+	// }
 
 	const heartButton = () => {
-		// send axios.post to api
-		// setLikedRestaurant(restaurants[currentRest])
-		console.log(restaurants[currentRest])
 		axios.post(`http://localhost:8000/restaurants`,
 			{
-					name: restaurants[currentRest].name,
-					location: restaurants[currentRest].location.display_address,
-					yelpId: restaurants[currentRest].id,
-					user: [user._id]
+				name: restaurants[currentRest].name,
+				location: restaurants[currentRest].location.display_address,
+				yelpId: restaurants[currentRest].id,
+				categories: restaurants[currentRest].categories,
+				image_url: restaurants[currentRest].image_url,
+				rating: restaurants[currentRest].rating,
+				price: restaurants[currentRest].price,
+				user: [user._id]
 			},
 			{
 				headers: {
@@ -74,15 +107,9 @@ const App = () => {
 			.then(resp => {
 			console.log(resp)
 			setLikedRestaurant(resp.data)
-		})
-		// .catch(err => console.err(err))
-			// create restaurant if it doesn't exist already
-			// add current user to restaurant's users
-			// return restaurants current users
-		
+		})	
 	}
 	
-
 
 	// maps yelp restaurants in a slideshow
 	const nextButton = () => {
@@ -108,9 +135,8 @@ const App = () => {
 						</div>
 					)}
 				</div>
-			<div className='restaurant-map'>
-
-			</div>
+				<div className='restaurant-map'>
+				</div>
 			</div>
 			
 		)
@@ -118,14 +144,9 @@ const App = () => {
 
 	const length = mapRestaurants.length
 
-
-	
-
 	// if (!Array.isArray(mapRestaurants) || mapRestaurants.length <= 0) {
 	// 	return null
 	// }
-
-
 
 	return (
 		<Fragment>
