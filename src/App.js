@@ -133,8 +133,9 @@ const App = () => {
 				>
 					{index === currentRest && (
 						<div className='restaurantInfoDiv'>
-						<h2>{r.name}</h2>
 						<img src={r.image_url} alt='restaurant-images' className='mapImage'/>
+						<h1>{r.name}</h1>
+						
 						</div>
 					)}
 				</div>

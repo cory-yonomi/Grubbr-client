@@ -9,7 +9,10 @@ const linkStyle = {
     color: 'white',
     textDecoration: 'none',
 	fontSize: '15px',
-	margin: '25px'
+	margin: '25px',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center'
 }
 
 const logoStyle = {
@@ -27,7 +30,8 @@ const buttonStyle = {
     padding: '5px 40px',
 }
 const navBarStyle = {
-	backgroundColor: '#3E215D'
+	backgroundColor: '#3E215D',
+    textAlign: 'center'
 }
 
 const imageStyle = {
@@ -38,9 +42,11 @@ const authenticatedOptions = (
 
     <>
         <Nav.Link>
+            <span>
             <Link to='search-zipcode' style={linkStyle}>
                 Search Resturants
             </Link>
+            </span>
         </Nav.Link>
         <Nav.Link>
             <Link to='' style={linkStyle}>
