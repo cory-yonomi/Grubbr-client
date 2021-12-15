@@ -24,7 +24,6 @@ const RestaurantSlide = (props) => {
 
     return (
         <div className="slide-page">
-
             <div id='zipcode-search'>
                 <form action="">
                     <label htmlFor="">Search by Zipcode:</label>
