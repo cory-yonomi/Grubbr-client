@@ -1,21 +1,19 @@
 import { useEffect, useState } from "react"
 import { Link } from 'react-router-dom'
 import axios from "axios"
-import './RestaurantSlider.css'
+import '../css/RestaurantSlide.css'
 
 
 const RestaurantSlide = (props) => {
 
         return (
-            <div>
-                <div className='rest-slide'>
-                    <button onClick={props.nextButton}>X</button>
-                </div>
-                <div className='heart-button'>
-                    <Link to='/restaurant-profile'><button onClick={props.heartButton}>❤️</button></Link>
-                </div>
+            <div className='slide-page'>
                 <div className='map-restaurants'>
                     {props.mapRestaurants}
+                </div>
+                <div className='heart-button'>
+                    <button className='swipeButton' onClick={props.nextButton}>X</button>
+                    <Link to='/restaurant-profile'><button className='swipeButton' onClick={props.heartButton}>❤️</button></Link>
                 </div>
             </div >
         )

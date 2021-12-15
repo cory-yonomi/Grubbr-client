@@ -1,0 +1,30 @@
+form {
+    font-size: 28px;
+    color: white;
+    font-weight: 600;
+}
+
+.slide-page {
+    text-align: center;
+    height: 100vh;
+    padding-top: 10%;
+    background-image: url('../images/background.jpeg');
+    background-size: cover;
+    background-color: rgba(93, 130, 51, .8) ;
+}
+
+.submitbutton {
+    margin-top: 5%;
+    padding: 10px 100px;
+    border-radius: 10px;
+    font-size: 25px;
+}
+
+button {
+
+    background-color: #E7D9EA;
+    font-size: large;
+    font-weight: 600;
+    padding: 5px 40px;
+    border-radius: 10px;
+}
