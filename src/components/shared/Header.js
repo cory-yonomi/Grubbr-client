@@ -28,23 +28,33 @@ const navBarStyle = {
 }
 
 const authenticatedOptions = (
-	<>
-		<Nav.Link>
-			<Link to='change-password' style={linkStyle}>
-				Change Password
-			</Link>
-		</Nav.Link>
-		<Nav.Link>
-			<Link to='restaurant-slide' style={linkStyle}>
-				Slide
-			</Link>
-		</Nav.Link>
-		<Nav.Link>
-			<Link to='sign-out' style={linkStyle}>
-				Sign Out
-			</Link>
-		</Nav.Link>
-	</>
+    <>
+        <Nav.Link>
+            <Link to='search-zipcode' style={linkStyle}>
+                Search Resturants
+            </Link>
+        </Nav.Link>
+        <Nav.Link>
+            <Link to='' style={linkStyle}>
+                Favorited Resturants
+            </Link>
+        </Nav.Link>
+        <Nav.Link>
+            <Link to='' style={linkStyle}>
+                Matches
+            </Link>
+        </Nav.Link>
+        <Nav.Link>
+            <Link to='change-password' style={linkStyle}>
+                Change Password
+            </Link>
+        </Nav.Link>
+        <Nav.Link>
+            <Link to='sign-out' style={linkStyle}>
+                Sign Out
+            </Link>
+        </Nav.Link>
+    </>
 )
 
 const unauthenticatedOptions = (

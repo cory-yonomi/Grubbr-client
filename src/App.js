@@ -14,6 +14,7 @@ import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import RestaurantSlide from './components/main/RestaurantSlide'
 import RestaurantProfile from './components/main/RestaurantProfile'
+import SearchZipcode from './components/main/SearchZipcode'
 
 import axios from 'axios'
 require('dotenv').config()
@@ -169,6 +170,13 @@ const App = () => {
 					element={
 						<RequireAuth user={user}>
 							<RestaurantProfile setRestaurants={setRestaurants} user={user} msgAlert={msgAlert} mapRestaurants={mapRestaurants} likedRestaurant={likedRestaurant} heartButton={heartButton} />
+						</RequireAuth>}
+						/>
+								<Route
+					path='/search-zipcode'
+					element={
+						<RequireAuth user={user}>
+							<SearchZipcode setRestaurants={setRestaurants} user={user} msgAlert={msgAlert} mapRestaurants={mapRestaurants} likedRestaurant={likedRestaurant} />
 						</RequireAuth>}
 						/>
 			</Routes>
