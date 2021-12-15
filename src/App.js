@@ -2,6 +2,7 @@
 import React, { useState, Fragment, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
+import { Navigate } from 'react-router-dom';
 
 // import AuthenticatedRoute from './components/shared/AuthenticatedRoute'
 import AutoDismissAlert from './components/shared/AutoDismissAlert/AutoDismissAlert'
@@ -170,6 +171,13 @@ const App = () => {
 					element={
 						<RequireAuth user={user}>
 							<RestaurantProfile setRestaurants={setRestaurants} user={user} msgAlert={msgAlert} mapRestaurants={mapRestaurants} likedRestaurant={likedRestaurant} heartButton={heartButton} />
+						</RequireAuth>}
+						/>
+								<Route
+					path='/search-zipcode'
+					element={
+						<RequireAuth user={user}>
+							<SearchZipcode setRestaurants={setRestaurants} user={user} msgAlert={msgAlert} mapRestaurants={mapRestaurants} likedRestaurant={likedRestaurant} />
 						</RequireAuth>}
 						/>
 			</Routes>

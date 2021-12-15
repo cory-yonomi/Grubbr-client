@@ -8,12 +8,15 @@ import grubberLogo from '../images/logo.png'
 const linkStyle = {
     color: 'white',
     textDecoration: 'none',
-	fontSize: '20px',
+	fontSize: '15px',
 	margin: '25px'
 }
+
 const logoStyle = {
+	color: 'white',
 	height: '40px',
-	fontWeight: 'bold'
+	fontWeight: 'bold',
+	textDecoration: 'none',
 }
 const buttonStyle = {
 	color: 'black',
@@ -27,24 +30,39 @@ const navBarStyle = {
 	backgroundColor: '#3E215D'
 }
 
+const imageStyle = {
+	height: '40px'
+}
+
 const authenticatedOptions = (
-	<>
-		<Nav.Link>
-			<Link to='change-password' style={linkStyle}>
-				Change Password
-			</Link>
-		</Nav.Link>
-		<Nav.Link>
-			<Link to='restaurant-slide' style={linkStyle}>
-				Slide
-			</Link>
-		</Nav.Link>
-		<Nav.Link>
-			<Link to='sign-out' style={linkStyle}>
-				Sign Out
-			</Link>
-		</Nav.Link>
-	</>
+
+    <>
+        <Nav.Link>
+            <Link to='search-zipcode' style={linkStyle}>
+                Search Resturants
+            </Link>
+        </Nav.Link>
+        <Nav.Link>
+            <Link to='' style={linkStyle}>
+                Favorited Resturants
+            </Link>
+        </Nav.Link>
+        <Nav.Link>
+            <Link to='' style={linkStyle}>
+                Matches
+            </Link>
+        </Nav.Link>
+        <Nav.Link>
+            <Link to='change-password' style={linkStyle}>
+                Change Password
+            </Link>
+        </Nav.Link>
+        <Nav.Link>
+            <Link to='sign-out' style={linkStyle}>
+                Sign Out
+            </Link>
+        </Nav.Link>
+    </>
 )
 
 const unauthenticatedOptions = (
@@ -58,30 +76,40 @@ const unauthenticatedOptions = (
 	</>
 )
 
-// const alwaysOptions = (
-// 	<>
-// 		<Nav.Link>
-// 			<Link to='/' style={linkStyle}>
-// 				Home
-// 			</Link>
-// 		</Nav.Link>
-// 	</>
-// )
+const alwaysOptionsNotUser = (
+	<>
+		{/* <Nav.Link>
+			<Link to='/' style={linkStyle}>
+				Home
+			</Link>
+		</Nav.Link> */}
+		<Navbar.Brand>
+            <Link to='/' style={logoStyle}>
+                <img src={grubberLogo} alt="Grubbr Logo" style={imageStyle} /> Grubbr
+            </Link>
+        </Navbar.Brand>
+	</>
+)
+
+const alwaysOptionIsUser = (
+	<div>
+		<Navbar.Brand>
+            <Link to='/user-profile' style={logoStyle}>
+                <img src={grubberLogo} alt="Grubbr Logo" style={imageStyle} /> Grubbr
+            </Link>
+        </Navbar.Brand>
+	</div>
+)
 
 const Header = ({ user }) => (
 	<Navbar style={navBarStyle} variant='dark' expand='md'>
-		<Navbar.Brand>
-            <Link to='/' style={linkStyle}>
-                <img src={grubberLogo} alt="" style={logoStyle}/> Grubbr
-            </Link>
-        </Navbar.Brand>
 		<Navbar.Toggle aria-controls='basic-navbar-nav' />
+				{user ? alwaysOptionIsUser : alwaysOptionsNotUser}
 		<Navbar.Collapse id='basic-navbar-nav'>
 			<Nav className='ml-auto'>
 				{user && (
 					<span className='navbar-text mr-2'>Welcome, {user.email}</span>
 				)}
-				{/* {alwaysOptions} */}
 				{user ? authenticatedOptions : unauthenticatedOptions}
 			</Nav>
 		</Navbar.Collapse>

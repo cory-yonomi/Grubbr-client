@@ -42,7 +42,7 @@ const SignIn = (props) => {
         variant: "success",
     })
       )
-      .then(() => navigate("/restaurant-slide"))
+      .then(() => navigate("/search-zipcode"))
       .catch((error) => {
         setEmail("");
         setPassword("");

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 import axios from "axios"
 
 
@@ -7,6 +7,8 @@ const SearchZipcode = (props) => {
 
     const [input, setInput] = useState('')
     const [subValue, setSubValue] = useState('')
+
+    const navigate = useNavigate()
 
     // gets value of each number typed in the input zipcode field
     const handleChange = (e) => {
@@ -31,10 +33,11 @@ const SearchZipcode = (props) => {
                     // console.log('rests', foundRestaurants)
                     props.setRestaurants(foundRestaurants.data.businesses)
                 })
+                .then(() => navigate('/restaurant-slide'))
                 .catch(err => console.log(err))
-                return <Navigate to='/restaurant-slide' />
+                
         } else {
-            return alert('wtf')
+            return alert('Please enter a valid zipcode')
         }
 
     }
