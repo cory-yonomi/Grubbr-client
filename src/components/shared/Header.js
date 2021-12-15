@@ -37,13 +37,13 @@ const imageStyle = {
 const authenticatedOptions = (
 	<>
 		<Nav.Link>
-			<Link to='restaurant-slide' style={linkStyle}>
-				Search Resturants
+			<Link to='restaurant-zipcode' style={linkStyle}>
+				Search Restaurants
 			</Link>
 		</Nav.Link>
 		<Nav.Link>
 			<Link to='' style={linkStyle}>
-				Favorited Resturants
+				Favorited Restaurants
 			</Link>
 		</Nav.Link>
 		<Nav.Link>
@@ -75,30 +75,40 @@ const unauthenticatedOptions = (
 	</>
 )
 
-// const alwaysOptions = (
-// 	<>
-// 		<Nav.Link>
-// 			<Link to='/' style={linkStyle}>
-// 				Home
-// 			</Link>
-// 		</Nav.Link>
-// 	</>
-// )
-
-const Header = ({ user }) => (
-	<Navbar style={navBarStyle} variant='dark' expand='md'>
+const alwaysOptionsNotUser = (
+	<>
+		{/* <Nav.Link>
+			<Link to='/' style={linkStyle}>
+				Home
+			</Link>
+		</Nav.Link> */}
 		<Navbar.Brand>
             <Link to='/' style={logoStyle}>
                 <img src={grubberLogo} alt="Grubbr Logo" style={imageStyle} /> Grubbr
             </Link>
         </Navbar.Brand>
+	</>
+)
+
+const alwaysOptionIsUser = (
+	<div>
+		<Navbar.Brand>
+            <Link to='/user-profile' style={logoStyle}>
+                <img src={grubberLogo} alt="Grubbr Logo" style={imageStyle} /> Grubbr
+            </Link>
+        </Navbar.Brand>
+	</div>
+)
+
+const Header = ({ user }) => (
+	<Navbar style={navBarStyle} variant='dark' expand='md'>
 		<Navbar.Toggle aria-controls='basic-navbar-nav' />
+				{user ? alwaysOptionIsUser : alwaysOptionsNotUser}
 		<Navbar.Collapse id='basic-navbar-nav'>
 			<Nav className='ml-auto'>
 				{user && (
 					<span className='navbar-text mr-2'>Welcome, {user.email}</span>
 				)}
-				{/* {alwaysOptions} */}
 				{user ? authenticatedOptions : unauthenticatedOptions}
 			</Nav>
 		</Navbar.Collapse>

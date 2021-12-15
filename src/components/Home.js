@@ -27,10 +27,6 @@ const Home = (props) => {
 				<button> <Link to='sign-up' style={linkStyle}>Create an Account</Link></button>
 				<p>Meet people in your area based on your common interests in restaurants...or not?</p>
 			</div>
-				{/* <footer style={footerStyle}>
-					<a style={aTagStyle} href="https://github.com/ornery-mouse/Grubbr-client">Client GitHub Repo</a>
-					<a style={aTagStyle} href="https://github.com/ornery-mouse/Grubbr-server">Server GitHub Repo</a>
-				</footer> */}
 		</div>
 	)
 }
