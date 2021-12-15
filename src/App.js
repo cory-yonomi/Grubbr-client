@@ -13,7 +13,6 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import RestaurantSlide from './components/main/RestaurantSlide'
-import RestaurantSlider from './components/css/RestaurantSlider.css'
 import RestaurantProfile from './components/main/RestaurantProfile'
 
 import axios from 'axios'
@@ -82,6 +81,7 @@ const App = () => {
 			// return restaurants current users
 		
 	}
+	
 
 
 	// maps yelp restaurants in a slideshow
@@ -89,6 +89,8 @@ const App = () => {
 		setCurrentRest(currentRest === length - 1 ? 0 : currentRest + 1)
 	}
 	// console.log('current', currentRest)
+
+	
 
 	// maps through restaurants from Yelp API
 	const mapRestaurants = restaurants.map((r, index) => {

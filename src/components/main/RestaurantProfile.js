@@ -3,7 +3,9 @@ const RestaurantProfile = (props) => {
             <div>
                 {props.likedRestaurant.name}
             </div>
+            
         )
 }
+
 
 export default RestaurantProfile
