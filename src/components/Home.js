@@ -6,15 +6,15 @@ const linkStyle = {
     color: 'black',
     textDecoration: 'none'
 }
-const footerStyle = {
-	backgroundColor: '#3E215D',
-	height: '50px',
-	color: 'grey',
-	textAlign: 'center',
-}
-const aTagStyle = {
-	margin: '10px'
-}
+// const footerStyle = {
+// 	backgroundColor: '#3E215D',
+// 	height: '50px',
+// 	color: 'grey',
+// 	textAlign: 'center',
+// }
+// const aTagStyle = {
+// 	margin: '10px'
+// }
 const Home = (props) => {
 	// const { msgAlert, user } = props
 	console.log('props in home', props)
