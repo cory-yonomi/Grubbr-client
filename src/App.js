@@ -16,6 +16,7 @@ import ChangePassword from './components/auth/ChangePassword'
 import RestaurantSlide from './components/main/RestaurantSlide'
 import RestaurantProfile from './components/main/RestaurantProfile'
 import SearchZipcode from './components/main/SearchZipcode'
+import './components/css/RestaurantSlide.css'
 
 import axios from 'axios'
 require('dotenv').config()
@@ -131,9 +132,9 @@ const App = () => {
 				key={index}
 				>
 					{index === currentRest && (
-						<div>
-						<p>{r.name}</p>
-						<img src={r.image_url} alt='restaurant-images' className='image'/>
+						<div className='restaurantInfoDiv'>
+						<h2>{r.name}</h2>
+						<img src={r.image_url} alt='restaurant-images' className='mapImage'/>
 						</div>
 					)}
 				</div>
