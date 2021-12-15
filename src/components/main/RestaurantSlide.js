@@ -7,8 +7,21 @@ const RestaurantSlide = (props) => {
     const [input, setInput] = useState('')
     const [subValue, setSubValue] = useState('')
 
-    useEffect(() => {
-        axios.get('http://localhost:8000/restaurants/Yelp/92595', {
+    // useEffect(() => {
+    
+    // }, [])
+
+    // gets value of each number typed in the input zipcode field
+    const handleChange = (e) => {
+        // console.log('input value', e.target.value)
+        setInput(e.target.value)
+    }
+
+    // gets whole value of zipcode entered once submit is clicked and searches for restaurants specfic to that zipcode
+    const submit = () => {
+        // console.log('submit value', input)
+        setSubValue(input)
+        axios.get(`http://localhost:8000/restaurants/Yelp/${input}`, {
             headers: {
                 "Authorization": `Bearer ${props.user.token}`
             }
@@ -18,16 +31,7 @@ const RestaurantSlide = (props) => {
                 props.setRestaurants(foundRestaurants.data.businesses)
             })
             .catch(err => console.log(err))
-    }, [])
 
-    const handleChange = (e) => {
-        console.log('input value', e.target.value)
-        setInput(e.target.value)
-    }
-
-    const submit = () => {
-        console.log('submit value', input)
-        setSubValue(input)
     }
 
     if (!subValue) {
