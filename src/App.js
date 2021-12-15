@@ -14,6 +14,7 @@ import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import RestaurantSlide from './components/main/RestaurantSlide'
 import RestaurantProfile from './components/main/RestaurantProfile'
+import SearchZipcode from './components/main/SearchZipcode'
 
 import axios from 'axios'
 require('dotenv').config()
