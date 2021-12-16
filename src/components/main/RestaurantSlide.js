@@ -9,7 +9,9 @@ const RestaurantSlide = (props) => {
         return (
             <div className='slide-page'>
                 <div className='map-restaurants'>
+                <div >
                     {props.mapRestaurants}
+                </div>
                 </div>
                 <div className='heart-button'>
                     <button className='swipeButton' onClick={props.nextButton}>X</button>

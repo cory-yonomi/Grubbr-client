@@ -17,13 +17,23 @@ import RestaurantSlide from "./components/main/RestaurantSlide";
 import RestaurantProfile from "./components/main/RestaurantProfile";
 import SearchZipcode from "./components/main/SearchZipcode";
 import "./components/css/RestaurantSlide.css";
+// import UserProfile from './components/main/UserProfile'
 
 import axios from "axios";
 require("dotenv").config();
 
+//CSS Styling
+const hoursStyle = {
+  color: "Yellow",
+  fontWeight: 'bold'
+};
+const ratingStyle = {
+	fontWeight: 'bold'
+}
+
 const App = () => {
   const [user, setUser] = useState(null);
-  const [profile, setProfile] = useState([])
+  const [profile, setProfile] = useState([]);
   const [msgAlerts, setMsgAlerts] = useState([]);
   const [restaurants, setRestaurants] = useState([]);
   // sets current restaurant for the slideshow
@@ -49,7 +59,6 @@ const App = () => {
       return [{ heading, message, variant, id }];
     });
   };
-
 
   // const restaurantCall = () => {
   // 	return axios.post(`http://localhost:8000/restaurants`,
@@ -87,17 +96,18 @@ const App = () => {
 
   // get ONE users SPECIFIC profile
   const profileName = () => {
-	  axios.get(`http://localhost:8000/profile/:profileId`, {
-		headers: {
-			"Authorization": `Bearer ${user.token}`
-		}
-	})
-		.then(profile => {
-			// console.log('this is the ONE USERS profile', profile.data.firstName)
-			setProfile(profile.data.firstName)
-		})
-		.catch(err => console.log(err))
-  }
+    axios
+      .get(`http://localhost:8000/profile/:profileId`, {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      })
+      .then((profile) => {
+        // console.log('this is the ONE USERS profile', profile.data.firstName)
+        setProfile(profile.data.firstName);
+      })
+      .catch((err) => console.log(err));
+  };
 
   const heartButton = () => {
     axios
@@ -136,26 +146,31 @@ const App = () => {
     // console.log('mapping rs', r)
     console.log("this is restaurant", r.categories.title);
     const mapRestaurantCategories = r.categories.map((c) => {
-      return <li>{c.title}</li>;
+      return <p>{c.title}, </p>;
     });
 
+  
+
     return (
-      <div>
-        <div className={index === currentRest ? "r active" : "r"} key={index}>
-          {index === currentRest && (
-            <div className="restaurantInfoDiv">
-              <img
-                src={r.image_url}
-                alt="restaurant-images"
-                className="mapImage"
-              />
-              <h1>{r.name}</h1>
-              {/* <h3>{r.categories.title}</h3> */}
-              <ul>{mapRestaurantCategories}</ul>
-            </div>
-          )}
-        </div>
-        <div className="restaurant-map"></div>
+      <div className={index === currentRest ? "r active" : "r"} key={index}>
+        {index === currentRest && (
+          <div className="restaurantInfoDiv">
+            <img
+              src={r.image_url}
+              alt="restaurant-images"
+              className="mapImage"
+            />
+            <h1>{r.name}</h1>
+            {/* <h3>{r.categories.title}</h3> */}
+            Cuisine: {mapRestaurantCategories}
+            <br />
+            Address: {r.location.display_address}
+            <br />
+			<p style={hoursStyle}>{r.is_closed ? 'Closed' : 'Open'}</p>
+			<br />
+			<p style={ratingStyle}>Rating: {r.rating}</p>
+          </div>
+        )}
       </div>
     );
   });
@@ -164,7 +179,7 @@ const App = () => {
 
   return (
     <Fragment>
-      <Header user={user} profile={profile}/>
+      <Header user={user} profile={profile} />
       <Routes>
         <Route path="/" element={<Home msgAlert={msgAlert} user={user} />} />
         <Route
