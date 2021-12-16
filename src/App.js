@@ -17,7 +17,7 @@ import RestaurantSlide from "./components/main/RestaurantSlide";
 import RestaurantProfile from "./components/main/RestaurantProfile";
 import SearchZipcode from "./components/main/SearchZipcode";
 import "./components/css/RestaurantSlide.css";
-// import UserProfile from './components/main/UserProfile'
+import UserProfile from './components/main/UserProfile'
 
 import axios from "axios";
 require("dotenv").config();
@@ -96,18 +96,17 @@ const App = () => {
 
   // get ONE users SPECIFIC profile
   const profileName = () => {
-    axios
-      .get(`http://localhost:8000/profile/:profileId`, {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      })
-      .then((profile) => {
-        // console.log('this is the ONE USERS profile', profile.data.firstName)
-        setProfile(profile.data.firstName);
-      })
-      .catch((err) => console.log(err));
-  };
+	  axios.get(`http://localhost:8000/profile/:profileId`, {
+		headers: {
+			"Authorization": `Bearer ${user.token}`
+		}
+	})
+		.then(profile => {
+			console.log('this is the ONE USERS profile', profile)
+			setProfile(profile.data.firstName)
+		})
+		.catch(err => console.log(err))
+  }
 
   const heartButton = () => {
     axios
@@ -179,7 +178,7 @@ const App = () => {
 
   return (
     <Fragment>
-      <Header user={user} profile={profile} />
+      <Header user={user} profile={profileName}/>
       <Routes>
         <Route path="/" element={<Home msgAlert={msgAlert} user={user} />} />
         <Route
@@ -226,6 +225,21 @@ const App = () => {
           element={
             <RequireAuth user={user}>
               <RestaurantProfile
+                setRestaurants={setRestaurants}
+                user={user}
+                msgAlert={msgAlert}
+                mapRestaurants={mapRestaurants}
+                likedRestaurant={likedRestaurant}
+                heartButton={heartButton}
+              />
+            </RequireAuth>
+          }
+        />
+		        <Route
+          path="/profile"
+          element={
+            <RequireAuth user={user}>
+              <UserProfile
                 setRestaurants={setRestaurants}
                 user={user}
                 msgAlert={msgAlert}

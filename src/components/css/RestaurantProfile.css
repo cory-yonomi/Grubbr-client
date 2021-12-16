@@ -2,4 +2,67 @@
     text-align: center;
     background-color: rgba(93, 130, 51, 0.5);
     height: 100vh;
+    color: whitesmoke;
 }
+
+.restaurantsProfile img {
+    width: 300px;
+    height: 300px;
+}
+
+.restaurantsProfile h4 {
+    font-size: 10px;
+}
+
+.container {
+    margin: auto;
+    background-color: rgba(62, 33, 93, .8);
+    height: 490px;
+    width: 400px;
+
+}
+
+.othersLiked {
+    display: inline-block;
+    width: 50%;
+    height: 50%;
+}
+
+.nameMatch {
+    text-align: left;
+    padding-left: 80px;
+    padding-bottom: 30px;
+}
+
+.nameMatch label {
+    float: left;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    padding-right: 20px;
+}
+
+.nameMatch button {
+    background-color: rgba(93, 130, 51, 0.63);
+    color: white;
+}
+
+.nameMatch2 {
+    text-align: left;
+    padding-left: 63px;
+}
+
+.nameMatch2 label {
+    float: left;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    padding-right: 20px;
+}
+
+.nameMatch2 button {
+    background-color: rgba(93, 130, 51, 0.63);
+    color: white;
+}
+
+
