@@ -6,8 +6,9 @@ form {
 
 .slide-page {
     text-align: center;
-    height: 100vh;
+    height: 100%;
     padding-top: 2%;
+    padding-bottom: 5%;
     /* background-image: url('../images/background.jpeg');
     background-size: cover; */
     background-color: rgba(93, 130, 51, .8) ;
@@ -36,6 +37,7 @@ form {
 .mapImage {
    width: 40%;
    height: 40%;
+   border-radius: 20px;
 }
 
 /* button {
