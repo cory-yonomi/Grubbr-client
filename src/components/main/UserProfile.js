@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../css/UserProfile.css";
 
@@ -18,24 +18,27 @@ const buttonStyle = {
 const UserProfile = (props) => {
   const [user, setUser] = useState([]);
 
-  // get ONE users SPECIFIC profile
-  axios
-    .get(`http://localhost:8000/profile/${props.user._id}`, {
-      headers: {
-        Authorization: `Bearer ${props.user.token}`,
-      },
-    })
-    .then((profile) => {
-      // console.log('this is the ONE USERS profile', profile.data.firstName)
-      setUser(profile.data.firstName);
-    })
-    .catch((err) => console.log(err));
+  const useEffect(() => {
+      // get ONE users SPECIFIC profile
+      axios.get(`http://localhost:8000/profile/${props.user._id}`, {
+          headers: {
+            Authorization: `Bearer ${props.user.token}`,
+          },
+        })
+        .then((profile) => {
+          console.log('this is the ONE USERS profile', profile.data)
+          setUser(profile.data);
+        })
+        .catch((err) => console.log(err));
+  }, [])
+  
 
   return (
     <div className="userProfile">
       <div style={userProfileContent}>
         <div className='UserInfo'>
-          <h1>{user}</h1>
+          <h1>{user.firstName}</h1>
+          <h3>{}</h3>
         </div>
         <div className='buttonStyle'>
           <Link to="/edit-profile">
