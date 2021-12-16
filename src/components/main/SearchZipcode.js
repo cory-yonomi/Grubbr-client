@@ -16,7 +16,6 @@ const SearchZipcode = (props) => {
         setInput(e.target.value)
     }
 
-
     // gets whole value of zipcode entered once submit is clicked and searches for restaurants specfic to that zipcode
     const submit = (e) => {
         e.preventDefault()
@@ -41,6 +40,17 @@ const SearchZipcode = (props) => {
         }
 
     }
+
+    // useEffect(() => {
+    //     axios.get(`http://localhost:8000/profile/${!props.user ? '' : props.user._id}`, {
+    //         headers: {
+    //             "Authorization": `Bearer ${props.user.token}`
+    //         }
+    //     })
+	// 		.then(foundProfile => {
+	// 		props.setProfile(foundProfile)
+	// 	})
+	// })
 
     return (
         <div className="rest-slide">
