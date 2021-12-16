@@ -48,6 +48,7 @@ const SearchZipcode = (props) => {
             }
         })
 			.then(foundProfile => {
+                console.log('set propf', foundProfile.data)
 			props.setProfile(foundProfile.data)
 		})
 	}, [])

@@ -6,7 +6,7 @@ const UserProfile = (props) => {
     const [user, setUser] = useState([])
 
     // get ONE users SPECIFIC profile
-    axios.get(`http://localhost:8000/profile/:profileId`, {
+    axios.get(`http://localhost:8000/profile/${props.user._id}`, {
         headers: {
             "Authorization": `Bearer ${props.user.token}`
         }

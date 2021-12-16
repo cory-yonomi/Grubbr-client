@@ -55,7 +55,7 @@ const SignIn = (props) => {
   };
 
   return (
-    <div className="row">
+    <div className="row SignInPage">
       <div className="col-sm-10 col-md-8 mx-auto mt-5 signIn-div">
         <h3 className="form-label">Sign In</h3>
         <div className="form-inputs">
