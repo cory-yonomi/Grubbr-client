@@ -6,7 +6,10 @@ form {
 
 .slide-page {
     text-align: center;
-    height: 100vh;
+    height: auto;
+    width: 100%;
+    min-height: 100%;
+    min-width: 100%;
     background-image: url('../images/background.jpeg');
     background-size: cover;
 }
