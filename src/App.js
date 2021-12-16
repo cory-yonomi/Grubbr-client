@@ -133,8 +133,8 @@ const App = () => {
 		  profileCall(user._id)
 	  ])
       .then((resp) => {
-        console.log('promise.all response: \n', resp);
-        // setLikedRestaurant(resp.data);
+        console.log('promise.all response: \n', resp)
+        setLikedRestaurant(resp[0].data)
       });
   };
 
