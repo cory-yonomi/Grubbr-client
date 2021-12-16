@@ -34,7 +34,7 @@ const SignUp = (props) => {
                     variant: 'success',
                 })
             )
-            .then(() => navigate('/restaurant-slide'))
+            .then(() => navigate('/create-profile'))
             .catch((error) => {
                 setEmail('')
                 setPassword('')
