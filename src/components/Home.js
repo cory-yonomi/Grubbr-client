@@ -8,7 +8,7 @@ const linkStyle = {
     textDecoration: 'none'
 }
 const backgroundStyle = {
-	height: '80%',
+	height: '100vh',
     backgroundSize: 'cover',
     backgroundImage: `url(${background})`,
     textAlign: 'center',
@@ -24,7 +24,7 @@ const Home = (props) => {
 	return (
 		<div style={backgroundStyle} className="home">
 			<div className="intro">
-				<h1><img src={grubberLogo} alt="fork and knife,Grubbr Logo"/> Grubber</h1>
+				<h1><img src={grubberLogo} alt="fork and knife,Grubbr Logo"/> Grubbr</h1>
 				<h4>"The Tinder For Food"</h4>
 				<button> <Link to='sign-up' style={linkStyle}>Create an Account</Link></button>
 				<p>Meet people in your area based on your common interests in restaurants...or not?</p>

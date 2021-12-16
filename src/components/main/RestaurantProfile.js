@@ -5,7 +5,6 @@ const RestaurantProfile = (props) => {
     const mapCategories = console.log(props.likedRestaurant)
     return (
 
-
         <div className='restaurantsProfile'>
             <div className='container'>
                 <h1>{props.likedRestaurant.name}</h1>
