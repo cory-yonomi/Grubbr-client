@@ -19,23 +19,9 @@ const RestaurantProfile = (props) => {
             </div>
             <div className='othersLiked'>
                 <h3 className='othersWhoLiked'>Others Who Liked This Restaurant:</h3>
-                <div className='nameMatch'>
-                    {/* <img src={}/> */}
-                    <label>Name</label>
-                    <button>Add as Match</button>
-                </div>
-                <div className='nameMatch2'>
-                    {/* <img src={}/> */}
-                    <label>Name 2</label>
-                    <button>Add as Match</button>
-                </div>
             </div>
             <div className='othersLiked'>
                 <h3>Restaurant Reviews From Other Users:</h3>
-                <div className='name'>
-                    <h6>Name</h6>
-                    <h6>Name 2</h6>
-                </div>
             </div>
         </div>
     )
