@@ -1,0 +1,13 @@
+.rest-slide {
+    background-image: url('../images/background.jpeg');
+    background-size: cover;
+    height: 100vh;
+   text-align: center;
+}
+
+.submitbutton {
+    margin-top: 5%;
+    padding: 1% 10%;
+    background-color: #E7D9EA;
+    border-radius: 20px;
+}

@@ -76,6 +76,11 @@ const unauthenticatedOptions = (
         {/* <Nav.Link>
 		    <Link to='sign-up' style={linkStyle}>Sign Up</Link>
         </Nav.Link> */}
+        <Nav.Link>
+			<Link to='/' style={linkStyle}>
+				Home
+			</Link>
+		</Nav.Link>
         <Nav.Link align='right'>
 		    <Link to='sign-in' style={buttonStyle}>Log In</Link>
         </Nav.Link>
@@ -90,9 +95,9 @@ const alwaysOptionsNotUser = (
 			</Link>
 		</Nav.Link> */}
 		<Navbar.Brand>
-            <Link to='/' style={logoStyle}>
+            {/* <Link to='/' style={logoStyle}> */}
                 <img src={grubberLogo} alt="Grubbr Logo" style={imageStyle} /> Grubbr
-            </Link>
+            {/* </Link> */}
         </Navbar.Brand>
 	</>
 )
@@ -100,9 +105,9 @@ const alwaysOptionsNotUser = (
 const alwaysOptionIsUser = (
 	<div>
 		<Navbar.Brand>
-            <Link to='/user-profile' style={logoStyle}>
+            {/* <Link to='/user-profile' style={logoStyle}> */}
                 <img src={grubberLogo} alt="Grubbr Logo" style={imageStyle} /> Grubbr
-            </Link>
+            {/* </Link> */}
         </Navbar.Brand>
 	</div>
 )
