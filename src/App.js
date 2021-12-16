@@ -148,7 +148,7 @@ const App = () => {
   // maps through restaurants from Yelp API
   const mapRestaurants = restaurants.map((r, index) => {
     // console.log('mapping rs', r)
-    console.log("this is restaurant", r.categories.title);
+    console.log("this is restaurant", r.title);
     const mapRestaurantCategories = r.categories.map((c) => {
       return <p>{c.title}, </p>;
     });
