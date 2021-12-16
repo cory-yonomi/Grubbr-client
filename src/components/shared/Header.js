@@ -9,7 +9,10 @@ const linkStyle = {
     color: 'white',
     textDecoration: 'none',
 	fontSize: '15px',
-	margin: '25px'
+	margin: '25px',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center'
 }
 
 const logoStyle = {
@@ -27,7 +30,8 @@ const buttonStyle = {
     padding: '5px 40px',
 }
 const navBarStyle = {
-	backgroundColor: '#3E215D'
+	backgroundColor: '#3E215D',
+    textAlign: 'center'
 }
 
 const imageStyle = {
@@ -38,13 +42,15 @@ const authenticatedOptions = (
 
     <>
         <Nav.Link>
+            <span>
             <Link to='search-zipcode' style={linkStyle}>
                 Search Resturants
             </Link>
+            </span>
         </Nav.Link>
         <Nav.Link>
-            <Link to='' style={linkStyle}>
-                Favorited Resturants
+            <Link to='/profile' style={linkStyle}>
+                Profile
             </Link>
         </Nav.Link>
         <Nav.Link>
@@ -101,14 +107,14 @@ const alwaysOptionIsUser = (
 	</div>
 )
 
-const Header = ({ user }) => (
+const Header = ({ user }, props) => (
 	<Navbar style={navBarStyle} variant='dark' expand='md'>
 		<Navbar.Toggle aria-controls='basic-navbar-nav' />
 				{user ? alwaysOptionIsUser : alwaysOptionsNotUser}
 		<Navbar.Collapse id='basic-navbar-nav'>
 			<Nav className='ml-auto'>
 				{user && (
-					<span className='navbar-text mr-2'>Welcome, {user.email}</span>
+					<span className='navbar-text mr-2'>Welcome, {props.profile}</span>
 				)}
 				{user ? authenticatedOptions : unauthenticatedOptions}
 			</Nav>
