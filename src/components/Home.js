@@ -1,26 +1,28 @@
 import './Home.css'
 import { Link } from 'react-router-dom'
 import grubberLogo from './images/logo.png'
+import background from './images/background.jpeg'
 
 const linkStyle = {
     color: 'black',
     textDecoration: 'none'
 }
-// const footerStyle = {
-// 	backgroundColor: '#3E215D',
-// 	height: '50px',
-// 	color: 'grey',
-// 	textAlign: 'center',
-// }
-// const aTagStyle = {
-// 	margin: '10px'
-// }
+const backgroundStyle = {
+	height: '80%',
+    backgroundSize: 'cover',
+    backgroundImage: `url(${background})`,
+    textAlign: 'center',
+    paddingTop: '10%',
+    paddingBottom: '8%',
+    color: 'white'
+}
+
 const Home = (props) => {
 	// const { msgAlert, user } = props
 	console.log('props in home', props)
 
 	return (
-		<div className="home">
+		<div style={backgroundStyle} className="home">
 			<div className="intro">
 				<h1><img src={grubberLogo} alt="fork and knife,Grubbr Logo"/> Grubber</h1>
 				<h4>"The Tinder For Food"</h4>
