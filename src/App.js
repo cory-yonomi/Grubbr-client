@@ -33,7 +33,7 @@ const ratingStyle = {
 
 const App = () => {
   const [user, setUser] = useState(null);
-  const [profile, setProfile] = useState([]);
+  const [profile, setProfile] = useState({});
   const [msgAlerts, setMsgAlerts] = useState([]);
   const [restaurants, setRestaurants] = useState([]);
   // sets current restaurant for the slideshow
@@ -60,39 +60,38 @@ const App = () => {
     });
   };
 
-  // const restaurantCall = () => {
-  // 	return axios.post(`http://localhost:8000/restaurants`,
-  // 		{
-  // 			name: restaurants[currentRest].name,
-  // 			location: restaurants[currentRest].location.display_address,
-  // 			yelpId: restaurants[currentRest].id,
-  // 			categories: restaurants[currentRest].categories,
-  // 			image_url: restaurants[currentRest].image_url,
-  // 			rating: restaurants[currentRest].rating,
-  // 			price: restaurants[currentRest].price,
-  // 			user: [user._id]
-  // 		},
-  // 		{
-  // 			headers: {
-  // 				"Authorization": `Bearer ${user.token}`
-  // 			}
-  // 		}
-  // 	)
-  // }
+  const restaurantCall = () => {
+  	return axios.post(`http://localhost:8000/restaurants`,
+  		{
+  			name: restaurants[currentRest].name,
+  			location: restaurants[currentRest].location.display_address,
+  			yelpId: restaurants[currentRest].id,
+  			categories: restaurants[currentRest].categories,
+  			image_url: restaurants[currentRest].image_url,
+  			rating: restaurants[currentRest].rating,
+  			price: restaurants[currentRest].price,
+  			user: [user._id]
+  		},
+  		{
+  			headers: {
+  				"Authorization": `Bearer ${user.token}`
+  			}
+  		}
+  	)
+  }
 
-  // const profileCall = (userId) => {
-  // 	return axios.patch(`http://localhost:8000/profile/${userId}`,
-  // 		{
-  // 			userId: user._id,
-  // 			restaurant: restaurants[currentRest].id
-  // 		},
-  // 		{
-  // 			headers: {
-  // 				"Authorization": `Bearer ${user.token}`
-  // 			}
-  // 		}
-  // 	)
-  // }
+  const profileCall = (userId) => {
+  	return axios.patch(`http://localhost:8000/profile/${userId}`,
+  		{
+  			restaurant: restaurants[currentRest].id
+  		},
+  		{
+  			headers: {
+  				"Authorization": `Bearer ${user.token}`
+  			}
+  		}
+  	)
+  }
 
   // get ONE users SPECIFIC profile
   const profileName = () => {
@@ -109,28 +108,31 @@ const App = () => {
   }
 
   const heartButton = () => {
-    axios
-      .post(
-        `http://localhost:8000/restaurants`,
-        {
-          name: restaurants[currentRest].name,
-          location: restaurants[currentRest].location.display_address,
-          yelpId: restaurants[currentRest].id,
-          categories: restaurants[currentRest].categories,
-          image_url: restaurants[currentRest].image_url,
-          rating: restaurants[currentRest].rating,
-          price: restaurants[currentRest].price,
-          user: [user._id],
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${user.token}`,
-          },
-        }
-      )
+    // axios.post(
+    //     `http://localhost:8000/restaurants`,
+    //     {
+    //       name: restaurants[currentRest].name,
+    //       location: restaurants[currentRest].location.display_address,
+    //       yelpId: restaurants[currentRest].id,
+    //       categories: restaurants[currentRest].categories,
+    //       image_url: restaurants[currentRest].image_url,
+    //       rating: restaurants[currentRest].rating,
+    //       price: restaurants[currentRest].price,
+    //       user: [user._id],
+    //     },
+    //     {
+    //       headers: {
+    //         Authorization: `Bearer ${user.token}`,
+    //       },
+    //     }
+    //   )
+	  Promise.all([
+		  restaurantCall(),
+		  profileCall(user._id)
+	  ])
       .then((resp) => {
-        console.log(resp);
-        setLikedRestaurant(resp.data);
+        console.log('promise.all response: \n', resp);
+        // setLikedRestaurant(resp.data);
       });
   };
 
@@ -259,7 +261,8 @@ const App = () => {
                 user={user}
                 msgAlert={msgAlert}
                 mapRestaurants={mapRestaurants}
-                likedRestaurant={likedRestaurant}
+				likedRestaurant={likedRestaurant}
+				setProfile={setProfile}
               />
             </RequireAuth>
           }

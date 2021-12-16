@@ -35,14 +35,6 @@ const SignUp = (props) => {
 
 		signUp(credentials)
 			.then(() => signIn(credentials))
-            .then(() => {
-                axios.post("http://localhost:8000/sign-in", {
-                  credentials: {
-                    email: email,
-                    password: password
-                  }
-                })
-            })
 			.then((res) => setUser(res.data.user))
 			.then(() =>
 				msgAlert({
