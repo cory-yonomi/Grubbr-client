@@ -10,6 +10,14 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import axios from "axios";
 
+const signUpDivStyle = {
+    backgroundColor: 'rgba(93, 130, 51, 0.7)',
+    height: '60vh',
+    paddingTop: '30px',
+    borderRadius: '20px'
+}
+
+
 const SignUp = (props) => {
 	// constructor(props) {
 	// 	super(props)
@@ -66,8 +74,8 @@ const SignUp = (props) => {
 
 
     return (
-        <div className='row'>
-            <div className='col-sm-10 col-md-8 mx-auto mt-5 signUp-div'>
+        <div className='row signUpPage'>
+            <div style={signUpDivStyle} className='col-sm-10 col-md-8 mx-auto mt-5'>
                 <h3 className="form-label">Sign Up</h3>
                 <Form onSubmit={onSignUp}>
                     <Form.Group controlId='email'>
