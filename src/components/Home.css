@@ -1,16 +1,12 @@
-.intro {
-    height: 100vh;
+/* .home {
+    height: 100%;
     background-size:cover;
     background-image: url('./images/background.jpeg');
-    /* position: relative; */
-    /* width: 100vh; */
-    /* overflow: auto; */
     text-align: center;
     padding-top: 10%;
+    padding-bottom: 8%;
     color: white;
-    /* background-size:cover;
-    background-image: url('./images/background.jpeg'); */
-}
+} */
 
 .intro h1 {
     font-weight: bold;
