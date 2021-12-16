@@ -11,25 +11,37 @@ const ButtonStyle = {
   margin: "10px",
 };
 
+const backgroundColor = {
+    backgroundColor: `rgba(93, 130, 51, .8)`,
+    height: '100vh',
+    padding: '5%'
+}
+
 const RestaurantSlide = (props) => {
   return (
     <div className="slide-page">
-      <div className="map-restaurants">
-        <div>{props.mapRestaurants}</div>
-      </div>
-      <div>
-      <button className="swipeButton" onClick={props.nextButton}>
-        <img
-          src={brokenHeart}
-          style={ButtonStyle}
-          alt="Dislike Restaurant Button"
-        />
-      </button>
-      <Link to="/restaurant-profile">
-        <button className="swipeButton" onClick={props.heartButton}>
-          <img style={ButtonStyle} src={Heart} alt="Like Restaurant Button" />
-        </button>
-      </Link>
+      <div style={backgroundColor}>
+        <div className="map-restaurants">
+          <div>{props.mapRestaurants}</div>
+        </div>
+        <div>
+          <button className="swipeButton" onClick={props.nextButton}>
+            <img
+              src={brokenHeart}
+              style={ButtonStyle}
+              alt="Dislike Restaurant Button"
+            />
+          </button>
+          <Link to="/restaurant-profile">
+            <button className="swipeButton" onClick={props.heartButton}>
+              <img
+                style={ButtonStyle}
+                src={Heart}
+                alt="Like Restaurant Button"
+              />
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );
