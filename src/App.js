@@ -25,6 +25,7 @@ const App = () => {
 
 
 	const [user, setUser] = useState(null)
+	const [profile, setProfile] = useState({})
 	const [msgAlerts, setMsgAlerts] = useState([])
 	const [restaurants, setRestaurants] = useState([])
 	// sets current restaurant for the slideshow
@@ -54,42 +55,9 @@ const App = () => {
 		})
 	}
 
-	// const restaurantCall = () => {
-	// 	return axios.post(`http://localhost:8000/restaurants`,
-	// 		{
-	// 			name: restaurants[currentRest].name,
-	// 			location: restaurants[currentRest].location.display_address,
-	// 			yelpId: restaurants[currentRest].id,
-	// 			categories: restaurants[currentRest].categories,
-	// 			image_url: restaurants[currentRest].image_url,
-	// 			rating: restaurants[currentRest].rating,
-	// 			price: restaurants[currentRest].price,
-	// 			user: [user._id]
-	// 		},
-	// 		{
-	// 			headers: {
-	// 				"Authorization": `Bearer ${user.token}`
-	// 			}
-	// 		}
-	// 	)
-	// }
-
-	// const profileCall = (userId) => {
-	// 	return axios.patch(`http://localhost:8000/profile/${userId}`,
-	// 		{
-	// 			userId: user._id,
-	// 			restaurant: restaurants[currentRest].id
-	// 		},
-	// 		{
-	// 			headers: {
-	// 				"Authorization": `Bearer ${user.token}`
-	// 			}
-	// 		}
-	// 	)
-	// }
-
-	const heartButton = () => {
-		axios.post(`http://localhost:8000/restaurants`,
+	const restaurantCall = () => {
+		// post a yelp restaurant to server
+		return axios.post(`http://localhost:8000/restaurants`,
 			{
 				name: restaurants[currentRest].name,
 				location: restaurants[currentRest].location.display_address,
@@ -106,9 +74,31 @@ const App = () => {
 				}
 			}
 		)
+	}
+
+	const profileCall = () => {
+		// post a restaurant to a user's profile
+		return axios.patch(`http://localhost:8000/profile/${user.id}`,
+			{
+				userId: user._id,
+				restaurant: restaurants[currentRest]._id
+			},
+			{
+				headers: {
+					"Authorization": `Bearer ${user.token}`
+				}
+			}
+		)
+	}
+
+	const heartButton = () => {
+		Promise.all([
+			restaurantCall(),
+			profileCall()
+		])
 			.then(resp => {
 			console.log(resp)
-			setLikedRestaurant(resp.data)
+			// setLikedRestaurant(resp.data)
 		})	
 	}
 	
@@ -149,6 +139,7 @@ const App = () => {
 	// if (!Array.isArray(mapRestaurants) || mapRestaurants.length <= 0) {
 	// 	return null
 	// }
+	
 
 	return (
 		<Fragment>
@@ -196,7 +187,7 @@ const App = () => {
 					path='/search-zipcode'
 					element={
 						<RequireAuth user={user}>
-							<SearchZipcode setRestaurants={setRestaurants} user={user} msgAlert={msgAlert} mapRestaurants={mapRestaurants} likedRestaurant={likedRestaurant} />
+							<SearchZipcode setRestaurants={setRestaurants} user={user} msgAlert={msgAlert} mapRestaurants={mapRestaurants} likedRestaurant={likedRestaurant} setProfile={setProfile}/>
 						</RequireAuth>}
 						/>
 			</Routes>

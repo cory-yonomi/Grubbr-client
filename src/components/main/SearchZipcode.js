@@ -42,6 +42,17 @@ const SearchZipcode = (props) => {
 
     }
 
+    // useEffect(() => {
+    //     axios.get(`http://localhost:8000/profile/${!props.user ? '' : props.user._id}`, {
+    //         headers: {
+    //             "Authorization": `Bearer ${props.user.token}`
+    //         }
+    //     })
+	// 		.then(foundProfile => {
+	// 		props.setProfile(foundProfile)
+	// 	})
+	// })
+
     return (
         <div className="rest-slide">
             <div>
