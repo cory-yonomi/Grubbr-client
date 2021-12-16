@@ -7,9 +7,9 @@ form {
 .slide-page {
     text-align: center;
     height: 100vh;
-    padding-top: 3%;
-    background-image: url('../images/background.jpeg');
-    background-size: cover;
+    padding-top: 2%;
+    /* background-image: url('../images/background.jpeg');
+    background-size: cover; */
     background-color: rgba(93, 130, 51, .8) ;
 }
 
@@ -48,6 +48,7 @@ form {
 } */
 
 .swipeButton {
-    margin: 10px;
-
+    margin: 15px;
+    background-color: #E7D9EA;
+    border-radius: 20px;
 }
