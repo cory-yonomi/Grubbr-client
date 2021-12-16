@@ -1,10 +1,12 @@
-body {
+/* body {
     background-image: url('../images/background.jpeg');
     background-size: cover;
-}
+} */
 
 .row {
-    height: 100vh
+    height: 100vh;
+    background-image: url('../images/background.jpeg');
+    background-size: cover;
 }
 
 .signIn-div {

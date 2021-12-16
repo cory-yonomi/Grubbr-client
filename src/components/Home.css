@@ -1,24 +1,8 @@
-/* body {
-    background-image: url('/src/components/introbackground.jpeg');
-    background-size: cover;
-} */
-
-/* button {
-
-    margin: 20px;
-    background-color: #E7D9EA;
-    font-size: large;
-    font-weight: 600;
-    padding: 5px 40px;
-    border-radius: 10px;
-} */
-
-
 .intro {
     height: 100vh;
     background-size:cover;
     background-image: url('./images/background.jpeg');
-    position: relative;
+    /* position: relative; */
     /* width: 100vh; */
     /* overflow: auto; */
     text-align: center;

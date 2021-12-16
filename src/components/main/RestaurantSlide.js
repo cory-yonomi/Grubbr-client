@@ -23,4 +23,3 @@ const RestaurantSlide = (props) => {
     }
 
 export default RestaurantSlide
-
