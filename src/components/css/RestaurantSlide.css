@@ -14,7 +14,6 @@ form {
 .map-restaurants {
     background-color: rgba(62, 33, 93, 0.7);
     color: white;
-    padding: 2% 0;
     width: 60%;
     display: inline-block;
     border-radius: 20px;
@@ -30,6 +29,9 @@ form {
    border-radius: 20px;
 }
 
+.restaurantInfoDiv {
+    margin: 3%;
+}
 /* button {
 
     background-color: #E7D9EA;
