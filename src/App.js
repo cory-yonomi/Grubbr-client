@@ -19,6 +19,7 @@ import SearchZipcode from "./components/main/SearchZipcode";
 import "./components/css/RestaurantSlide.css";
 import UserProfile from './components/main/UserProfile'
 import CreateProfile from "./components/main/CreateProfile";
+import EditProfile from "./components/main/EditProfile";
 
 import axios from "axios";
 require("dotenv").config();
@@ -29,7 +30,7 @@ const hoursStyle = {
   fontWeight: 'bold'
 };
 const ratingStyle = {
-	fontWeight: 'bold'
+  fontWeight: 'bold'
 }
 
 const App = () => {
@@ -96,16 +97,16 @@ const App = () => {
 
   // get ONE users SPECIFIC profile
   const profileName = () => {
-	  axios.get(`http://localhost:8000/profile/:profileId`, {
-		headers: {
-			"Authorization": `Bearer ${user.token}`
-		}
-	})
-		.then(profile => {
-			console.log('this is the ONE USERS profile', profile)
-			setProfile(profile.data.firstName)
-		})
-		.catch(err => console.log(err))
+    axios.get(`http://localhost:8000/profile/:profileId`, {
+      headers: {
+        "Authorization": `Bearer ${user.token}`
+      }
+    })
+      .then(profile => {
+        console.log('this is the ONE USERS profile', profile)
+        setProfile(profile.data.firstName)
+      })
+      .catch(err => console.log(err))
   }
 
   const heartButton = () => {
@@ -151,7 +152,7 @@ const App = () => {
       return <p>{c.title}, </p>;
     });
 
-  
+
 
     return (
       <div className={index === currentRest ? "r active" : "r"} key={index}>
@@ -168,9 +169,9 @@ const App = () => {
             <br />
             Address: {r.location.display_address}
             <br />
-			<p style={hoursStyle}>{r.is_closed ? 'Closed' : 'Open'}</p>
-			<br />
-			<p style={ratingStyle}>Rating: {r.rating}</p>
+            <p style={hoursStyle}>{r.is_closed ? 'Closed' : 'Open'}</p>
+            <br />
+            <p style={ratingStyle}>Rating: {r.rating}</p>
           </div>
         )}
       </div>
@@ -181,7 +182,7 @@ const App = () => {
 
   return (
     <Fragment>
-      <Header user={user} profile={profileName}/>
+      <Header user={user} profile={profileName} />
       <Routes>
         <Route path="/" element={<Home msgAlert={msgAlert} user={user} />} />
         <Route
@@ -238,7 +239,7 @@ const App = () => {
             </RequireAuth>
           }
         />
-		        <Route
+        <Route
           path="/profile"
           element={
             <RequireAuth user={user}>
@@ -253,7 +254,7 @@ const App = () => {
             </RequireAuth>
           }
         />
-				        <Route
+        <Route
           path="/create-profile"
           element={
             <RequireAuth user={user}>
@@ -264,7 +265,23 @@ const App = () => {
                 mapRestaurants={mapRestaurants}
                 likedRestaurant={likedRestaurant}
                 heartButton={heartButton}
-				setProfile={setProfile}
+                setProfile={setProfile}
+              />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/edit-profile"
+          element={
+            <RequireAuth user={user}>
+              <EditProfile
+                setRestaurants={setRestaurants}
+                user={user}
+                msgAlert={msgAlert}
+                mapRestaurants={mapRestaurants}
+                likedRestaurant={likedRestaurant}
+                heartButton={heartButton}
+                setProfile={setProfile}
               />
             </RequireAuth>
           }
@@ -279,7 +296,7 @@ const App = () => {
                 msgAlert={msgAlert}
                 mapRestaurants={mapRestaurants}
                 likedRestaurant={likedRestaurant}
-				setProfile={setProfile}
+                setProfile={setProfile}
               />
             </RequireAuth>
           }

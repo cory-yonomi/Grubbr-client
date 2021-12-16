@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useState } from "react"
+import { Link } from "react-router-dom"
 
 const UserProfile = (props) => {
 
@@ -19,6 +20,7 @@ const UserProfile = (props) => {
 
     return (
         <div>
+            <Link to='/edit-profile'><small>Edit Profile</small></Link>
             <h1>{user}</h1>
         </div>
     )
