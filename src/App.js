@@ -18,6 +18,7 @@ import RestaurantProfile from "./components/main/RestaurantProfile";
 import SearchZipcode from "./components/main/SearchZipcode";
 import "./components/css/RestaurantSlide.css";
 import UserProfile from './components/main/UserProfile'
+import CreateProfile from "./components/main/CreateProfile";
 
 import axios from "axios";
 require("dotenv").config();
@@ -246,6 +247,22 @@ const App = () => {
                 mapRestaurants={mapRestaurants}
                 likedRestaurant={likedRestaurant}
                 heartButton={heartButton}
+              />
+            </RequireAuth>
+          }
+        />
+				        <Route
+          path="/create-profile"
+          element={
+            <RequireAuth user={user}>
+              <CreateProfile
+                setRestaurants={setRestaurants}
+                user={user}
+                msgAlert={msgAlert}
+                mapRestaurants={mapRestaurants}
+                likedRestaurant={likedRestaurant}
+                heartButton={heartButton}
+				setProfile={setProfile}
               />
             </RequireAuth>
           }
