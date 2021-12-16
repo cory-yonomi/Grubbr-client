@@ -11,7 +11,7 @@ const RestaurantProfile = (props) => {
                 <img src={props.likedRestaurant.image_url} alt={props.likedRestaurant.name} />
                 <h4>{mapCategories}</h4>
                 <h6>Cuisine: {props.likedRestaurant.categories}</h6>
-                <h6>Address: {props.likedRestaurant.location[0]}, {props.likedRestaurant.location[1]}</h6>
+                {/* <h6>Address: {props.likedRestaurant.location[0]}, {props.likedRestaurant.location[1]}</h6> */}
                 <h6>Rating: {props.likedRestaurant.rating}</h6>
                 <h6>Price Rating: {props.likedRestaurant.price}</h6>
             </div>
