@@ -1,3 +1,4 @@
+import '../css/EditProfile.css'
 import axios from "axios"
 import { useState } from "react"
 import { useNavigate } from 'react-router-dom'
@@ -57,17 +58,25 @@ const EditProfile = (props) => {
 
     return (
 
-        <div id='editProfile'>
-            <form>
-                <label htmlFor="Edit Profile">Edit Profile:</label>
-                <label htmlFor="First Name">First Name:</label>
+        <div className='editProfile'>
+            <div>
+            <form className='editForm'>
+                <h1>Edit Profile</h1>
+                <label htmlFor="First Name">First Name: </label>
+                <br/>
                 <input type="text" onChange={firstNameInput} />
-                <label htmlFor="Last Name">Last Name:</label>
+                <br/>
+                <label htmlFor="Last Name">Last Name: </label>
+                <br/>
                 <input type="text" onChange={lastNameInput} />
-                <label htmlFor="Zip Code">Zip Code:</label>
+                <br/>
+                <label htmlFor="Zip Code">Zip Code: </label>
+                <br/>
                 <input type="number" onChange={zipCodeInput} />
+                <br/>
                 <button className='submitProfile' onClick={submitProfile}>Submit</button>
             </form>
+            </div>
         </div>
     )
 }

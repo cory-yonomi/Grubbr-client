@@ -23,7 +23,7 @@ const RestaurantProfile = (props) => {
                 <h3>Restaurant Reviews From Other Users:</h3>
             </div>
             </div>
-        </div>
+            </div>
     )
 }
 
