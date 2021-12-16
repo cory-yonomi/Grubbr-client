@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import axios from "axios"
 import '../css/RestaurantSlide.css'
 import Heart from '../images/HeartRestaurant.png'
+import brokenHeart from '../images/disheartRestaurant.png'
 
 const ButtonStyle = {
     width: '100px',
@@ -19,8 +20,8 @@ const RestaurantSlide = (props) => {
                 </div>
                 </div>
                 <div className='heart-button'>
-                    <button className='swipeButton' onClick={props.nextButton}>X</button>
-                    <Link to='/restaurant-profile'><button className='swipeButton' onClick={props.heartButton}><img style={ButtonStyle} src={Heart} alt="Like Restaurant Button" /> </button></Link>
+                    <button className='swipeButton' onClick={props.nextButton}><img src={brokenHeart} style={ButtonStyle} alt="Dislike Restaurant Button" /></button>
+                    <Link to='/restaurant-profile'><button className='swipeButton' onClick={props.heartButton}><img style={ButtonStyle} src={Heart} alt="Like Restaurant Button" /></button></Link>
                 </div>
             </div >
         )
