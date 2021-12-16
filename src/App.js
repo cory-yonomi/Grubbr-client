@@ -82,7 +82,7 @@ const App = () => {
   }
 
   const profileCall = (userId) => {
-  	return axios.patch(`http://localhost:8000/profile/${userId}`,
+  	return axios.patch(`http://localhost:8000/profile/${userId}/liked`,
   		{
   			restaurant: restaurants[currentRest].id
   		},
