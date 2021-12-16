@@ -13,17 +13,18 @@ form {
     background-color: rgba(93, 130, 51, .8) ;
 }
 
-.submitbutton {
+/* .submitbutton {
     margin-top: 5%;
     padding: 10px 100px;
     border-radius: 10px;
     font-size: 25px;
-}
+} */
 
 .map-restaurants {
     background-color: rgba(62, 33, 93, 0.7);
     color: white;
     padding: 2% 0;
+    width: 60%;
     display: inline-block;
     border-radius: 20px;
 }
@@ -45,3 +46,8 @@ form {
     padding: 5px 40px;
     border-radius: 10px;
 } */
+
+.swipeButton {
+    margin: 10px;
+
+}
