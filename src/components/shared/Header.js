@@ -105,9 +105,9 @@ const alwaysOptionsNotUser = (
 const alwaysOptionIsUser = (
 	<div>
 		<Navbar.Brand>
-            <Link to='/user-profile' style={logoStyle}>
+            {/* <Link to='/user-profile' style={logoStyle}> */}
                 <img src={grubberLogo} alt="Grubbr Logo" style={imageStyle} /> Grubbr
-            </Link>
+            {/* </Link> */}
         </Navbar.Brand>
 	</div>
 )
