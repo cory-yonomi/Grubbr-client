@@ -2,8 +2,7 @@ import axios from "axios"
 import { useState } from "react"
 import { useNavigate } from 'react-router-dom'
 
-const CreateProfile = (props) => {
-
+const EditProfile = (props) => {
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [zipcode, setZipcode] = useState('')
@@ -33,7 +32,7 @@ const CreateProfile = (props) => {
         e.preventDefault()
 
         if (zipcode.length === 5) {
-            axios.post(`http://localhost:8000/profile`, {
+            axios.patch(`http://localhost:8000/profile/${props.user._id}`, {
                 firstName: firstName,
                 lastName: lastName,
                 zipCode: zipcode,
@@ -45,24 +44,21 @@ const CreateProfile = (props) => {
                 }
             )
                 .then(profile => {
-                    console.log('PROFILE CREATED', profile.data)
+                    console.log('PROFILE EDITED', profile.data)
                     props.setProfile(profile.data)
                 })
-                .then(() => navigate('/search-zipcode'))
+                .then(() => navigate('/profile'))
                 .catch(err => console.log(err))
         } else {
             return alert('Please enter valid information')
         }
     }
 
-
-
-
     return (
 
-        <div id='createProfile'>
+        <div id='editProfile'>
             <form>
-                <label htmlFor="Create Profile">Create Profile:</label>
+                <label htmlFor="Edit Profile">Edit Profile:</label>
                 <label htmlFor="First Name">First Name:</label>
                 <input type="text" onChange={firstNameInput} />
                 <label htmlFor="Last Name">Last Name:</label>
@@ -73,7 +69,6 @@ const CreateProfile = (props) => {
             </form>
         </div>
     )
-
 }
 
-export default CreateProfile
+export default EditProfile
