@@ -134,7 +134,7 @@ const App = () => {
 	  ])
       .then((resp) => {
         console.log('promise.all response: \n', resp);
-        // setLikedRestaurant(resp.data);
+        setLikedRestaurant(resp[0].data);
       });
   };
 
