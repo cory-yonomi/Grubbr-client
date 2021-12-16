@@ -33,7 +33,7 @@ const ratingStyle = {
 
 const App = () => {
   const [user, setUser] = useState(null);
-  const [profile, setProfile] = useState([]);
+  const [profile, setProfile] = useState({});
   const [msgAlerts, setMsgAlerts] = useState([]);
   const [restaurants, setRestaurants] = useState([]);
   // sets current restaurant for the slideshow
@@ -260,6 +260,7 @@ const App = () => {
                 msgAlert={msgAlert}
                 mapRestaurants={mapRestaurants}
                 likedRestaurant={likedRestaurant}
+				setProfile={setProfile}
               />
             </RequireAuth>
           }

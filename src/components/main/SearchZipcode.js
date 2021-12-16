@@ -41,16 +41,17 @@ const SearchZipcode = (props) => {
 
     }
 
-    // useEffect(() => {
-    //     axios.get(`http://localhost:8000/profile/${!props.user ? '' : props.user._id}`, {
-    //         headers: {
-    //             "Authorization": `Bearer ${props.user.token}`
-    //         }
-    //     })
-	// 		.then(foundProfile => {
-	// 		props.setProfile(foundProfile)
-	// 	})
-	// })
+    useEffect(() => {
+        axios.get(`http://localhost:8000/profile/${props.user._id}`, {
+            headers: {
+                "Authorization": `Bearer ${props.user.token}`
+            }
+        })
+			.then(foundProfile => {
+                console.log('set propf', foundProfile.data)
+			props.setProfile(foundProfile.data)
+		})
+	}, [])
 
     return (
         <div className="rest-slide">
