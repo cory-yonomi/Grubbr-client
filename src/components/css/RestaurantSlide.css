@@ -6,20 +6,13 @@ form {
 
 .slide-page {
     text-align: center;
-    height: 100%;
+    height: 100vh;
     padding-top: 2%;
     padding-bottom: 5%;
     /* background-image: url('../images/background.jpeg');
     background-size: cover; */
     background-color: rgba(93, 130, 51, .8) ;
 }
-
-/* .submitbutton {
-    margin-top: 5%;
-    padding: 10px 100px;
-    border-radius: 10px;
-    font-size: 25px;
-} */
 
 .map-restaurants {
     background-color: rgba(62, 33, 93, 0.7);

@@ -1,7 +1,13 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from 'react-router-dom'
 import axios from "axios"
+import '../css/SeachZipcode.css'
 
+const backgroundStyle = {
+    backgroundColor: `rgba(93, 130, 51, .8)`,
+    height: '100vh',
+    padding: '10%'
+}
 
 const SearchZipcode = (props) => {
 
@@ -55,11 +61,12 @@ const SearchZipcode = (props) => {
 
     return (
         <div className="rest-slide">
-            <div>
+            <div style={backgroundStyle}>
                 <div id='zipcode-search'>
                     <form>
                         <label htmlFor="zipcode">Search by Zipcode:</label>
                         <input type="number" onChange={handleChange} />
+                        <br />
                         <button className='submitbutton' onClick={submit}>Submit</button>
                     </form>
                     {/* <Link to='/restaurant-slide'></Link> */}
