@@ -36,6 +36,7 @@ const EditProfile = (props) => {
                 firstName: firstName,
                 lastName: lastName,
                 zipCode: zipcode,
+                
             },
                 {
                     headers: {
