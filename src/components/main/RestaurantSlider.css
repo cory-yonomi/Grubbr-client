@@ -1,0 +1,50 @@
+form {
+    font-size: 28px;
+    color: white;
+    font-weight: 600;
+}
+
+
+.rest-slide {
+    text-align: center;
+    height: 100vh;
+    padding-top: 10%;
+    background-image: url('../images/background.jpeg');
+    background-size: cover;
+    /* background-color: rgba(93, 130, 51, .8) ; */
+}
+
+.rest-slide button {
+    background-color: #E7D9EA;
+    margin-top: 5%;
+    padding: 10px 100px;
+    border-radius: 10px;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+
+.slide {
+    text-align: center;
+    height: 100vh;
+    margin: auto;
+    width: 100%;
+    padding: 160px;
+    /* background-color: rgba(93, 130, 51, .8); */
+    background-image: url('../images/background.jpeg');
+    background-size: cover;
+}
+
+.slide button {
+    font-size: 50px;
+    margin: 30px;
+    border-radius: 30px;
+}
+
+h3 {
+    color:whitesmoke;
+    font-weight: bold;
+}
+
+
+
