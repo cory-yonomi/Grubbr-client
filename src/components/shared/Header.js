@@ -54,6 +54,11 @@ const authenticatedOptions = (
             </Link>
         </Nav.Link>
         <Nav.Link>
+            <Link to='/create-profile' style={linkStyle}>
+                Create Profile
+            </Link>
+        </Nav.Link>
+        <Nav.Link>
             <Link to='' style={linkStyle}>
                 Matches
             </Link>
