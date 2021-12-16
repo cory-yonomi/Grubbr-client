@@ -10,15 +10,17 @@ const userProfileContent = {
 };
 
 const buttonStyle = {
-    width: "85px",
-  height: "85px",
-  margin: "10px",
+    width: "150px",
+  height: "70px",
+  margin: "5px",
+  backgroundColor: '#E7D9EA',
+  borderRadius: '20px'
 }
 
 const UserProfile = (props) => {
   const [user, setUser] = useState([]);
 
-  const useEffect(() => {
+  useEffect(() => {
       // get ONE users SPECIFIC profile
       axios.get(`http://localhost:8000/profile/${props.user._id}`, {
           headers: {
@@ -26,7 +28,7 @@ const UserProfile = (props) => {
           },
         })
         .then((profile) => {
-          console.log('this is the ONE USERS profile', profile.data)
+          console.log('this is the ONE USERS profile', profile)
           setUser(profile.data);
         })
         .catch((err) => console.log(err));
@@ -37,16 +39,17 @@ const UserProfile = (props) => {
     <div className="userProfile">
       <div style={userProfileContent}>
         <div className='UserInfo'>
-          <h1>{user.firstName}</h1>
-          <h3>{}</h3>
+          <h1>{user.firstName} {user.lastName}</h1>
+          <h5 className=''>About Me:</h5>
+          <p>California weeb looking for a good time</p>
         </div>
         <div className='buttonStyle'>
           <Link to="/edit-profile">
-            <button className={buttonStyle}>Edit Profile</button>
+            <button style={buttonStyle}>Edit Profile</button>
           </Link>
           {/* <Link to='/delete-profile'><small>Delete Profile</small></Link> */}
           <Link to="/create-profile">
-              <button className={buttonStyle}>Create Profile</button>
+              <button style={buttonStyle}>Create Profile</button>
           </Link>
         </div>
       </div>
