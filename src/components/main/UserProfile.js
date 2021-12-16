@@ -21,6 +21,7 @@ const UserProfile = (props) => {
     return (
         <div>
             <Link to='/edit-profile'><small>Edit Profile</small></Link>
+            <Link to='/delete-profile'><small>Delete Profile</small></Link>
             <h1>{user}</h1>
         </div>
     )

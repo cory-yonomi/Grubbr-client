@@ -20,6 +20,7 @@ import "./components/css/RestaurantSlide.css";
 import UserProfile from './components/main/UserProfile'
 import CreateProfile from "./components/main/CreateProfile";
 import EditProfile from "./components/main/EditProfile";
+import DeleteProfile from "./components/main/DeleteProfile";
 
 import axios from "axios";
 require("dotenv").config();
@@ -63,36 +64,36 @@ const App = () => {
   };
 
   const restaurantCall = () => {
-  	return axios.post(`http://localhost:8000/restaurants`,
-  		{
-  			name: restaurants[currentRest].name,
-  			location: restaurants[currentRest].location.display_address,
-  			yelpId: restaurants[currentRest].id,
-  			categories: restaurants[currentRest].categories,
-  			image_url: restaurants[currentRest].image_url,
-  			rating: restaurants[currentRest].rating,
-  			price: restaurants[currentRest].price,
-  			user: [user._id]
-  		},
-  		{
-  			headers: {
-  				"Authorization": `Bearer ${user.token}`
-  			}
-  		}
-  	)
+    return axios.post(`http://localhost:8000/restaurants`,
+      {
+        name: restaurants[currentRest].name,
+        location: restaurants[currentRest].location.display_address,
+        yelpId: restaurants[currentRest].id,
+        categories: restaurants[currentRest].categories,
+        image_url: restaurants[currentRest].image_url,
+        rating: restaurants[currentRest].rating,
+        price: restaurants[currentRest].price,
+        user: [user._id]
+      },
+      {
+        headers: {
+          "Authorization": `Bearer ${user.token}`
+        }
+      }
+    )
   }
 
   const profileCall = (userId) => {
-  	return axios.patch(`http://localhost:8000/profile/${userId}/liked`,
-  		{
-  			restaurant: restaurants[currentRest].id
-  		},
-  		{
-  			headers: {
-  				"Authorization": `Bearer ${user.token}`
-  			}
-  		}
-  	)
+    return axios.patch(`http://localhost:8000/profile/${userId}/liked`,
+      {
+        restaurant: restaurants[currentRest].id
+      },
+      {
+        headers: {
+          "Authorization": `Bearer ${user.token}`
+        }
+      }
+    )
   }
 
   // get ONE users SPECIFIC profile
@@ -128,10 +129,10 @@ const App = () => {
     //       },
     //     }
     //   )
-	  Promise.all([
-		  restaurantCall(),
-		  profileCall(user._id)
-	  ])
+    Promise.all([
+      restaurantCall(),
+      profileCall(user._id)
+    ])
       .then((resp) => {
         console.log('promise.all response: \n', resp);
         setLikedRestaurant(resp[0].data);
@@ -159,11 +160,11 @@ const App = () => {
         {index === currentRest && (
           <div className="restaurantInfoDiv">
             <div className="mapImageDiv">
-            <img
-              src={r.image_url}
-              alt="restaurant-images"
-              className="mappedImage"
-            />
+              <img
+                src={r.image_url}
+                alt="restaurant-images"
+                className="mappedImage"
+              />
             </div>
             <h1>{r.name}</h1>
             {/* <h3>{r.categories.title}</h3> */}
@@ -277,6 +278,22 @@ const App = () => {
           element={
             <RequireAuth user={user}>
               <EditProfile
+                setRestaurants={setRestaurants}
+                user={user}
+                msgAlert={msgAlert}
+                mapRestaurants={mapRestaurants}
+                likedRestaurant={likedRestaurant}
+                heartButton={heartButton}
+                setProfile={setProfile}
+              />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/delete-profile"
+          element={
+            <RequireAuth user={user}>
+              <DeleteProfile
                 setRestaurants={setRestaurants}
                 user={user}
                 msgAlert={msgAlert}
