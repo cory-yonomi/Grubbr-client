@@ -133,8 +133,8 @@ const App = () => {
 		  profileCall(user._id)
 	  ])
       .then((resp) => {
-        console.log('promise.all response: \n', resp)
-        setLikedRestaurant(resp[0].data)
+        console.log('promise.all response: \n', resp);
+        setLikedRestaurant(resp[0].data);
       });
   };
 
@@ -158,11 +158,13 @@ const App = () => {
       <div className={index === currentRest ? "r active" : "r"} key={index}>
         {index === currentRest && (
           <div className="restaurantInfoDiv">
+            <div className="mapImageDiv">
             <img
               src={r.image_url}
               alt="restaurant-images"
-              className="mapImage"
+              className="mappedImage"
             />
+            </div>
             <h1>{r.name}</h1>
             {/* <h3>{r.categories.title}</h3> */}
             Cuisine: {mapRestaurantCategories}
