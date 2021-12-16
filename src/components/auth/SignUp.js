@@ -1,13 +1,16 @@
-import '../css/SignUp.css'
+import "../css/SignUp.css";
 // import React, { Component } from 'react'
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { signUp, signIn } from '../../api/auth'
-import messages from '../shared/AutoDismissAlert/messages'
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { signUp, signIn } from "../../api/auth";
+import messages from "../shared/AutoDismissAlert/messages";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+
 import axios from "axios";
 const SignUp = (props) => {
+
     // constructor(props) {
     // 	super(props)
     // 	this.state = {
