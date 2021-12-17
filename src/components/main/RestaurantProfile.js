@@ -1,6 +1,6 @@
 // import axios from 'axios'
 // import { useEffect } from 'react'
-// import '../css/RestaurantProfile.css'
+import '../css/RestaurantProfile.css'
 // import CreateComment from './CreateComment'
 
 // const RestaurantProfile = (props) => {
