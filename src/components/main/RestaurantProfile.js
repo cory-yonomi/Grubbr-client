@@ -5,28 +5,26 @@ import CreateComment from './CreateComment'
 
 const RestaurantProfile = (props) => {
     const restaurantCategories = props.likedRestaurant.categories
-    const mapCategories = console.log(props.likedRestaurant)
+    const mapCategories = console.log(props.likedRestaurant) 
 
-    const mapUsers = 
+    // useEffect(() => {
+    //     const ids = props.likedRestaurant.users.map(user => {
+    //         console.log('user ar', user)
+    //         return user
+    //     })
 
-    useEffect(() => {
-        const ids = props.likedRestaurant.users.map(user => {
-            console.log('user ar', user)
-            return user
-        })
-
-        axios.get(`http://localhost:8000/profile/${props.user._id}`, {
-            headers: {
-                "Authorization": `Bearer ${props.user.token}`
-            }
-        },
-            {
-                body: {
-                    userIds: ids
-                }
-            }
-       )
-    }, [])
+    //     axios.get(`http://localhost:8000/profile/${props.user._id}`, {
+    //         headers: {
+    //             "Authorization": `Bearer ${props.user.token}`
+    //         }
+    //     },
+    //         {
+    //             body: {
+    //                 userIds: ids
+    //             }
+    //         }
+    //    )
+    // }, [])
 
     return (
 
@@ -50,7 +48,7 @@ const RestaurantProfile = (props) => {
             </div>
             <div className='othersReview'>
                 <h3>Restaurant Reviews From Other Users:</h3>
-                <CreateComment comment={props.likedRestaurant.comments[0]}/>
+                {/* <CreateComment comment={props.likedRestaurant.comments[0]}/> */}
             </div>
             </div>
             </div>
