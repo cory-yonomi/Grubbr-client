@@ -1,0 +1,15 @@
+.deleteProfile {
+background-image: url('../images/background.jpeg');
+background-size: cover;
+height: 100vh;
+text-align: center;
+padding-top: 5%;
+}
+
+.deleteProfile button {
+    margin-top: 25px;
+    background-color: #E7D9EA;
+    border-radius: 20px;
+    padding: 1% 10%;
+    margin: 5px;
+}
