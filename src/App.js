@@ -43,7 +43,7 @@ const App = () => {
   const [currentRest, setCurrentRest] = useState(0);
   const [likedRestaurant, setLikedRestaurant] = useState({});
   const [comment, setComment] = useState({})
-  const [restaurantLikers, setRestaurantLikers] = useState([])
+  const [restaurantLikers, setRestaurantLikers] = useState([{}])
 
   console.log("user in app", user);
   console.log("message alerts", msgAlerts);
@@ -153,9 +153,9 @@ const App = () => {
       .then((resp) => {
         console.log('promise.all response: \n', resp);
         setLikedRestaurant(resp[0].data);
-        setRestaurantLikers(resp[1].data.userId)
+        setRestaurantLikers(profile)
         console.log('liked rest users', restaurantLikers)
-        console.log('liked rest!!!', resp[1].data.userId)
+        console.log('liked rest!!!', profile)
       });
   };
 
