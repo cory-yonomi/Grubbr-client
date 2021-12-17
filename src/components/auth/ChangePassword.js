@@ -1,3 +1,4 @@
+import '../css/ChangePassword.css'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -79,9 +80,9 @@ const ChangePassword = (props) => {
                             onChange={e => setNewPassword(e.target.value)}
                         />
                     </Form.Group>
-                    <Button variant='primary' type='submit'>
+                    <button className='primary' type='submit'>
                         Submit
-                    </Button>
+                    </button>
                 </Form>
             </div>
         </div>
