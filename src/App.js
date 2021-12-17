@@ -155,9 +155,9 @@ const App = () => {
       profileCall(user._id)
     ])
       .then((resp) => {
-        console.log('promise.all response: \n', resp);
-        setLikedRestaurant(resp[0].data);
-        setRestaurantLikers(resp[1].data.userId)
+        console.log('promise.all response: \n', resp)
+        setLikedRestaurant(resp[0].data.restaurant)
+        setRestaurantLikers(resp[0].data.usersArray)
         console.log('liked rest users', restaurantLikers)
         console.log('liked rest!!!', resp[1].data.userId)
       });
