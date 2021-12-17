@@ -21,6 +21,7 @@ import UserProfile from "./components/main/UserProfile";
 import CreateProfile from "./components/main/CreateProfile";
 import EditProfile from "./components/main/EditProfile";
 import DeleteProfile from "./components/main/DeleteProfile";
+import apiUrl from "./apiConfig";
 
 import axios from "axios";
 require("dotenv").config();
@@ -42,7 +43,7 @@ const App = () => {
   // sets current restaurant for the slideshow
   const [currentRest, setCurrentRest] = useState(0);
   const [likedRestaurant, setLikedRestaurant] = useState({});
-  const [comment, setComment] = useState({})
+  const [comment, setComment] = useState({body: '', userId: null})
   const [restaurantLikers, setRestaurantLikers] = useState([])
 
   console.log("user in app", user);
@@ -68,9 +69,10 @@ const App = () => {
 
   const postComment = (e) => {
     e.preventDefault()
-    return axios.post(`http://localhost:8000/comments/${restaurants[currentRest].id}`,
+    return axios.post(`${apiUrl}/comments/${restaurants[currentRest].id}`,
       {
-        comment: comment,
+		  comment: comment,
+		  restaurant: likedRestaurant
       },
       {
         headers: {
@@ -82,7 +84,7 @@ const App = () => {
 
   const restaurantCall = () => {
     return axios.post(
-      `http://localhost:8000/restaurants`,
+      `${apiUrl}/restaurants`,
       {
         name: restaurants[currentRest].name,
         location: restaurants[currentRest].location.display_address,
@@ -103,7 +105,7 @@ const App = () => {
 
   const profileCall = (userId) => {
     return axios.patch(
-      `http://localhost:8000/profile/${userId}/liked`,
+      `${apiUrl}/profile/${userId}/liked`,
       {
         restaurant: restaurants[currentRest].id,
       },
@@ -118,7 +120,7 @@ const App = () => {
   // get ONE users SPECIFIC profile
   const profileName = () => {
     axios
-      .get(`http://localhost:8000/profile/:profileId`, {
+      .get(`${apiUrl}/profile/:profileId`, {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },

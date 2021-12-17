@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import apiUrl from '../../apiConfig'
 import '../css/RestaurantProfile.css'
 import CreateComment from './CreateComment'
 
@@ -16,7 +17,7 @@ const RestaurantProfile = (props) => {
     useEffect(() => {
   
 
-        axios.get(`http://localhost:8000/profile/restaurantLikers`, {
+        axios.get(`${apiUrl}/profile/restaurantLikers`, {
             headers: {
                 "Authorization": `Bearer ${props.user.token}`
             }
@@ -52,7 +53,7 @@ const RestaurantProfile = (props) => {
             </div>
             <div className='othersReview'>
                 <h3>Restaurant Reviews From Other Users:</h3>
-                <CreateComment comment={props.postComment}/>
+                    <CreateComment comment={props.postComment} user={props.user} setComment={props.setComment}/>
             </div>
             </div>
             </div>
