@@ -53,7 +53,7 @@ const RestaurantProfile = (props) => {
             </div>
             <div className='othersReview'>
                 <h3>Restaurant Reviews From Other Users:</h3>
-                <CreateComment comment={props.postComment}/>
+                    <CreateComment comment={props.postComment} user={props.user} setComment={props.setComment}/>
             </div>
             </div>
             </div>
