@@ -69,17 +69,21 @@ const App = () => {
 
   const postComment = (e) => {
     e.preventDefault()
-    return axios.post(`${apiUrl}/comments/${restaurants[currentRest].id}`,
-      {
-        comment: comment,
-      },
-      {
-        headers: {
-          "Authorization": `Bearer ${user.token}`
-        }
+  return axios.post(`http://localhost:8000/comments/${restaurants[currentRest].id}`,
+    {
+      comment: comment,
+    },
+    {
+      headers: {
+        "Authorization": `Bearer ${user.token}`
       }
-    )
-  }
+    }
+  )
+  .then(restComment => {
+    console.log('comment created', restComment)
+  })
+  .catch(err => console.log(err))
+}
 
   const restaurantCall = () => {
     return axios.post(
@@ -173,7 +177,7 @@ const App = () => {
   // maps through restaurants from Yelp API
   const mapRestaurants = restaurants.map((r, index) => {
     // console.log('mapping rs', r)
-    console.log("this is restaurant", r.title);
+    // console.log("this is restaurant", r.title);
     const mapRestaurantCategories = r.categories.map((c) => {
       return <p>{c.title}, </p>;
     });
