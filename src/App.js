@@ -17,7 +17,7 @@ import RestaurantSlide from "./components/main/RestaurantSlide";
 import RestaurantProfile from "./components/main/RestaurantProfile";
 import SearchZipcode from "./components/main/SearchZipcode";
 import "./components/css/RestaurantSlide.css";
-import UserProfile from './components/main/UserProfile'
+import UserProfile from "./components/main/UserProfile";
 import CreateProfile from "./components/main/CreateProfile";
 import EditProfile from "./components/main/EditProfile";
 import DeleteProfile from "./components/main/DeleteProfile";
@@ -28,11 +28,11 @@ require("dotenv").config();
 //CSS Styling
 const hoursStyle = {
   color: "Yellow",
-  fontWeight: 'bold'
+  fontWeight: "bold",
 };
 const ratingStyle = {
-  fontWeight: 'bold'
-}
+  fontWeight: "bold",
+};
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -42,7 +42,7 @@ const App = () => {
   // sets current restaurant for the slideshow
   const [currentRest, setCurrentRest] = useState(0);
   const [likedRestaurant, setLikedRestaurant] = useState({});
-  const [comment, setComment] = useState([])
+  const [comment, setComment] = useState({})
 
   console.log("user in app", user);
   console.log("message alerts", msgAlerts);
@@ -64,8 +64,24 @@ const App = () => {
     });
   };
 
+
+  const postComment = (e) => {
+    e.preventDefault()
+    return axios.post(`http://localhost:8000/comments/${restaurants[currentRest].id}`,
+      {
+        comment: comment,
+      },
+      {
+        headers: {
+          "Authorization": `Bearer ${user.token}`
+        }
+      }
+    )
+  }
+
   const restaurantCall = () => {
-    return axios.post(`http://localhost:8000/restaurants`,
+    return axios.post(
+      `http://localhost:8000/restaurants`,
       {
         name: restaurants[currentRest].name,
         location: restaurants[currentRest].location.display_address,
@@ -74,42 +90,44 @@ const App = () => {
         image_url: restaurants[currentRest].image_url,
         rating: restaurants[currentRest].rating,
         price: restaurants[currentRest].price,
-        user: [user._id]
+        user: [user._id],
       },
       {
         headers: {
-          "Authorization": `Bearer ${user.token}`
-        }
+          Authorization: `Bearer ${user.token}`,
+        },
       }
-    )
-  }
+    );
+  };
 
   const profileCall = (userId) => {
-    return axios.patch(`http://localhost:8000/profile/${userId}/liked`,
+    return axios.patch(
+      `http://localhost:8000/profile/${userId}/liked`,
       {
-        restaurant: restaurants[currentRest].id
+        restaurant: restaurants[currentRest].id,
       },
       {
         headers: {
-          "Authorization": `Bearer ${user.token}`
-        }
+          Authorization: `Bearer ${user.token}`,
+        },
       }
-    )
-  }
+    );
+  };
 
   // get ONE users SPECIFIC profile
   const profileName = () => {
-    axios.get(`http://localhost:8000/profile/:profileId`, {
-      headers: {
-        "Authorization": `Bearer ${user.token}`
-      }
-    })
-      .then(profile => {
-        console.log('this is the ONE USERS profile', profile)
-        setProfile(profile.data.firstName)
+    axios
+      .get(`http://localhost:8000/profile/:profileId`, {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
       })
-      .catch(err => console.log(err))
-  }
+      .then((profile) => {
+        console.log("this is the ONE USERS profile", profile);
+        setProfile(profile.data.firstName);
+      })
+      .catch((err) => console.log(err));
+  };
 
   const heartButton = () => {
     // axios.post(
@@ -130,14 +148,10 @@ const App = () => {
     //       },
     //     }
     //   )
-    Promise.all([
-      restaurantCall(),
-      profileCall(user._id)
-    ])
-      .then((resp) => {
-        console.log('promise.all response: \n', resp);
-        setLikedRestaurant(resp[0].data);
-      });
+    Promise.all([restaurantCall(), profileCall(user._id)]).then((resp) => {
+      console.log("promise.all response: \n", resp);
+      setLikedRestaurant(resp[0].data);
+    });
   };
 
   // maps yelp restaurants in a slideshow
@@ -153,28 +167,6 @@ const App = () => {
     const mapRestaurantCategories = r.categories.map((c) => {
       return <p>{c.title}, </p>;
     });
-
-
-    // submitting a comment for a restaurant
-    // const commentPost = (e) => {
-    //   e.preventDefault()
-
-    //   axios.post('http://localhost:8000/comments/:restaurantId', {
-    //     comment: comment
-    //   },
-    //     {
-    //       headers: {
-    //         "Authorization": `Bearer ${user.token}`
-    //       }
-    //     }
-    //   )
-    //     .then(comment => {
-    //       console.log('here is comment', comment)
-    //       setComment(comment)
-    //     })
-    //     .catch(err => console.log(err))
-    // }
-
 
 
     return (
@@ -194,7 +186,7 @@ const App = () => {
             <br />
             Address: {r.location.display_address}
             <br />
-            <p style={hoursStyle}>{r.is_closed ? 'Closed' : 'Open'}</p>
+            <p style={hoursStyle}>{r.is_closed ? "Closed" : "Open"}</p>
             <br />
             <p style={ratingStyle}>Rating: {r.rating}</p>
           </div>
@@ -260,6 +252,8 @@ const App = () => {
                 mapRestaurants={mapRestaurants}
                 likedRestaurant={likedRestaurant}
                 heartButton={heartButton}
+                postComment={postComment}
+                setComment={setComment}
               />
             </RequireAuth>
           }

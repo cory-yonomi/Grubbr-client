@@ -1,0 +1,18 @@
+.row {
+    color: whitesmoke;
+    text-align: center;
+    padding: 15%;
+}
+
+.signOut h2 {
+    color: whitesmoke;
+}
+
+.signOut button {
+    color: black;
+    margin: 15px 8px 0px 8px;
+    background-color: #E7D9EA;
+    border-radius: 20px;
+    padding: 1% 10%;
+
+}

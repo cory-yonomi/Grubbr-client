@@ -1,0 +1,18 @@
+.userProfile {
+    background-image: url('../images/background.jpeg');
+    background-size: cover;
+    height: 100vh;
+   text-align: center;
+}
+
+.UserInfo {
+    background-color: rgba(62, 33, 93, 0.7);
+    color: white;
+    width: 60%;
+    display: inline-block;
+    border-radius: 20px;
+}
+
+.buttonStyle {
+    margin: 2%;
+}
