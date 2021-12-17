@@ -7,6 +7,8 @@ const CreateProfile = (props) => {
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [zipcode, setZipcode] = useState('')
+    const [bio, setBio] = useState('')
+    const [photo, setPhoto] = useState('')
 
     const navigate = useNavigate()
 
@@ -28,6 +30,16 @@ const CreateProfile = (props) => {
         setZipcode(e.target.value)
     }
 
+    const bioInput = (e) => {
+        // console.log('input value first name', e.target.value)
+        setBio(e.target.value)
+    }
+
+    const photoInput = (e) => {
+        // console.log('input value first name', e.target.value)
+        setPhoto(e.target.value)
+    }
+
 
     const submitProfile = (e) => {
         e.preventDefault()
@@ -37,6 +49,8 @@ const CreateProfile = (props) => {
                 firstName: firstName,
                 lastName: lastName,
                 zipCode: zipcode,
+                bio: bio,
+                photo: photo,
             },
                 {
                     headers: {
@@ -69,6 +83,10 @@ const CreateProfile = (props) => {
                 <input type="text" onChange={lastNameInput} />
                 <label htmlFor="Zip Code">Zip Code:</label>
                 <input type="number" onChange={zipCodeInput} />
+                <label htmlFor="Bio">Bio:</label>
+                <input type="text" onChange={bioInput} />
+                <label htmlFor="Profile Photo">Profile Photo:</label>
+                <input type="text" onChange={photoInput} />
                 <button className='submitProfile' onClick={submitProfile}>Submit</button>
             </form>
         </div>
