@@ -1,0 +1,11 @@
+#createProfile {
+    background-image: url('../images/background.jpeg');
+    background-size: cover;
+    height: 100vh;
+    padding: 120px;
+}
+
+.createForm {
+    color: whitesmoke;
+    text-align: center;
+}

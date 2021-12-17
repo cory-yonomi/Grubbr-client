@@ -79,7 +79,10 @@ const App = () => {
           "Authorization": `Bearer ${user.token}`
         }
       }
-    )
+	  )
+		.then(restaurant => {
+		  setLikedRestaurant(restaurant.data)
+	  })
   }
 
   const restaurantCall = () => {
