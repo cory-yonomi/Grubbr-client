@@ -43,6 +43,7 @@ const App = () => {
   const [currentRest, setCurrentRest] = useState(0);
   const [likedRestaurant, setLikedRestaurant] = useState({});
   const [comment, setComment] = useState({})
+  const [restaurantLikers, setRestaurantLikers] = useState([])
 
   console.log("user in app", user);
   console.log("message alerts", msgAlerts);
@@ -148,10 +149,18 @@ const App = () => {
     //       },
     //     }
     //   )
-    Promise.all([restaurantCall(), profileCall(user._id)]).then((resp) => {
-      console.log("promise.all response: \n", resp);
-      setLikedRestaurant(resp[0].data);
-    });
+
+    Promise.all([
+      restaurantCall(),
+      profileCall(user._id)
+    ])
+      .then((resp) => {
+        console.log('promise.all response: \n', resp)
+        setLikedRestaurant(resp[0].data.restaurant)
+        setRestaurantLikers(resp[0].data.usersArray)
+        console.log('liked rest users', restaurantLikers)
+        console.log('liked rest!!!', resp[1].data.userId)
+      });
   };
 
   // maps yelp restaurants in a slideshow
@@ -167,6 +176,8 @@ const App = () => {
     const mapRestaurantCategories = r.categories.map((c) => {
       return <p>{c.title}, </p>;
     });
+
+  
 
 
     return (
@@ -254,6 +265,7 @@ const App = () => {
                 heartButton={heartButton}
                 postComment={postComment}
                 setComment={setComment}
+                restaurantLikers={restaurantLikers}
               />
             </RequireAuth>
           }
