@@ -1,3 +1,4 @@
+import '../css/EditProfile.css'
 import axios from "axios"
 import { useState } from "react"
 import { useNavigate } from 'react-router-dom'
@@ -76,6 +77,7 @@ const EditProfile = (props) => {
             <form className='editForm'>
                 <h1>Edit Profile</h1>
                 <label htmlFor="First Name">First Name: </label>
+
                 <input type="text" onChange={firstNameInput} />
                 <label htmlFor="Last Name">Last Name: </label>
                 <input type="text" onChange={lastNameInput} />
@@ -85,6 +87,7 @@ const EditProfile = (props) => {
                 <input type="text" onChange={bioInput} />
                 <label htmlFor="Profile Photo">Profile Photo:</label>
                 <input type="text" onChange={photoInput} />
+
                 <button className='submitProfile' onClick={submitProfile}>Submit</button>
             </form>
             </div>
