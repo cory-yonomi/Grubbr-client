@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import apiUrl from '../../apiConfig'
 import '../css/RestaurantProfile.css'
 import CreateComment from './CreateComment'
 
@@ -16,7 +17,7 @@ const RestaurantProfile = (props) => {
     useEffect(() => {
   
 
-        axios.get(`http://localhost:8000/profile/restaurantLikers`, {
+        axios.get(`${apiUrl}/profile/restaurantLikers`, {
             headers: {
                 "Authorization": `Bearer ${props.user.token}`
             }

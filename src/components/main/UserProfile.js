@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import '../css/UserProfile.css'
+import apiUrl from '../apiConfig'
 
 const userProfileContent = {
   backgroundColor: `rgba(93, 130, 51, .8)`,
@@ -22,7 +23,7 @@ const UserProfile = (props) => {
 
   useEffect(() => {
       // get ONE users SPECIFIC profile
-      axios.get(`http://localhost:8000/profile/${props.user._id}`, {
+      axios.get(`${apiUrl}/profile/${props.user._id}`, {
           headers: {
             Authorization: `Bearer ${props.user.token}`,
           },
