@@ -85,7 +85,9 @@ const RestaurantProfile = (props) => {
             </div>
             <div className='othersReview'>
                 <h3>Restaurant Reviews From Other Users:</h3>
+
                 <CreateComment comment={props.postComment} setComment={props.setComment} user={props.user}/>
+
             </div>
             </div>
         </div>

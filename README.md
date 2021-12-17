@@ -1,15 +1,14 @@
 # Grubber 
 ## "The Tinder of Food"
 
-## Your team name
+## Team name
 Da Grubbrs Band
 
 ## Each team member's assigned role
-Cory - Turtle - Creating API and Linking Restaurant
-Lindsay - Llama- Front, React work, Routes
-Eddy - Liger - Research for API w/ Turtle
-Ana - Zoo Keeper - Front End, Wireframe, READme
-Your elevator pitch for your website
+- Cory Sorel - Turtle - Creating API and Linking Restaurants, Backend, React
+- Lindsay  Haigh- Llama- Back End, Routes, React, Routes
+- Eduardo Ferreira - Liger - Front End, React
+- Anais Veras - Zoo Keeper - Front End, Wireframe, READme, React
 
 ## Elevator Pitch
 When “Restaurant goers” can’t decide what they want to eat, Grubbr can help them swipe through restaurants nearby or in searched cities with your friends. The user will be able to add friends that have common restaurants and start chatting or set up a date!
@@ -19,11 +18,10 @@ The User: Anyone who likes to go to restaurants, especially people who like to t
 Well, have you ever been with a partner/friend and you get into an argument because you both cant figure out what to eat? Grubbr can help people make friends based on the same types of restaurants they like.
 
 ## Wireframe
-![Grubbr (1)](https://user-images.githubusercontent.com/78924263/145644970-a77836fd-5d43-40c1-b99a-6a4762e25d26.jpg)
 
-## How
-“BY CODING…IDK” - Eddy
+![Grubber Wireframe](https://user-images.githubusercontent.com/78924263/146571800-2a8fd0a4-4be3-492e-b8d9-d88a60961e71.jpg)
 
+## Plan
 ![ERD_and_site_flow](https://user-images.githubusercontent.com/78924263/145642518-055b132d-a2f4-46da-9948-568099b80896.PNG)
 
 - User:
@@ -39,16 +37,18 @@ Well, have you ever been with a partner/friend and you get into an argument beca
 Mongoose, Express.js, React, Node.js, MongoDB
 
 ## What your current status is on the project
-Discussed what the app does in user experience
-Designed what pages and routes of the pages
-In process of designing wireframe
+- Discussed what the app does in user experience
+- Designed what pages and routes of the pages
+- In process of designing wireframe
 
 ## What your plan is for each day of the project work time, preferably broken down into daily sprints.
-First: Getting API built and making sure that Yelp API is giving us the info needed
-Second: React app - Build and connect components
-Third: React finishing - Testing 
-Fourth: Bug squashing - Designing
+- First: Getting API built and making sure that Yelp API is giving us the info needed
+- Second: React app - Build and connect components
+- Third: React finishing - Testing 
+- Fourth: Bug squashing - Designing
 
 ## Resources
-Yelp API- Yelp API
+- Yelp Fusion API
     - https://fusion.yelp.com/
+- Grubbr's Server GitHub Code
+    - https://github.com/ornery-mouse/Grubbr-server
