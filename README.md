@@ -22,7 +22,8 @@ Well, have you ever been with a partner/friend and you get into an argument beca
 ![Grubber Wireframe](https://user-images.githubusercontent.com/78924263/146571800-2a8fd0a4-4be3-492e-b8d9-d88a60961e71.jpg)
 
 ## Plan
-![ERD_and_site_flow](https://user-images.githubusercontent.com/78924263/145642518-055b132d-a2f4-46da-9948-568099b80896.PNG)
+
+![Screen Shot 2021-12-17 at 6 09 26 PM](https://user-images.githubusercontent.com/78924263/146617973-f38a7277-1cba-4dd0-816d-35c88f887eab.png)
 
 - User:
      - When the user first goes to the app they will have to sign up, they will use information like their full name, email, password, ZipCode-required, preference (Vegan, vegetarian, meat-eater etc.), an array of visited restaurants, an array of liked restaurants and an array of “matches”
@@ -52,3 +53,6 @@ Mongoose, Express.js, React, Node.js, MongoDB
     - https://fusion.yelp.com/
 - Grubbr's Server GitHub Code
     - https://github.com/ornery-mouse/Grubbr-server
+
+# Deployed Site
+https://grubbr.herokuapp.com/
