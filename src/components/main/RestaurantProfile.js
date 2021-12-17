@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-// import axios from 'axios'
-// import { useEffect } from 'react'
-import '../css/RestaurantProfile.css'
-// import CreateComment from './CreateComment'
-=======
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import '../css/RestaurantProfile.css'
 import CreateComment from './CreateComment'
->>>>>>> bb2ad1f3798705108a27a75d730c491c53a955b0
 
 const RestaurantProfile = (props) => {
 
