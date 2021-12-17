@@ -42,7 +42,7 @@ const App = () => {
   // sets current restaurant for the slideshow
   const [currentRest, setCurrentRest] = useState(0);
   const [likedRestaurant, setLikedRestaurant] = useState({});
-  const [comment, setComment] = useState([])
+  const [comment, setComment] = useState({})
 
   console.log("user in app", user);
   console.log("message alerts", msgAlerts);
@@ -63,6 +63,21 @@ const App = () => {
       return [{ heading, message, variant, id }];
     });
   };
+
+
+  const postComment = (e) => {
+    e.preventDefault()
+    return axios.post(`http://localhost:8000/comments/${restaurants[currentRest].id}`,
+      {
+        comment: comment,
+      },
+      {
+        headers: {
+          "Authorization": `Bearer ${user.token}`
+        }
+      }
+    )
+  }
 
   const restaurantCall = () => {
     return axios.post(
@@ -154,28 +169,6 @@ const App = () => {
     });
 
 
-    // submitting a comment for a restaurant
-    // const commentPost = (e) => {
-    //   e.preventDefault()
-
-    //   axios.post('http://localhost:8000/comments/:restaurantId', {
-    //     comment: comment
-    //   },
-    //     {
-    //       headers: {
-    //         "Authorization": `Bearer ${user.token}`
-    //       }
-    //     }
-    //   )
-    //     .then(comment => {
-    //       console.log('here is comment', comment)
-    //       setComment(comment)
-    //     })
-    //     .catch(err => console.log(err))
-    // }
-
-
-
     return (
       <div className={index === currentRest ? "r active" : "r"} key={index}>
         {index === currentRest && (
@@ -259,6 +252,8 @@ const App = () => {
                 mapRestaurants={mapRestaurants}
                 likedRestaurant={likedRestaurant}
                 heartButton={heartButton}
+                postComment={postComment}
+                setComment={setComment}
               />
             </RequireAuth>
           }
