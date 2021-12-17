@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import '../css/UserProfile.css'
-import apiUrl from '../apiConfig'
+import apiUrl from '../../apiConfig'
 
 const userProfileContent = {
   backgroundColor: `rgba(93, 130, 51, .8)`,
