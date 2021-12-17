@@ -42,6 +42,7 @@ const App = () => {
   // sets current restaurant for the slideshow
   const [currentRest, setCurrentRest] = useState(0);
   const [likedRestaurant, setLikedRestaurant] = useState({});
+  const [comment, setComment] = useState([])
 
   console.log("user in app", user);
   console.log("message alerts", msgAlerts);
@@ -148,10 +149,31 @@ const App = () => {
   // maps through restaurants from Yelp API
   const mapRestaurants = restaurants.map((r, index) => {
     // console.log('mapping rs', r)
-    console.log("this is restaurant", r.categories.title);
+    console.log("this is restaurant", r.title);
     const mapRestaurantCategories = r.categories.map((c) => {
       return <p>{c.title}, </p>;
     });
+
+
+    // submitting a comment for a restaurant
+    // const commentPost = (e) => {
+    //   e.preventDefault()
+
+    //   axios.post('http://localhost:8000/comments/:restaurantId', {
+    //     comment: comment
+    //   },
+    //     {
+    //       headers: {
+    //         "Authorization": `Bearer ${user.token}`
+    //       }
+    //     }
+    //   )
+    //     .then(comment => {
+    //       console.log('here is comment', comment)
+    //       setComment(comment)
+    //     })
+    //     .catch(err => console.log(err))
+    // }
 
 
 

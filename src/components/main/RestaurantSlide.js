@@ -14,7 +14,7 @@ const ButtonStyle = {
 const backgroundColor = {
     backgroundColor: `rgba(93, 130, 51, .8)`,
     height: '100vh',
-    padding: '5%'
+    padding: '2.5%'
 }
 
 const RestaurantSlide = (props) => {
