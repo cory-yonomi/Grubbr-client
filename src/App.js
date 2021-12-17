@@ -69,7 +69,7 @@ const App = () => {
 
   const postComment = (e) => {
     e.preventDefault()
-    return axios.post(`${apiUrl}/comments/${restaurants[currentRest].id}`,
+    axios.post(`${apiUrl}/comments/${restaurants[currentRest].id}`,
       {
 		  comment: comment,
 		  restaurant: likedRestaurant
@@ -79,7 +79,10 @@ const App = () => {
           "Authorization": `Bearer ${user.token}`
         }
       }
-    )
+	  )
+		.then(restaurant => {
+		  setLikedRestaurant(restaurant.data)
+	  })
   }
 
   const restaurantCall = () => {
