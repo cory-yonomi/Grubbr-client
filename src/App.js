@@ -69,23 +69,18 @@ const App = () => {
 
   const postComment = (e) => {
     e.preventDefault()
-    return axios.post(`${apiUrl}/comments/${restaurants[currentRest].id}`,
+    axios.post(`${apiUrl}/comments/${restaurants[currentRest].id}`,
       {
-		  comment: comment,
-		  restaurant: likedRestaurant
+          comment: comment,
+          restaurant: likedRestaurant
       },
       {
         headers: {
           "Authorization": `Bearer ${user.token}`
         }
       }
-    }
-  )
-  .then(restComment => {
-    console.log('comment created', restComment)
-  })
-  .catch(err => console.log(err))
-}
+    )
+  }
 
   const restaurantCall = () => {
     return axios.post(
@@ -165,8 +160,8 @@ const App = () => {
         console.log('promise.all response: \n', resp)
         setLikedRestaurant(resp[0].data.restaurant)
         setRestaurantLikers(resp[0].data.usersArray)
-        console.log('liked rest users', restaurantLikers)
-        console.log('liked rest!!!', profile)
+        // console.log('liked rest users', restaurantLikers)
+        // console.log('liked rest!!!', profile)
       });
   };
 
