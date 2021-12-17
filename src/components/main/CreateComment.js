@@ -6,7 +6,11 @@ const CreateComment = (props) => {
 
 
     const inputComment = (e) => {
-        props.setComment(e.target.value)
+
+        props.setComment({
+            body: e.target.value,
+            userId: props.user._id
+        })
     }
 
 
