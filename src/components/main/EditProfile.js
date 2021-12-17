@@ -2,6 +2,7 @@ import '../css/EditProfile.css'
 import axios from "axios"
 import { useState } from "react"
 import { useNavigate } from 'react-router-dom'
+import apiUrl from '../../apiConfig'
 
 const EditProfile = (props) => {
     const [firstName, setFirstName] = useState('')
@@ -45,7 +46,7 @@ const EditProfile = (props) => {
         e.preventDefault()
 
         if (zipcode.length === 5) {
-            axios.patch(`http://localhost:8000/profile/${props.user._id}`, {
+            axios.patch(`${apiUrl}/profile/${props.user._id}`, {
                 firstName: firstName,
                 lastName: lastName,
                 zipCode: zipcode,
