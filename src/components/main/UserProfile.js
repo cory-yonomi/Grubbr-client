@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "../css/UserProfile.css";
 
 const userProfileContent = {
   backgroundColor: `rgba(93, 130, 51, .8)`,
@@ -41,7 +40,7 @@ const UserProfile = (props) => {
         <div className='UserInfo'>
           <h1>{user.firstName} {user.lastName}</h1>
           <h5 className=''>About Me:</h5>
-          <p>California weeb looking for a good time</p>
+          <p>{user.bio}</p>
         </div>
         <div className='buttonStyle'>
           <Link to="/edit-profile">

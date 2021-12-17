@@ -1,0 +1,23 @@
+.editProfile {
+    background-image: url('../images/background.jpeg');
+    background-size: cover;
+    height: 100vh;
+    /* width: 100%; */
+}
+
+.editForm h1 {
+    font-weight: bold;
+}
+
+.editForm {
+color: whitesmoke;
+text-align: center;
+padding: 15%;
+}
+
+.submitProfile {
+    margin-top: 25px;
+    background-color: #E7D9EA;
+    border-radius: 20px;
+    padding: 1% 10%;
+}

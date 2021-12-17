@@ -1,3 +1,4 @@
+import '../css/DeleteProfile.css'
 import axios from "axios"
 import { useState } from "react"
 import { useNavigate } from 'react-router-dom'
@@ -25,11 +26,10 @@ const DeleteProfile = (props) => {
     }
 
     return (
-        <form>
-            <label htmlFor="">Are you sure you want to delete your profile?</label>
+        <form className='deleteProfile'>
+            <h2>Are you sure you want to delete your profile?</h2>
             <br />
             <button className='deleteButton' onClick={deleteProfile}>Yes</button>
-            <br />
             <Link to='/profile'><button className='noButton'>No</button></Link>
         </form>
     )
