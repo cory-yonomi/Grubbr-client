@@ -17,7 +17,7 @@ import RestaurantSlide from "./components/main/RestaurantSlide";
 import RestaurantProfile from "./components/main/RestaurantProfile";
 import SearchZipcode from "./components/main/SearchZipcode";
 import "./components/css/RestaurantSlide.css";
-import UserProfile from './components/main/UserProfile'
+import UserProfile from "./components/main/UserProfile";
 import CreateProfile from "./components/main/CreateProfile";
 import EditProfile from "./components/main/EditProfile";
 import DeleteProfile from "./components/main/DeleteProfile";
@@ -28,11 +28,11 @@ require("dotenv").config();
 //CSS Styling
 const hoursStyle = {
   color: "Yellow",
-  fontWeight: 'bold'
+  fontWeight: "bold",
 };
 const ratingStyle = {
-  fontWeight: 'bold'
-}
+  fontWeight: "bold",
+};
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -81,7 +81,8 @@ const App = () => {
   }
 
   const restaurantCall = () => {
-    return axios.post(`http://localhost:8000/restaurants`,
+    return axios.post(
+      `http://localhost:8000/restaurants`,
       {
         name: restaurants[currentRest].name,
         location: restaurants[currentRest].location.display_address,
@@ -90,42 +91,44 @@ const App = () => {
         image_url: restaurants[currentRest].image_url,
         rating: restaurants[currentRest].rating,
         price: restaurants[currentRest].price,
-        user: [user._id]
+        user: [user._id],
       },
       {
         headers: {
-          "Authorization": `Bearer ${user.token}`
-        }
+          Authorization: `Bearer ${user.token}`,
+        },
       }
-    )
-  }
+    );
+  };
 
   const profileCall = (userId) => {
-    return axios.patch(`http://localhost:8000/profile/${userId}/liked`,
+    return axios.patch(
+      `http://localhost:8000/profile/${userId}/liked`,
       {
-        restaurant: restaurants[currentRest].id
+        restaurant: restaurants[currentRest].id,
       },
       {
         headers: {
-          "Authorization": `Bearer ${user.token}`
-        }
+          Authorization: `Bearer ${user.token}`,
+        },
       }
-    )
-  }
+    );
+  };
 
   // get ONE users SPECIFIC profile
   const profileName = () => {
-    axios.get(`http://localhost:8000/profile/:profileId`, {
-      headers: {
-        "Authorization": `Bearer ${user.token}`
-      }
-    })
-      .then(profile => {
-        console.log('this is the ONE USERS profile', profile)
-        setProfile(profile.data.firstName)
+    axios
+      .get(`http://localhost:8000/profile/:profileId`, {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
       })
-      .catch(err => console.log(err))
-  }
+      .then((profile) => {
+        console.log("this is the ONE USERS profile", profile);
+        setProfile(profile.data.firstName);
+      })
+      .catch((err) => console.log(err));
+  };
 
   const heartButton = () => {
     // axios.post(
@@ -146,6 +149,7 @@ const App = () => {
     //       },
     //     }
     //   )
+
     Promise.all([
       restaurantCall(),
       profileCall(user._id)
@@ -193,7 +197,7 @@ const App = () => {
             <br />
             Address: {r.location.display_address}
             <br />
-            <p style={hoursStyle}>{r.is_closed ? 'Closed' : 'Open'}</p>
+            <p style={hoursStyle}>{r.is_closed ? "Closed" : "Open"}</p>
             <br />
             <p style={ratingStyle}>Rating: {r.rating}</p>
           </div>
