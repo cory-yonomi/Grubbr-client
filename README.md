@@ -26,7 +26,9 @@ Well, have you ever been with a partner/friend and you get into an argument beca
 ![Screen Shot 2021-12-17 at 6 09 26 PM](https://user-images.githubusercontent.com/78924263/146617973-f38a7277-1cba-4dd0-816d-35c88f887eab.png)
 
 - User:
-     - When the user first goes to the app they will have to sign up, they will use information like their full name, email, password, ZipCode-required, preference (Vegan, vegetarian, meat-eater etc.), an array of visited restaurants, an array of liked restaurants and an array of “matches”
+     - When the user goes to the app they they will an option to 'create an account' or 'log in', if user needs to sign up they will be taken to a 'create profile' page where they would have to put in their informaiton, if the user has an account after signing they will be directed to 'Search by zipcode' page where they would be able to enter a zipcode and search for resturants in that area.
+     - One the 'Restaurant slide'page, the user will look through restaurants that they may like and not like that has some informaiton on the restaurant, name, photo, address, if restaurant is open or not and price
+     - If the user likes a resturant they will be taken to a 'resturant profile' page where they can see more information on the restaurant and can also see comments that other users on Grubbr have made about this resturant as well as other people who liked this same resturant
     - Matches are other users that a user has connected with based on their common restaurants liked
 - Restaurant:
     - The information of the restaurants will be called from the Yelp API, where we will get the name, the address and photos
