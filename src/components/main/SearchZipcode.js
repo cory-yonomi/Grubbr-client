@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useNavigate } from 'react-router-dom'
 import axios from "axios"
 import '../css/SeachZipcode.css'
+import apiUrl from "../../apiConfig"
 
 const backgroundStyle = {
     backgroundColor: `rgba(93, 130, 51, .8)`,
@@ -28,7 +29,7 @@ const SearchZipcode = (props) => {
         // console.log('submit value', input)
         setSubValue(input)
         if (input.length === 5) {
-            axios.get(`http://localhost:8000/restaurants/Yelp/${input}`, {
+            axios.get(`${apiUrl}/restaurants/Yelp/${input}`, {
                 headers: {
                     "Authorization": `Bearer ${props.user.token}`
                 }

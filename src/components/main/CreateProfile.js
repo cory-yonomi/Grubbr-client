@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useState } from "react"
 import { useNavigate } from 'react-router-dom'
+import apiUrl from "../../apiConfig"
 
 const CreateProfile = (props) => {
 
@@ -45,7 +46,7 @@ const CreateProfile = (props) => {
         e.preventDefault()
 
         if (zipcode.length === 5) {
-            axios.post(`http://localhost:8000/profile`, {
+            axios.post(`${apiUrl}/profile`, {
                 firstName: firstName,
                 lastName: lastName,
                 zipCode: zipcode,
