@@ -9,7 +9,7 @@ const CreateComment = (props) => {
 
         props.setComment({
             body: e.target.value,
-            userId: props.user._id
+            user: props.user._id
         })
     }
 
