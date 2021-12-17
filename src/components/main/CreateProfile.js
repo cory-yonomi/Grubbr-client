@@ -1,3 +1,4 @@
+import '../css/CreateProfile.css'
 import axios from "axios"
 import { useState } from "react"
 import { useNavigate } from 'react-router-dom'
@@ -76,18 +77,23 @@ const CreateProfile = (props) => {
     return (
 
         <div id='createProfile'>
-            <form>
-                <label htmlFor="Create Profile">Create Profile:</label>
-                <label htmlFor="First Name">First Name:</label>
+            <form className='createForm'>
+                <h1 htmlFor="Create Profile">Create Profile:</h1>
+                <h3 htmlFor="First Name">First Name: </h3>
                 <input type="text" onChange={firstNameInput} />
-                <label htmlFor="Last Name">Last Name:</label>
+                <br/>
+                <h3 htmlFor="Last Name">Last Name: </h3>
                 <input type="text" onChange={lastNameInput} />
-                <label htmlFor="Zip Code">Zip Code:</label>
+                <br/>
+                <h3 htmlFor="Zip Code">Zip Code: </h3>
                 <input type="number" onChange={zipCodeInput} />
-                <label htmlFor="Bio">Bio:</label>
+                <br/>
+                <h3 htmlFor="Bio">Bio: </h3>
                 <input type="text" onChange={bioInput} />
-                <label htmlFor="Profile Photo">Profile Photo:</label>
+                <br/>
+                <h3 htmlFor="Profile Photo">Profile Photo: </h3>
                 <input type="text" onChange={photoInput} />
+                <br/>
                 <button className='submitProfile' onClick={submitProfile}>Submit</button>
             </form>
         </div>
