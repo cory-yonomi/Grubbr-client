@@ -6,14 +6,18 @@ import CreateComment from './CreateComment'
 
 const RestaurantProfile = (props) => {
 
+    const commentArray = props.likedRestaurant.comments.map(comment => {
+        return <p>{comment.body}</p>
+    })
+
     const restaurantCategories = props.likedRestaurant.categories
     const mapCategories = console.log(props.likedRestaurant)
 
     const mapUsers = props.likedRestaurant.users
     console.log('array of users', props.likedRestaurant.users)
-
+    console.log('likedRestaurant', props.likedRestaurant)
     useEffect(() => {
-  
+
 
         axios.get(`http://localhost:8000/profile/restaurantLikers`, {
             headers: {
@@ -25,8 +29,8 @@ const RestaurantProfile = (props) => {
                     userIds: props.restaurantLikers
                 }
             }
-       )
-       .then(resp => console.log('response!', resp))
+        )
+            .then(resp => console.log('response!', resp))
     }, [])
 
     return (
@@ -46,19 +50,19 @@ const RestaurantProfile = (props) => {
                 <h6>Price Rating: {props.likedRestaurant.price}</h6>
             </div>
             <div className='bottomDiv'>
-            <div className='othersLiked'>
-                <h3>Others Who Liked This Restaurant:</h3>
+                <div className='othersLiked'>
+                    <h3>Others Who Liked This Restaurant:</h3>
+
+                </div>
+                <div className='othersReview'>
+                    <h3>Restaurant Reviews From Other Users:</h3>
+                    <CreateComment comment={props.postComment} user={props.user} setComment={props.setComment} />
+                    <div>
+                        {commentArray}
+                    </div>
+                </div>
             </div>
-            <div className='othersReview'>
-                <h3>Restaurant Reviews From Other Users:</h3>
-                    {/* <p>{props.likedRestaurant.comments[2].body}</p> */}
-                    <CreateComment 
-                    comment={props.postComment} user={props.user} 
-                    setComment={props.setComment}
-                    />
-            </div>
-            </div>
-            </div>
+        </div>
     )
 }
 
