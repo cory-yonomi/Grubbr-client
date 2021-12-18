@@ -11,7 +11,7 @@ const RestaurantProfile = (props) => {
     const deleteYourComment = (e) => {
         e.preventDefault()
 
-        axios.delete(`${apiUrl}/comments/${props.likedRestaurant._id}/${commentIdArray}`, {
+        axios.delete(`${apiUrl}/comments/${props.likedRestaurant._id}/${e.target.id}`, {
            
                 headers: {
                     "Authorization": `Bearer ${props.user.token}`
@@ -19,7 +19,6 @@ const RestaurantProfile = (props) => {
             }
         )
             .then(comment => {
-                props.setComment(comment)
                 console.log('COMMENT DELETED', comment)
             })
             // .then(() => navigate('/profile'))
@@ -32,15 +31,15 @@ const RestaurantProfile = (props) => {
         return (
             <div>
             <p>{comment.body}</p>
-            <p><button onClick={deleteYourComment}>Delete</button></p>
+            <p><button id={comment._id} onClick={deleteYourComment}>Delete</button></p>
             </div>
         ) 
     })
 
-    const commentIdArray = props.likedRestaurant.comments.map(comment => {
-        console.log('comment body id array', comment._id)
-        return (<p>{comment._id}</p>)
-    })
+    // const commentIdArray = props.likedRestaurant.comments.map(comment => {
+    //     console.log('comment body id array', comment._id)
+    //     return (<p>{comment._id}</p>)
+    // })
 
 
     const restaurantCategories = props.likedRestaurant.categories
