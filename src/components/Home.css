@@ -1,3 +1,11 @@
+body {
+    background-image: url("./images/background.jpeg") center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 /* .home {
     height: 100%;
     background-size:cover;
@@ -9,24 +17,24 @@
 } */
 
 .intro h1 {
-    font-weight: bold;
-    font-size: 100px;
+  font-weight: bold;
+  font-size: 100px;
 }
 
 .intro p {
-    font-size: 40px;
-    font-weight: 800;
+  font-size: 40px;
+  font-weight: 800;
 }
 
 .intro button {
-    margin: 20px;
-    background-color: #E7D9EA;
-    font-size: large;
-    font-weight: 600;
-    padding: 10px 50px;
-    border-radius: 10px;
+  margin: 20px;
+  background-color: #e7d9ea;
+  font-size: large;
+  font-weight: 600;
+  padding: 10px 50px;
+  border-radius: 10px;
 }
 
 img {
-    height: 200px;
+  height: 200px;
 }

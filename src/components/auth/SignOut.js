@@ -31,7 +31,7 @@ const SignOut = (props) => {
 
     return (
         <>
-            <div className='row'>
+            <div className='row signOutDiv'>
                 <div className='signOut'>
                     <h2>Are you sure you want to sign out?</h2>
                     <small>We hate to see you go...</small><br />

@@ -1,4 +1,4 @@
-.row {
+.signOutDiv {
     color: whitesmoke;
     text-align: center;
     padding: 15%;
@@ -14,5 +14,4 @@
     background-color: #E7D9EA;
     border-radius: 20px;
     padding: 1% 10%;
-
 }
