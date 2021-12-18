@@ -37,42 +37,10 @@
     float: right;
 }
 
-.nameMatch {
-    text-align: left;
-    padding-left: 80px;
-    padding-bottom: 30px;
-}
-
-.nameMatch label {
-    float: left;
-    color: black;
-    font-size: 20px;
-    font-weight: bold;
-    padding-right: 20px;
-}
-
 .nameMatch button {
     background-color: rgba(93, 130, 51, 0.63);
     color: white;
 }
-
-/* .nameMatch2 {
-    text-align: left;
-    padding-left: 63px;
-}
-
-.nameMatch2 label {
-    float: left;
-    color: black;
-    font-size: 20px;
-    font-weight: bold;
-    padding-right: 20px;
-}
-
-.nameMatch2 button {
-    background-color: rgba(93, 130, 51, 0.63);
-    color: white;
-} */
 
 .name {
     color: black;
@@ -81,3 +49,10 @@
 html {
     background-color: rgba(93, 130, 51, 0.8);
 }
+
+/* .makeComment button {
+    margin-top: 25px;
+    background-color: #E7D9EA;
+    border-radius: 20px;
+    padding: 1% 5%;
+} */
