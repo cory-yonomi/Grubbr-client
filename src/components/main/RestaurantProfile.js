@@ -3,11 +3,18 @@ import { captureRejectionSymbol } from 'events'
 import { useEffect, useState } from 'react'
 import '../css/RestaurantProfile.css'
 import CreateComment from './CreateComment'
+import DeleteComment from './DeleteComment'
 
 const RestaurantProfile = (props) => {
 
     const commentArray = props.likedRestaurant.comments.map(comment => {
+        // console.log('comment body', comment)
         return <p>{comment.body}</p>
+    })
+
+    const commentIdArray = props.likedRestaurant.comments.map(comment => {
+        console.log('comment body id array', comment._id)
+        return <p>{comment._id}</p>
     })
 
     const restaurantCategories = props.likedRestaurant.categories
@@ -47,6 +54,9 @@ const RestaurantProfile = (props) => {
                     {commentArray}
                     <CreateComment comment={props.postComment} user={props.user} setComment={props.setComment} />
                     <div>
+                        <div>
+                            <DeleteComment likedRestaurant={props.likedRestaurant} user={props.user} commentIdArray={commentIdArray} setComment={props.setComment} />
+                        </div>
                     </div>
                 </div>
             </div>

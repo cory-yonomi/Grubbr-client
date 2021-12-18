@@ -18,7 +18,7 @@ const DeleteProfile = (props) => {
             zipCode: '',
             bio: '',
             photo: '',
-            
+
         },
             {
                 headers: {
