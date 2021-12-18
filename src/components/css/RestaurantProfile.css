@@ -1,9 +1,9 @@
+
+
 .restaurantsProfile {
     text-align: center;
-    background-color: rgba(93, 130, 51, 0.5);
     background-image: url('../images/background.jpeg');
     background-size: cover;
-    height: 100vh;
     color: whitesmoke;
 }
 
@@ -78,3 +78,6 @@
     color: black;
 }
 
+html {
+    background-color: rgba(93, 130, 51, 0.8);
+}
