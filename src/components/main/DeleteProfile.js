@@ -12,19 +12,28 @@ const DeleteProfile = (props) => {
     const deleteProfile = (e) => {
         e.preventDefault()
 
-        axios.delete(`${apiUrl}/profile/${props.user._id}`,
+        axios.patch(`${apiUrl}/profile/${props.user._id}`, {
+            firstName: '',
+            lastName: '',
+            zipCode: '',
+            bio: '',
+            photo: '',
+            
+        },
             {
                 headers: {
                     "Authorization": `Bearer ${props.user.token}`
                 },
             }
         )
-            .then(response => {
-                console.log('profile to delete', response)
+            .then(profile => {
+                console.log('PROFILE DELETED', profile.data)
+                props.setProfile(profile.data)
             })
-            .then(() => navigate('/create-profile'))
-            .catch(err => console.log('error deleting', err))
+            .then(() => navigate('/profile'))
+            .catch(err => console.log(err))
     }
+
 
     return (
         <form className='deleteProfile'>
