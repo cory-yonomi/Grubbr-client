@@ -16,22 +16,10 @@ const RestaurantProfile = (props) => {
     const mapUsers = props.likedRestaurant.users
     console.log('array of users', props.likedRestaurant.users)
     console.log('likedRestaurant', props.likedRestaurant)
-    useEffect(() => {
 
-
-        axios.get(`http://localhost:8000/profile/restaurantLikers`, {
-            headers: {
-                "Authorization": `Bearer ${props.user.token}`
-            }
-        },
-            {
-                body: {
-                    userIds: props.restaurantLikers
-                }
-            }
-        )
-            .then(resp => console.log('response!', resp))
-    }, [])
+    const likersArray = props.restaurantLikers.map(liker => {
+        return <p>{liker.firstName}</p>
+    })
 
     return (
 
@@ -52,13 +40,13 @@ const RestaurantProfile = (props) => {
             <div className='bottomDiv'>
                 <div className='othersLiked'>
                     <h3>Others Who Liked This Restaurant:</h3>
-
+                    {likersArray}
                 </div>
                 <div className='othersReview'>
                     <h3>Restaurant Reviews From Other Users:</h3>
+                    {commentArray}
                     <CreateComment comment={props.postComment} user={props.user} setComment={props.setComment} />
                     <div>
-                        {commentArray}
                     </div>
                 </div>
             </div>
