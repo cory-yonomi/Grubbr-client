@@ -16,7 +16,7 @@ const CreateComment = (props) => {
 
     return (
         <form action="">
-            <label htmlFor="">Make a comment:</label>
+            <label htmlFor="">Make a comment: </label>
             <input type="text" onChange={inputComment} />
             <button onClick={props.comment}>Submit</button>
         </form>
