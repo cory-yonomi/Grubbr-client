@@ -6,14 +6,16 @@ import CreateComment from './CreateComment'
 
 const RestaurantProfile = (props) => {
 
-    
+    const commentArray = props.likedRestaurant.comments.map(comment => {
+        return <p>{comment.body}</p>
+    })
 
     const restaurantCategories = props.likedRestaurant.categories
     const mapCategories = console.log(props.likedRestaurant)
 
     const mapUsers = props.likedRestaurant.users
     console.log('array of users', props.likedRestaurant.users)
-
+    console.log('likedRestaurant', props.likedRestaurant)
     useEffect(() => {
   
 
@@ -49,11 +51,15 @@ const RestaurantProfile = (props) => {
             </div>
             <div className='bottomDiv'>
             <div className='othersLiked'>
-                <h3>Others Who Liked This Restaurant:</h3>
+                    <h3>Others Who Liked This Restaurant:</h3>
+                    
             </div>
             <div className='othersReview'>
                 <h3>Restaurant Reviews From Other Users:</h3>
-                    <CreateComment comment={props.postComment} user={props.user} setComment={props.setComment}/>
+                    <CreateComment comment={props.postComment} user={props.user} setComment={props.setComment} />
+                    <div>
+                        {commentArray}
+                    </div>
             </div>
             </div>
             </div>
