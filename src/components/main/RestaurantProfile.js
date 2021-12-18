@@ -15,6 +15,10 @@ const RestaurantProfile = (props) => {
     console.log('array of users', props.likedRestaurant.users)
     console.log('likedRestaurant', props.likedRestaurant)
 
+    const likersArray = props.restaurantLikers.map(liker => {
+        return <p>{liker.firstName}</p>
+    })
+
     return (
 
         <div className='restaurantsProfile'>
@@ -32,21 +36,25 @@ const RestaurantProfile = (props) => {
                 <h6>Price Rating: {props.likedRestaurant.price}</h6>
             </div>
             <div className='bottomDiv'>
-            <div className='othersLiked'>
+                <div className='othersLiked'>
                     <h3>Others Who Liked This Restaurant:</h3>
-                    
-            </div>
-            <div className='othersReview'>
-                <h3>Restaurant Reviews From Other Users:</h3>
+                    {likersArray}
+                </div>
+                <div className='othersReview'>
+                    <h3>Restaurant Reviews From Other Users:</h3>
+                    {commentArray}
                     <CreateComment comment={props.postComment} user={props.user} setComment={props.setComment} />
                     <div>
-                        {commentArray}
                     </div>
+                </div>
             </div>
-            </div>
-            </div>
+        </div>
     )
 }
 
 
+<<<<<<< HEAD
 export default RestaurantProfile
+=======
+export default RestaurantProfile
+>>>>>>> ff819dd387af73a0421ad00b5c11a6bb2fee8bb3
