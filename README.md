@@ -25,16 +25,16 @@ Well, have you ever been with a partner/friend and you get into an argument beca
 
 ![Screen Shot 2021-12-17 at 6 09 26 PM](https://user-images.githubusercontent.com/78924263/146617973-f38a7277-1cba-4dd0-816d-35c88f887eab.png)
 
-- User:
+- Nav Bar:
+    - Accessible on everypage are the 'favorited restaurants' page which is the page where the user call see all the restaurants theyve liked
+    - Accessible on everypage is also the 'matches' page where the user can see everyone they have matched with and everyone they have sent a match request to but have not responded yet
+    - The User Profile page is accessible after a user has sign in or after they have signed up and created a profile, on this page the user can see, edit and delete their profile
+
+- Page Flow for Users
      - When the user goes to the app they they will an option to 'create an account' or 'log in', if user needs to sign up they will be taken to a 'create profile' page where they would have to put in their informaiton, if the user has an account after signing they will be directed to 'Search by zipcode' page where they would be able to enter a zipcode and search for resturants in that area.
      - One the 'Restaurant slide'page, the user will look through restaurants that they may like and not like that has some informaiton on the restaurant, name, photo, address, if restaurant is open or not and price
-     - If the user likes a resturant they will be taken to a 'resturant profile' page where they can see more information on the restaurant and can also see comments that other users on Grubbr have made about this resturant as well as other people who liked this same resturant
-    - Matches are other users that a user has connected with based on their common restaurants liked
-- Restaurant:
-    - The information of the restaurants will be called from the Yelp API, where we will get the name, the address and photos
-- Comments:
-	- The body of the comment will be written by the user
-- The restaurant will also have comments but it would only be comments from users on the app, where every user would be able to review the restaurants they have been to.
+     - If the user likes a restaurant they will be taken to a 'restaurant profile' page where they can see more information on the restaurant and can also see comments that other users on Grubbr have made about this restaurant as well as other Grubbr users who liked this resturant.
+     - While on the resturant page, the user can request to add someone as a match and comment on the restaurant themselves.
 
 ## Tech Stack
 Mongoose, Express.js, React, Node.js, MongoDB
