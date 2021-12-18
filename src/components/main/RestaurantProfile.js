@@ -3,12 +3,44 @@ import { captureRejectionSymbol } from 'events'
 import { useEffect, useState } from 'react'
 import '../css/RestaurantProfile.css'
 import CreateComment from './CreateComment'
+import apiUrl from "../../apiConfig"
+
 
 const RestaurantProfile = (props) => {
 
+    const deleteYourComment = (e) => {
+        e.preventDefault()
+
+        axios.delete(`${apiUrl}/comments/${props.likedRestaurant._id}/${e.target.id}`, {
+           
+                headers: {
+                    "Authorization": `Bearer ${props.user.token}`
+                },
+            }
+        )
+            .then(comment => {
+                console.log('COMMENT DELETED', comment)
+            })
+            // .then(() => navigate('/profile'))
+            .catch(err => console.log(err))
+    }
+
+
     const commentArray = props.likedRestaurant.comments.map(comment => {
-        return <p>{comment.body}</p>
+        // console.log('comment body', comment)
+        return (
+            <div>
+            <p>{comment.body}</p>
+            <p><button id={comment._id} onClick={deleteYourComment}>Delete</button></p>
+            </div>
+        ) 
     })
+
+    // const commentIdArray = props.likedRestaurant.comments.map(comment => {
+    //     console.log('comment body id array', comment._id)
+    //     return (<p>{comment._id}</p>)
+    // })
+
 
     const restaurantCategories = props.likedRestaurant.categories
     const mapCategories = console.log(props.likedRestaurant)
@@ -47,6 +79,9 @@ const RestaurantProfile = (props) => {
                     {commentArray}
                     <CreateComment comment={props.postComment} user={props.user} setComment={props.setComment} />
                     <div>
+                        <div>
+                            {/* <DeleteComment likedRestaurant={props.likedRestaurant} user={props.user} commentIdArray={commentIdArray} setComment={props.setComment} /> */}
+                        </div>
                     </div>
                 </div>
             </div>

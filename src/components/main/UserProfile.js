@@ -48,9 +48,8 @@ const UserProfile = (props) => {
           <Link to="/edit-profile">
             <button style={buttonStyle}>Edit Profile</button>
           </Link>
-          {/* <Link to='/delete-profile'><small>Delete Profile</small></Link> */}
-          <Link to="/create-profile">
-              <button style={buttonStyle}>Create Profile</button>
+          <Link to="/delete-profile">
+              <button style={buttonStyle}>Delete Profile</button>
           </Link>
         </div>
       </div>
