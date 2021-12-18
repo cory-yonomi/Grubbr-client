@@ -1,11 +1,10 @@
 import axios from 'axios'
+import { captureRejectionSymbol } from 'events'
 import { useEffect, useState } from 'react'
 import '../css/RestaurantProfile.css'
 import CreateComment from './CreateComment'
 
 const RestaurantProfile = (props) => {
-
-    
 
     const restaurantCategories = props.likedRestaurant.categories
     const mapCategories = console.log(props.likedRestaurant)
@@ -52,7 +51,11 @@ const RestaurantProfile = (props) => {
             </div>
             <div className='othersReview'>
                 <h3>Restaurant Reviews From Other Users:</h3>
-                    <CreateComment comment={props.postComment} user={props.user} setComment={props.setComment}/>
+                    {/* <p>{props.likedRestaurant.comments[2].body}</p> */}
+                    <CreateComment 
+                    comment={props.postComment} user={props.user} 
+                    setComment={props.setComment}
+                    />
             </div>
             </div>
             </div>

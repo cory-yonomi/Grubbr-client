@@ -43,7 +43,7 @@ const App = () => {
   // sets current restaurant for the slideshow
   const [currentRest, setCurrentRest] = useState(0);
   const [likedRestaurant, setLikedRestaurant] = useState({});
-  const [comment, setComment] = useState({body: '', userId: null})
+  const [comment, setComment] = useState({ body: '', userId: null })
   const [restaurantLikers, setRestaurantLikers] = useState([])
 
   console.log("user in app", user);
@@ -71,18 +71,18 @@ const App = () => {
     e.preventDefault()
     axios.post(`${apiUrl}/comments/${restaurants[currentRest].id}`,
       {
-          comment: comment,
-          restaurant: likedRestaurant
+        comment: comment,
+        restaurant: likedRestaurant
       },
       {
         headers: {
           "Authorization": `Bearer ${user.token}`
         }
       }
-	  )
-		.then(restaurant => {
-		  setLikedRestaurant(restaurant.data)
-	  })
+    )
+      .then(restaurant => {
+        setLikedRestaurant(restaurant.data)
+      })
   }
 
   const restaurantCall = () => {
@@ -182,7 +182,7 @@ const App = () => {
       return <p>{c.title}, </p>;
     });
 
-  
+
 
 
     return (
