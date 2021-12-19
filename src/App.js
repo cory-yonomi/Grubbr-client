@@ -21,6 +21,7 @@ import UserProfile from './components/main/UserProfile'
 import CreateProfile from './components/main/CreateProfile'
 import EditProfile from './components/main/EditProfile'
 import DeleteProfile from './components/main/DeleteProfile'
+import MatchesDisplay from './components/main/MatchesDisplay'
 import apiUrl from './apiConfig'
 
 
@@ -91,7 +92,7 @@ const App = () => {
 		})
 	}
 
-	const addPending = (e) => {
+	const addPendingMatch = (e) => {
 		setPendingMatches([ ...pendingMatches, e.target.value])
 	}
 
@@ -277,7 +278,7 @@ const App = () => {
 								postComment={postComment}
 								setComment={setComment}
 								restaurantLikers={restaurantLikers}
-								addPending={addPending}
+								addPendingMatch={addPendingMatch}
 							/>
 						</RequireAuth>
 					}
@@ -355,6 +356,21 @@ const App = () => {
 								msgAlert={msgAlert}
 								mapRestaurants={mapRestaurants}
 								likedRestaurant={likedRestaurant}
+								setProfile={setProfile}
+							/>
+						</RequireAuth>
+					}
+				/>
+				<Route
+					path="/matches-display"
+					element={
+						<RequireAuth user={user}>
+							<MatchesDisplay
+								user={user}
+								msgAlert={msgAlert}
+								pendingMatches={pendingMatches}
+								setPendingMatches={setPendingMatches}
+								matches={matches}
 								setProfile={setProfile}
 							/>
 						</RequireAuth>

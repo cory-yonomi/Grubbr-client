@@ -49,12 +49,12 @@ const authenticatedOptions = (
             </span>
         </Nav.Link>
         <Nav.Link>
-            <Link to='/profile' style={linkStyle}>
+            <Link to='profile' style={linkStyle}>
                 Profile
             </Link>
         </Nav.Link>
         <Nav.Link>
-            <Link to='' style={linkStyle}>
+            <Link to='matches-display' style={linkStyle}>
                 Matches
             </Link>
         </Nav.Link>

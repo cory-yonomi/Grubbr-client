@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 import "../css/RestaurantSlide.css";
 import Heart from "../images/HeartRestaurant.png";
 import brokenHeart from "../images/disheartRestaurant.png";

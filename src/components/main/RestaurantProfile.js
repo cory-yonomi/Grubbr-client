@@ -1,6 +1,6 @@
 import axios from 'axios'
-import { captureRejectionSymbol } from 'events'
-import { useEffect, useState } from 'react'
+// import { useEffect, useState } from 'react'
+// import apiUrl from '../../apiConfig'
 import '../css/RestaurantProfile.css'
 import CreateComment from './CreateComment'
 import apiUrl from '../../apiConfig'
@@ -65,39 +65,74 @@ const RestaurantProfile = (props) => {
 
 	return (
 		<div className="restaurantsProfile">
-            <div className='profileContainerDiv'>
-			<div className="profileContainer">
-				<h1>{props.likedRestaurant.name}</h1>
-				<img
-					src={props.likedRestaurant.image_url}
-					alt={props.likedRestaurant.name}
-				/>
-				<h6>Cuisine: {props.likedRestaurant.categories}</h6>
-				<h6>Address: {props.likedRestaurant.location}</h6>
-				<h6>Rating: {props.likedRestaurant.rating}</h6>
-				<h6>Price Rating: {props.likedRestaurant.price}</h6>
-			</div>
-            </div>
-			<div className="bottomDiv">
-				<div className="othersLiked">
-					<h3>Others Who Liked This Restaurant:</h3>
-					{likersArray}
-				</div>
-				<div className="othersReview">
-					<h3>Restaurant Reviews From Other Users:</h3>
-					{commentArray}
-					<CreateComment
-						comment={props.postComment}
-						user={props.user}
-						setComment={props.setComment}
+			<div className="profileContainerDiv">
+				<div className="profileContainer">
+					<h1>{props.likedRestaurant.name}</h1>
+					<img
+						src={props.likedRestaurant.image_url}
+						alt={props.likedRestaurant.name}
 					/>
-					{/* <div> */}
-						{/* <DeleteComment likedRestaurant={props.likedRestaurant} user={props.user} commentIdArray={commentIdArray} setComment={props.setComment} /> */}
-					{/* </div> */}
+					<h6>Cuisine: {props.likedRestaurant.categories}</h6>
+					<h6>Address: {props.likedRestaurant.location}</h6>
+					<h6>Rating: {props.likedRestaurant.rating}</h6>
+					<h6>Price Rating: {props.likedRestaurant.price}</h6>
 				</div>
 			</div>
 		</div>
 	)
 }
+
+const mapCategories = console.log(props.likedRestaurant)
+
+console.log('array of users', props.likedRestaurant.users)
+console.log('likedRestaurant', props.likedRestaurant)
+
+const likersArray = props.restaurantLikers.map((liker) => {
+	return (
+		<div>
+			<p className="likerName">{liker.firstName}</p>
+			<button onClick={props.addPendingMatch}>+</button>
+		</div>
+	)
+})
+
+return (
+	<div className="restaurantsProfile">
+		<div className="profileContainer">
+			<h1>{props.likedRestaurant.name}</h1>
+			<img
+				src={props.likedRestaurant.image_url}
+				alt={props.likedRestaurant.name}
+			/>
+			<h4>{mapCategories}</h4>
+			<h6>Cuisine: {props.likedRestaurant.categories}</h6>
+
+			{/* <h6>Address: {props.likedRestaurant.location[0]}, {props.likedRestaurant.location[1]}</h6> */}
+
+			<h6>Rating: {props.likedRestaurant.rating}</h6>
+			<h6>Price Rating: {props.likedRestaurant.price}</h6>
+		</div>
+		<div className="bottomDiv">
+			<div className="othersLiked">
+				<h3>Others Who Liked This Restaurant:</h3>
+				{likersArray}
+			</div>
+			<div className="othersReview">
+				<h3>Restaurant Reviews From Other Users:</h3>
+				{commentArray}
+				<CreateComment
+					comment={props.postComment}
+					user={props.user}
+					setComment={props.setComment}
+				/>
+				<div>
+					<div>
+						{/* <DeleteComment likedRestaurant={props.likedRestaurant} user={props.user} commentIdArray={commentIdArray} setComment={props.setComment} /> */}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+)
 
 export default RestaurantProfile
