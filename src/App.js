@@ -93,28 +93,34 @@ const App = () => {
 	}
 
 	const addPendingMatch = (e) => {
-		setPendingMatches([ ...pendingMatches, e.target.value])
+		setPendingMatches([...pendingMatches, e.target.value])
 	}
 
 	const postComment = (e) => {
 		e.preventDefault()
-		axios
-			.post(
-				`${apiUrl}/comments/${restaurants[currentRest].id}`,
-				{
-					comment: comment,
-					restaurant: likedRestaurant,
-				},
-				{
-					headers: {
-						Authorization: `Bearer ${user.token}`,
+
+		if (comment.body.length === 0) {
+			return alert('Need to type something to post a comment!')
+		} else {
+			axios
+				.post(
+					`${apiUrl}/comments/${restaurants[currentRest].id}`,
+					{
+						comment: comment,
+						restaurant: likedRestaurant,
 					},
-				}
-			)
-			.then((restaurant) => {
-				setLikedRestaurant(restaurant.data)
-				setComment({ body: '', userId: null })
-			})
+					{
+						headers: {
+							Authorization: `Bearer ${user.token}`,
+						},
+					}
+				)
+				.then((restaurant) => {
+					setLikedRestaurant(restaurant.data)
+					setComment({ body: '', userId: null })
+				})
+		}
+
 	}
 
 	const restaurantCall = () => {
