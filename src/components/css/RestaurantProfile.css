@@ -94,6 +94,7 @@
 .addAComment label {
     font-size: 20px;
     margin-bottom: 10px;
+
 }
 
 .addAComment button {
@@ -110,3 +111,10 @@
 html {
     background-color: rgba(93, 130, 51, 0.8);
 }
+
+/* .makeComment button {
+    margin-top: 25px;
+    background-color: #E7D9EA;
+    border-radius: 20px;
+    padding: 1% 5%;
+} */

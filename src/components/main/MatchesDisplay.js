@@ -1,4 +1,4 @@
-import '../css/CreateProfile.css'
+import '../css/MatchesDisplay.css'
 import { useEffect } from "react"
 import '../css/MatchesDisplay.css'
 
@@ -22,6 +22,7 @@ const MatchesDisplay = props => {
     }
 
     return (
+
         <div className='matchesDiv'>
             <div class='matchDesignDiv'>
             <div>
@@ -30,6 +31,7 @@ const MatchesDisplay = props => {
             </div>
             <div>
             <h2>Your Matches</h2>
+
                 {/* {props.matches ? {matchesArray} : <p>No matches, you bum!</p> } */}
             </div>
             </div>
