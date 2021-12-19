@@ -78,3 +78,7 @@
     color: black;
 }
 
+.likerName {
+    display: inline;
+    margin-right: 50px;
+}

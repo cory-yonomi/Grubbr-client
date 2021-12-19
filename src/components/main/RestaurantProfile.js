@@ -16,7 +16,12 @@ const RestaurantProfile = (props) => {
     console.log('likedRestaurant', props.likedRestaurant)
 
     const likersArray = props.restaurantLikers.map(liker => {
-        return <p>{liker.firstName}</p>
+        return (
+            <div>
+                <p className='likerName'>{liker.firstName}</p>
+                <button onClick={props.addPendingMatch}>+</button>
+            </div>
+        )
     })
 
     return (
@@ -53,8 +58,4 @@ const RestaurantProfile = (props) => {
 }
 
 
-<<<<<<< HEAD
 export default RestaurantProfile
-=======
-export default RestaurantProfile
->>>>>>> ff819dd387af73a0421ad00b5c11a6bb2fee8bb3
