@@ -4,7 +4,6 @@ import axios from 'axios'
 import '../css/RestaurantProfile.css'
 import CreateComment from './CreateComment'
 import apiUrl from '../../apiConfig'
-import drakeImg from '../images/DrakeExampleImg.jpeg'
 import Plus from '../images/icon.png'
 
 const priceStyle = {

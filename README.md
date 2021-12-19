@@ -2,11 +2,11 @@
 ## "The Tinder of Food"
 
 ## Team name
-Da Grubbrs Band
+Da Grubbr's Band
 
 ## Each team member's assigned role
 - Cory Sorel - Turtle - Creating API and Linking Restaurants, Backend, React
-- Lindsay  Haigh- Llama- Back End, Routes, React, Routes
+- Lindsay  Haigh - Llama - Back End, Routes, React, Routes
 - Eduardo Ferreira - Liger - Front End, React
 - Anais Veras - Zoo Keeper - Front End, Wireframe, READme, React
 

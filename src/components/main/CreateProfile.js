@@ -37,11 +37,6 @@ const CreateProfile = (props) => {
         setBio(e.target.value)
     }
 
-    const photoInput = (e) => {
-        // console.log('input value first name', e.target.value)
-        setPhoto(e.target.value)
-    }
-
 
     const submitProfile = (e) => {
         e.preventDefault()
@@ -91,8 +86,11 @@ const CreateProfile = (props) => {
                 <h3 htmlFor="Bio">Bio: </h3>
                 <input type="text" onChange={bioInput} />
                 <br/>
+                {/* <div>
                 <h3 htmlFor="Profile Photo">Profile Photo: </h3>
-                <input type="text" onChange={photoInput} />
+                <input type="file" onChange={photoInput} />
+                <button onclick={uploadHandler}>Upload!</button>
+                </div> */}
                 <br/>
                 <button className='submitProfile' onClick={submitProfile}>Submit</button>
             </form>
