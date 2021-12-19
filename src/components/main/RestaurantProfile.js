@@ -1,6 +1,6 @@
 import axios from 'axios'
-import { captureRejectionSymbol } from 'events'
-import { useEffect, useState } from 'react'
+// import { useEffect, useState } from 'react'
+// import apiUrl from '../../apiConfig'
 import '../css/RestaurantProfile.css'
 import CreateComment from './CreateComment'
 import apiUrl from "../../apiConfig"
@@ -36,21 +36,18 @@ const RestaurantProfile = (props) => {
         ) 
     })
 
-    // const commentIdArray = props.likedRestaurant.comments.map(comment => {
-    //     console.log('comment body id array', comment._id)
-    //     return (<p>{comment._id}</p>)
-    // })
-
-
-    const restaurantCategories = props.likedRestaurant.categories
     const mapCategories = console.log(props.likedRestaurant)
 
-    const mapUsers = props.likedRestaurant.users
     console.log('array of users', props.likedRestaurant.users)
     console.log('likedRestaurant', props.likedRestaurant)
 
     const likersArray = props.restaurantLikers.map(liker => {
-        return <p>{liker.firstName}</p>
+        return (
+            <div>
+                <p className='likerName'>{liker.firstName}</p>
+                <button onClick={props.addPendingMatch}>+</button>
+            </div>
+        )
     })
 
     return (
