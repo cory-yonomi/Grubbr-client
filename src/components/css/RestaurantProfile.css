@@ -43,21 +43,22 @@
 
 .likerDiv {
     background-color: thistle;
-    padding: 1%;
+    padding: 5%;
     border-radius: 10px;
     border: 1px solid rgba(62, 33, 93, 0.7);
 }
 
 .likerDiv p {
     display: inline;
-    color:rgba(62, 33, 93, 0.7);
+    color: black;
     font-weight: bold;
     font-size: 20px;
 }
 
 .likerDiv button {
+    padding: 1%;
+    border-radius: 30px;
     float: right;
-    
 }
 
 .likerDiv img {
@@ -73,6 +74,23 @@
     margin-right: 50px;
 }
 
+/* CSS for create comment */
+.addAComment {
+    background-color: rgba(62, 33, 93);
+    padding: 3%;
+    border-radius: 10px;
+}
+
+.addAComment label {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.addAComment button {
+    margin-top: 10px;
+}
+
+/* CSS for whole page */
 html {
     background-color: rgba(93, 130, 51, 0.8);
 }
