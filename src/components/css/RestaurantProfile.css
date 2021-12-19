@@ -21,7 +21,7 @@
 }
 
 .profileContainer {
-    margin: 1%;
+    margin: 3%;
     background-color: rgba(62, 33, 93, 0.7);
     padding: 2% 1%;
     display: inline-block;
@@ -30,7 +30,7 @@
 }
 
 .bottomDiv {
-    margin: 5%;
+    margin: 5% 10%;
 }
 
 .othersLiked {
@@ -42,15 +42,15 @@
 }
 
 .likerDiv {
-    background-color: thistle;
+    background-color: rgba(62, 33, 93);
     padding: 5%;
     border-radius: 10px;
-    border: 1px solid rgba(62, 33, 93, 0.7);
+    border: 1px solid #E7D9EA;
+    margin-bottom: 2%;
 }
 
 .likerDiv p {
     display: inline;
-    color: black;
     font-weight: bold;
     font-size: 20px;
 }
@@ -58,6 +58,7 @@
 .likerDiv button {
     padding: 1%;
     border-radius: 30px;
+    background-color: #E7D9EA;
     float: right;
 }
 
@@ -88,6 +89,8 @@
 
 .addAComment button {
     margin-top: 10px;
+    background-color: #E7D9EA;
+    border-radius: 20px;
 }
 
 /* CSS for whole page */

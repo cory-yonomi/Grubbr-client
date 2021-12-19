@@ -94,11 +94,7 @@ const RestaurantProfile = (props) => {
 						setComment={props.setComment}
 					/>
 					{commentArray}
-					<div>
-						<div>
 							{/* <DeleteComment likedRestaurant={props.likedRestaurant} user={props.user} commentIdArray={commentIdArray} setComment={props.setComment} /> */}
-						</div>
-					</div>
 				</span>
 			</div>
 		</div>
