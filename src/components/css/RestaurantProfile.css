@@ -78,6 +78,11 @@
     color: black;
 }
 
+.likerName {
+    display: inline;
+    margin-right: 50px;
+}
+
 html {
     background-color: rgba(93, 130, 51, 0.8);
 }
