@@ -75,11 +75,20 @@
     margin-right: 50px;
 }
 
+.commentDiv {
+    background-color: #E7D9EA;
+    color: black;
+    padding: 3%;
+    border-bottom: 1px solid rgba(62, 33, 93);
+}
+
+
 /* CSS for create comment */
 .addAComment {
     background-color: rgba(62, 33, 93);
     padding: 3%;
     border-radius: 10px;
+    margin-bottom: 3%;
 }
 
 .addAComment label {
@@ -91,6 +100,10 @@
     margin-top: 10px;
     background-color: #E7D9EA;
     border-radius: 20px;
+}
+
+.commentButton {
+    border-radius: 10px;
 }
 
 /* CSS for whole page */

@@ -40,13 +40,11 @@ const RestaurantProfile = (props) => {
 	const commentArray = props.likedRestaurant.comments.map((comment) => {
 		// console.log('comment body', comment)
 		return (
-			<div>
+			<div className='commentDiv'>
 				<p>{comment.body}</p>
-				<p>
-					<button id={comment._id} onClick={deleteYourComment}>
+					<button className='commentButton' id={comment._id} onClick={deleteYourComment}>
 						Delete
 					</button>
-				</p>
 			</div>
 		)
 	})
