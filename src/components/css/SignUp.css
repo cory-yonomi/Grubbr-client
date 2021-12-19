@@ -1,4 +1,8 @@
-
+.signUp {
+    background-image: url('../images/background.jpeg');
+    background-size: cover;
+    height: 100vh;
+}
 
 .signUp-div {
     background-color: rgba(93, 130, 51, 0.7);
