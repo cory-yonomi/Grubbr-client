@@ -113,6 +113,7 @@ const App = () => {
 			)
 			.then((restaurant) => {
 				setLikedRestaurant(restaurant.data)
+				setComment({ body: '', userId: null })
 			})
 	}
 
@@ -279,6 +280,7 @@ const App = () => {
 								setComment={setComment}
 								restaurantLikers={restaurantLikers}
 								addPendingMatch={addPendingMatch}
+								commentInput={comment}
 							/>
 						</RequireAuth>
 					}

@@ -6,7 +6,6 @@ const CreateComment = (props) => {
 
 
     const inputComment = (e) => {
-
         props.setComment({
             body: e.target.value,
             user: props.user._id
@@ -17,7 +16,7 @@ const CreateComment = (props) => {
     return (
         <form action="">
             <label htmlFor="">Make a comment:</label>
-            <input type="text" onChange={inputComment} />
+            <input type="text" value={props.commentInput.body} onChange={inputComment} />
             <button onClick={props.comment}>Submit</button>
         </form>
     )
