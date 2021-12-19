@@ -45,26 +45,27 @@ const RestaurantProfile = (props) => {
 	//     return (<p>{comment._id}</p>)
 	// })
 
-	const restaurantCategories = props.likedRestaurant.categories
+	// const restaurantCategories = props.likedRestaurant.categories
 	// const mapCategories = console.log(props.likedRestaurant)
 
-	const mapUsers = props.likedRestaurant.users
-	console.log('array of users', props.likedRestaurant.users)
-	console.log('likedRestaurant', props.likedRestaurant)
+	// const mapUsers = props.likedRestaurant.users
+	// console.log('array of users', props.likedRestaurant.users)
+	// console.log('likedRestaurant', props.likedRestaurant)
 
 	const likersArray = props.restaurantLikers.map((liker) => {
-		console.log('this is the array of likers', liker)
+		// console.log('this is the array of likers', liker)
 		return (
-			<div className='likerDiv'>
-                <img src={drakeImg} alt="" srcset="" />
+			<div className="likerDiv">
+				<img src={drakeImg} alt="" srcset="" />
 				<p>{liker.firstName} </p>
-                <button>Add as Match</button>
+				<button>Add as Match</button>
 			</div>
 		)
 	})
 
 	return (
 		<div className="restaurantsProfile">
+            <div className='profileContainerDiv'>
 			<div className="profileContainer">
 				<h1>{props.likedRestaurant.name}</h1>
 				<img
@@ -76,6 +77,7 @@ const RestaurantProfile = (props) => {
 				<h6>Rating: {props.likedRestaurant.rating}</h6>
 				<h6>Price Rating: {props.likedRestaurant.price}</h6>
 			</div>
+            </div>
 			<div className="bottomDiv">
 				<div className="othersLiked">
 					<h3>Others Who Liked This Restaurant:</h3>
@@ -89,11 +91,9 @@ const RestaurantProfile = (props) => {
 						user={props.user}
 						setComment={props.setComment}
 					/>
-					<div>
-						<div>
-							{/* <DeleteComment likedRestaurant={props.likedRestaurant} user={props.user} commentIdArray={commentIdArray} setComment={props.setComment} /> */}
-						</div>
-					</div>
+					{/* <div> */}
+						{/* <DeleteComment likedRestaurant={props.likedRestaurant} user={props.user} commentIdArray={commentIdArray} setComment={props.setComment} /> */}
+					{/* </div> */}
 				</div>
 			</div>
 		</div>
