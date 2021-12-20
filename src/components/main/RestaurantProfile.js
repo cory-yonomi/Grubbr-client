@@ -3,23 +3,23 @@ import axios from 'axios'
 // import apiUrl from '../../apiConfig'
 import '../css/RestaurantProfile.css'
 import CreateComment from './CreateComment'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 import apiUrl from '../../apiConfig'
-import drakeImg from '../images/DrakeExampleImg.jpeg'
+// import drakeImg from '../images/DrakeExampleImg.jpeg'
 import Plus from '../images/icon.png'
 
 const priceStyle = {
     color: 'lightgreen'
 }
 
-const hoursStyle = {
-    color: 'Yellow',
-	fontWeight: 'bold',
-}
+// const hoursStyle = {
+//     color: 'Yellow',
+// 	fontWeight: 'bold',
+// }
 
 const RestaurantProfile = (props) => {
 
-	const navigate = useNavigate()
+	// const navigate = useNavigate()
 
 
 	const deleteYourComment = (e) => {

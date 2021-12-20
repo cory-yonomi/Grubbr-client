@@ -1,11 +1,7 @@
 import '../css/MatchesDisplay.css'
-import { useEffect } from "react"
 import '../css/MatchesDisplay.css'
 
 const MatchesDisplay = props => {
-    // useEffect(() => {
-        
-    // }, [])
 
     let pendingMatchesArray = []
     let matchesArray = []

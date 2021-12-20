@@ -15,12 +15,6 @@ const linkStyle = {
     textAlign: 'center'
 }
 
-const logoStyle = {
-	color: 'white',
-	height: '40px',
-	fontWeight: 'bold',
-	textDecoration: 'none',
-}
 const buttonStyle = {
 	color: 'black',
 	textDecoration: 'none',

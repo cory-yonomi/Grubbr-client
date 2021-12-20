@@ -10,7 +10,7 @@ const CreateProfile = (props) => {
     const [lastName, setLastName] = useState('')
     const [zipcode, setZipcode] = useState('')
     const [bio, setBio] = useState('')
-    const [photo, setPhoto] = useState('')
+    // const [photo, setPhoto] = useState('')
 
     const navigate = useNavigate()
 
@@ -37,10 +37,10 @@ const CreateProfile = (props) => {
         setBio(e.target.value)
     }
 
-    const photoInput = (e) => {
-        // console.log('input value first name', e.target.value)
-        setPhoto(e.target.value)
-    }
+    // const photoInput = (e) => {
+    //     // console.log('input value first name', e.target.value)
+    //     setPhoto(e.target.value)
+    // }
 
 
     const submitProfile = (e) => {
@@ -52,7 +52,7 @@ const CreateProfile = (props) => {
                 lastName: lastName,
                 zipCode: zipcode,
                 bio: bio,
-                photo: photo,
+                // photo: photo,
             },
                 {
                     headers: {
