@@ -1,4 +1,4 @@
-# Grubber 
+# Grubbr 
 ## "The Tinder of Food"
 
 ## Team name
