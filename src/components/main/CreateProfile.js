@@ -93,22 +93,7 @@ const CreateProfile = (props) => {
                 <br />
                 <div>
                     <h3 htmlFor="Profile Photo">Profile Photo: </h3>
-                    <input type="file" accept='image/*' multiple='false' onChange={photoInput} />
-                    <div
-                        style={{
-                            height: "60px",
-                            width: "60px",
-                            border: "2px dashed black"
-                        }}
-                    >
-                        <img
-                            style={{
-                                width: "100%",
-                                height: "100%",
-                                position: "absolute"
-                            }}
-                        />
-                    </div>
+                    <input type="text" onChange={photoInput} />
                 </div>
                 <br />
                 <button className='submitProfile' onClick={submitProfile}>Submit</button>
