@@ -17,6 +17,8 @@ const hoursStyle = {
 
 
 const RestaurantProfile = (props) => {
+
+	
 	const deleteYourComment = (e) => {
 		e.preventDefault()
 
