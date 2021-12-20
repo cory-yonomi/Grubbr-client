@@ -37,11 +37,14 @@ const CreateProfile = (props) => {
         setBio(e.target.value)
     }
 
+<<<<<<< HEAD
+=======
     // const photoInput = (e) => {
     //     // console.log('input value first name', e.target.value)
     //     setPhoto(e.target.value)
     // }
 
+>>>>>>> 59a5bb7be28c3e5b1a90767a7d3830a22ed40961
 
     const submitProfile = (e) => {
         e.preventDefault()
@@ -90,6 +93,15 @@ const CreateProfile = (props) => {
                 <br />
                 <h3 htmlFor="Bio">Bio: </h3>
                 <input type="text" onChange={bioInput} />
+<<<<<<< HEAD
+                <br/>
+                {/* <div>
+                <h3 htmlFor="Profile Photo">Profile Photo: </h3>
+                <input type="file" onChange={photoInput} />
+                <button onclick={uploadHandler}>Upload!</button>
+                </div> */}
+                <br/>
+=======
                 <br />
                 {/* <div>
                     <h3 htmlFor="Profile Photo">Profile Photo: </h3>
@@ -111,6 +123,7 @@ const CreateProfile = (props) => {
                     </div>
                 </div> */}
                 <br />
+>>>>>>> 59a5bb7be28c3e5b1a90767a7d3830a22ed40961
                 <button className='submitProfile' onClick={submitProfile}>Submit</button>
             </form>
         </div>

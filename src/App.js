@@ -410,16 +410,6 @@ const App = () => {
 					}
 				/>
 			</Routes>
-			{/* {msgAlerts.map((msgAlert) => (
-				<AutoDismissAlert
-					key={msgAlert.id}
-					heading={msgAlert.heading}
-					variant={msgAlert.variant}
-					message={msgAlert.message}
-					id={msgAlert.id}
-					deleteAlert={deleteAlert}
-				/>
-			))} */}
 		</Fragment>
 	)
 }

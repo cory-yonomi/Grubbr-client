@@ -38,9 +38,13 @@ const EditProfile = (props) => {
 
     const photoInput = (e) => {
         // console.log('input value first name', e.target.value)
-        setPhoto(e.target.value)
+        setPhoto(e.target.files[0])
     }
 
+    const uploadHandler = (e) => {
+        e.preventDefault()
+        console.log(photo.selectedFile)
+    }
 
     const submitProfile = (e) => {
         e.preventDefault()
@@ -89,8 +93,11 @@ const EditProfile = (props) => {
                 <h3 htmlFor="Bio">Bio: </h3>
                 <input type="text" onChange={bioInput} />
                 <br/>
+                <div>
                 <h3 htmlFor="Profile Photo">Profile Photo: </h3>
-                <input type="text" onChange={photoInput} />
+                <input type="file" onChange={photoInput} />
+                <button onclick={uploadHandler}>Upload!</button>
+                </div>
                 <br/>
                 <button className='submitProfile' onClick={submitProfile}>Submit</button>
             </form>
