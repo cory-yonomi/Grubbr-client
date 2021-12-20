@@ -91,27 +91,50 @@ const App = () => {
 	}
 
 	const addPendingMatch = (e) => {
-		setPendingMatches([...pendingMatches, e.target.value])
+		e.preventDefault()
+
+		axios.post(`${apiUrl}/pendingMatches/${profile._id}`, {
+			userId: e.target.value
+		},
+
+			{
+
+				headers: {
+					"Authorization": `Bearer ${user.token}`
+				},
+			}
+		)
+			.then(resp => {
+				console.log('resp add pending match', resp)
+			})
+		// setPendingMatches([...pendingMatches, e.target.value])
 	}
 
 	const postComment = (e) => {
 		e.preventDefault()
-		axios
-			.post(
-				`${apiUrl}/comments/${restaurants[currentRest].id}`,
-				{
-					comment: comment,
-					restaurant: likedRestaurant,
-				},
-				{
-					headers: {
-						Authorization: `Bearer ${user.token}`,
+
+		if (comment.body.length === 0) {
+			return alert('Need to type something to post a comment!')
+		} else {
+			axios
+				.post(
+					`${apiUrl}/comments/${restaurants[currentRest].id}`,
+					{
+						comment: comment,
+						restaurant: likedRestaurant,
 					},
-				}
-			)
-			.then((restaurant) => {
-				setLikedRestaurant(restaurant.data)
-			})
+					{
+						headers: {
+							Authorization: `Bearer ${user.token}`,
+						},
+					}
+				)
+				.then((restaurant) => {
+					setLikedRestaurant(restaurant.data)
+					setComment({ body: '', userId: null })
+				})
+		}
+
 	}
 
 	const restaurantCall = () => {
@@ -281,12 +304,14 @@ const App = () => {
 								user={user}
 								msgAlert={msgAlert}
 								mapRestaurants={mapRestaurants}
+								setLikedRestaurant={setLikedRestaurant}
 								likedRestaurant={likedRestaurant}
 								heartButton={heartButton}
 								postComment={postComment}
 								setComment={setComment}
 								restaurantLikers={restaurantLikers}
 								addPendingMatch={addPendingMatch}
+								commentInput={comment}
 							/>
 						</RequireAuth>
 					}

@@ -81,19 +81,36 @@ const CreateProfile = (props) => {
                 <h1 htmlFor="Create Profile">Create Profile:</h1>
                 <h3 htmlFor="First Name">First Name: </h3>
                 <input type="text" onChange={firstNameInput} />
-                <br/>
+                <br />
                 <h3 htmlFor="Last Name">Last Name: </h3>
                 <input type="text" onChange={lastNameInput} />
-                <br/>
+                <br />
                 <h3 htmlFor="Zip Code">Zip Code: </h3>
                 <input type="number" onChange={zipCodeInput} />
-                <br/>
+                <br />
                 <h3 htmlFor="Bio">Bio: </h3>
                 <input type="text" onChange={bioInput} />
-                <br/>
-                <h3 htmlFor="Profile Photo">Profile Photo: </h3>
-                <input type="text" onChange={photoInput} />
-                <br/>
+                <br />
+                <div>
+                    <h3 htmlFor="Profile Photo">Profile Photo: </h3>
+                    <input type="file" accept='image/*' multiple='false' onChange={photoInput} />
+                    <div
+                        style={{
+                            height: "60px",
+                            width: "60px",
+                            border: "2px dashed black"
+                        }}
+                    >
+                        <img
+                            style={{
+                                width: "100%",
+                                height: "100%",
+                                position: "absolute"
+                            }}
+                        />
+                    </div>
+                </div>
+                <br />
                 <button className='submitProfile' onClick={submitProfile}>Submit</button>
             </form>
         </div>

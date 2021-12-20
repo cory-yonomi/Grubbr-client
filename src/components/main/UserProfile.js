@@ -41,6 +41,7 @@ const UserProfile = (props) => {
       <div style={userProfileContent}>
         <div className='UserInfo'>
           <h1>{user.firstName} {user.lastName}</h1>
+          <h2>{user.photo}</h2>
           <h5 className=''>About Me:</h5>
           <p>{user.bio}</p>
         </div>

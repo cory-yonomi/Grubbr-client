@@ -3,6 +3,7 @@ import axios from 'axios'
 // import apiUrl from '../../apiConfig'
 import '../css/RestaurantProfile.css'
 import CreateComment from './CreateComment'
+import { useNavigate } from 'react-router-dom'
 import apiUrl from '../../apiConfig'
 import drakeImg from '../images/DrakeExampleImg.jpeg'
 import Plus from '../images/icon.png'
@@ -16,8 +17,11 @@ const hoursStyle = {
 	fontWeight: 'bold',
 }
 
-
 const RestaurantProfile = (props) => {
+
+	const navigate = useNavigate()
+
+
 	const deleteYourComment = (e) => {
 		e.preventDefault()
 
@@ -30,10 +34,10 @@ const RestaurantProfile = (props) => {
 					},
 				}
 			)
-			.then((comment) => {
-				console.log('COMMENT DELETED', comment)
+			.then(restaurant => {
+				console.log('rest info', restaurant)
+				props.setLikedRestaurant(restaurant.data)
 			})
-			// .then(() => navigate('/profile'))
 			.catch((err) => console.log(err))
 	}
 
@@ -51,14 +55,15 @@ const RestaurantProfile = (props) => {
 
 	const mapCategories = console.log(props.likedRestaurant)
 
-	console.log('array of users', props.likedRestaurant.users)
-	console.log('likedRestaurant', props.likedRestaurant)
+	// console.log('array of users', props.likedRestaurant.users)
+	// console.log('likedRestaurant', props.likedRestaurant)
 
 	const likersArray = props.restaurantLikers.map((liker) => {
+		console.log('likers', liker)
 		return (
 			<div className="likerDiv">
 				<p className="likerName">{liker.firstName}</p>
-				<button className='plusButton' onClick={props.addPendingMatch}><img src={Plus} alt='add a match' /></button>
+				<button className='plusButton' value={liker.userId} onClick={props.addPendingMatch}><img src={Plus} alt='add a match' /></button>
 			</div>
 		)
 	})
@@ -90,9 +95,9 @@ const RestaurantProfile = (props) => {
 						comment={props.postComment}
 						user={props.user}
 						setComment={props.setComment}
+						commentInput={props.commentInput}
 					/>
 					{commentArray}
-							{/* <DeleteComment likedRestaurant={props.likedRestaurant} user={props.user} commentIdArray={commentIdArray} setComment={props.setComment} /> */}
 				</span>
 			</div>
 		</div>
