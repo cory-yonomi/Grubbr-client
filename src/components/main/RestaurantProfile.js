@@ -36,7 +36,7 @@ const RestaurantProfile = (props) => {
 			)
 			.then(restaurant => {
 				console.log('rest info', restaurant)
-                props.setLikedRestaurant(restaurant.data[0])
+                props.setLikedRestaurant(restaurant.data)
 			})
 			.catch((err) => console.log(err))
 	}
