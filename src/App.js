@@ -91,7 +91,23 @@ const App = () => {
 	}
 
 	const addPendingMatch = (e) => {
-		setPendingMatches([...pendingMatches, e.target.value])
+		e.preventDefault()
+
+		axios.post(`${apiUrl}/pendingMatches/${profile._id}`, {
+			userId: e.target.value
+		},
+
+			{
+
+				headers: {
+					"Authorization": `Bearer ${user.token}`
+				},
+			}
+		)
+			.then(resp => {
+				console.log('resp add pending match', resp)
+			})
+		// setPendingMatches([...pendingMatches, e.target.value])
 	}
 
 	const postComment = (e) => {

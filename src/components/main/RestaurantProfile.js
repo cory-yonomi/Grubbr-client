@@ -59,10 +59,11 @@ const RestaurantProfile = (props) => {
 	// console.log('likedRestaurant', props.likedRestaurant)
 
 	const likersArray = props.restaurantLikers.map((liker) => {
+		console.log('likers', liker)
 		return (
 			<div className="likerDiv">
 				<p className="likerName">{liker.firstName}</p>
-				<button className='plusButton' onClick={props.addPendingMatch}><img src={Plus} alt='add a match' /></button>
+				<button className='plusButton' value={liker.userId} onClick={props.addPendingMatch}><img src={Plus} alt='add a match' /></button>
 			</div>
 		)
 	})
