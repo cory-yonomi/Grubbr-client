@@ -288,6 +288,7 @@ const App = () => {
 								user={user}
 								msgAlert={msgAlert}
 								mapRestaurants={mapRestaurants}
+								setLikedRestaurant={setLikedRestaurant}
 								likedRestaurant={likedRestaurant}
 								heartButton={heartButton}
 								postComment={postComment}
