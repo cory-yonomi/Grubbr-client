@@ -50,7 +50,9 @@ const SearchZipcode = (props) => {
         })
 			.then(foundProfile => {
                 console.log('set propf', foundProfile.data)
-			props.setProfile(foundProfile.data)
+                props.setProfile(foundProfile.data)
+                props.setPendingMatches(foundProfile.data.pendingMatches)
+                props.setMatches(foundProfile.data.matchedUsers)
 		})
 	}, [])
 

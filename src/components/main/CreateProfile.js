@@ -10,7 +10,7 @@ const CreateProfile = (props) => {
     const [lastName, setLastName] = useState('')
     const [zipcode, setZipcode] = useState('')
     const [bio, setBio] = useState('')
-    const [photo, setPhoto] = useState('')
+    // const [photo, setPhoto] = useState('')
 
     const navigate = useNavigate()
 
@@ -37,6 +37,14 @@ const CreateProfile = (props) => {
         setBio(e.target.value)
     }
 
+<<<<<<< HEAD
+=======
+    // const photoInput = (e) => {
+    //     // console.log('input value first name', e.target.value)
+    //     setPhoto(e.target.value)
+    // }
+
+>>>>>>> 59a5bb7be28c3e5b1a90767a7d3830a22ed40961
 
     const submitProfile = (e) => {
         e.preventDefault()
@@ -47,7 +55,7 @@ const CreateProfile = (props) => {
                 lastName: lastName,
                 zipCode: zipcode,
                 bio: bio,
-                photo: photo,
+                // photo: photo,
             },
                 {
                     headers: {
@@ -76,15 +84,16 @@ const CreateProfile = (props) => {
                 <h1 htmlFor="Create Profile">Create Profile:</h1>
                 <h3 htmlFor="First Name">First Name: </h3>
                 <input type="text" onChange={firstNameInput} />
-                <br/>
+                <br />
                 <h3 htmlFor="Last Name">Last Name: </h3>
                 <input type="text" onChange={lastNameInput} />
-                <br/>
+                <br />
                 <h3 htmlFor="Zip Code">Zip Code: </h3>
                 <input type="number" onChange={zipCodeInput} />
-                <br/>
+                <br />
                 <h3 htmlFor="Bio">Bio: </h3>
                 <input type="text" onChange={bioInput} />
+<<<<<<< HEAD
                 <br/>
                 {/* <div>
                 <h3 htmlFor="Profile Photo">Profile Photo: </h3>
@@ -92,6 +101,29 @@ const CreateProfile = (props) => {
                 <button onclick={uploadHandler}>Upload!</button>
                 </div> */}
                 <br/>
+=======
+                <br />
+                {/* <div>
+                    <h3 htmlFor="Profile Photo">Profile Photo: </h3>
+                    <input type="file" accept='image/*' multiple='false' onChange={photoInput} />
+                    <div
+                        style={{
+                            height: "60px",
+                            width: "60px",
+                            border: "2px dashed black"
+                        }}
+                    >
+                        <img
+                            style={{
+                                width: "100%",
+                                height: "100%",
+                                position: "absolute"
+                            }}
+                        />
+                    </div>
+                </div> */}
+                <br />
+>>>>>>> 59a5bb7be28c3e5b1a90767a7d3830a22ed40961
                 <button className='submitProfile' onClick={submitProfile}>Submit</button>
             </form>
         </div>

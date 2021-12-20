@@ -1,38 +1,58 @@
 import '../css/MatchesDisplay.css'
-import { useEffect } from "react"
 import '../css/MatchesDisplay.css'
 
 const MatchesDisplay = props => {
-    // useEffect(() => {
-        
-    // }, [])
 
     let pendingMatchesArray = []
     let matchesArray = []
 
-    if (!props.matches && !props.pendingMatches) {
-
-        pendingMatchesArray = props.pendingMatches.map(match => {
-            return <p>{match.firstName}</p>
-        })
-
+    if (props.matches.length >= 1) {
         matchesArray = props.matches.map(match => {
-            return <p>{match.firstName}</p>
+            return (
+                <div className="matchCard" key={match._id}>
+            <div className="portrait">
+            <img src="https://i.imgur.com/k0YbOVE.png" alt="user" className="matchPhoto"/>
+            </div>
+            <div className="bio">
+                <p>{match.firstName}</p>
+                <p>{match.zipCode}</p>
+                <p>{match.bio}</p>
+            </div>
+            </div>
+            )
         })
+    }
+
+    if (props.pendingMatches.length >= 1) {   
+        pendingMatchesArray = props.pendingMatches.map(match => {
+            return (
+                <div className="matchCard">
+                    <div className="portrait">
+                    <img src="https://i.imgur.com/k0YbOVE.png" alt="user" className="matchPhoto"/>
+                    </div>
+                    <div className="bio">
+                        <p>{match.firstName}</p>
+                        <p>{match.zipCode}</p>
+                        <p>{match.bio}</p>
+                    </div>
+                </div>
+            )
+        })
+
     }
 
     return (
 
         <div className='matchesDiv'>
-            <div class='matchDesignDiv'>
+            <div className='matchDesignDiv'>
             <div>
             <h2>Pending Matches</h2>
-                {/* {props.pendingMatches ? {pendingMatchesArray} : <p>'No pending matches'</p> } */}
+                {pendingMatchesArray}
             </div>
             <div>
             <h2>Your Matches</h2>
 
-                {/* {props.matches ? {matchesArray} : <p>No matches, you bum!</p> } */}
+                {matchesArray}
             </div>
             </div>
         </div>

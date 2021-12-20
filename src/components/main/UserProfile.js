@@ -36,26 +36,26 @@ const UserProfile = (props) => {
 			.catch((err) => console.log(err))
 	}, [])
 
-	return (
-		
-			<div style={userProfileContent}>
-				<div className="UserInfo">
-					<h1>
-						{user.firstName} {user.lastName}
-					</h1>
-					<h5 className="">About Me:</h5>
-					<p>{user.bio}</p>
-				</div>
-				<div className="buttonStyle">
-					<Link to="/edit-profile">
-						<button style={buttonStyle}>Edit Profile</button>
-					</Link>
-					<Link to="/delete-profile">
-						<button style={buttonStyle}>Delete Profile</button>
-					</Link>
-				</div>
-			</div>
-	)
-}
+  return (
+    <div className="userProfile">
+      <div style={userProfileContent}>
+        <div className='UserInfo'>
+          <h1>{user.firstName} {user.lastName}</h1>
+          <h2>{user.photo}</h2>
+          <h5 className=''>About Me:</h5>
+          <p>{user.bio}</p>
+        </div>
+        <div className='buttonStyle'>
+          <Link to="/edit-profile">
+            <button style={buttonStyle}>Edit Profile</button>
+          </Link>
+          <Link to="/delete-profile">
+              <button style={buttonStyle}>Delete Profile</button>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default UserProfile

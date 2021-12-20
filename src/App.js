@@ -1,8 +1,8 @@
 // import React, { Component, Fragment } from 'react'
-import React, { useState, Fragment, useEffect } from 'react'
+import React, { useState, Fragment } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
-import { Navigate } from 'react-router-dom'
+// import { Navigate } from 'react-router-dom'
 
 // import AuthenticatedRoute from './components/shared/AuthenticatedRoute'
 import AutoDismissAlert from './components/shared/AutoDismissAlert/AutoDismissAlert'
@@ -90,31 +90,51 @@ const App = () => {
 		})
 	}
 
+	// add a pending match to the user's array and update state
 	const addPendingMatch = (e) => {
-		setPendingMatches([...pendingMatches, e.target.value])
+		e.preventDefault()
+		axios.post(`${apiUrl}/pendingMatches/${profile._id}`,
+			{
+			senderProfile: e.target.value
+			},
+			{
+				headers: {
+					"Authorization": `Bearer ${user.token}`
+				}
+			}
+		)
+			.then(resp => {
+				console.log('resp add pending match', resp)
+				setPendingMatches(resp.data.pendingMatches)
+			})
 	}
 
 	const postComment = (e) => {
 		e.preventDefault()
-		axios
-			.post(
-				`${apiUrl}/comments/${restaurants[currentRest].id}`,
-				{
-					comment: comment,
-					restaurant: likedRestaurant,
-				},
-				{
-					headers: {
-						Authorization: `Bearer ${user.token}`,
+		if (comment.body.length === 0) {
+			return alert('Need to type something to post a comment!')
+		} else {
+			axios
+				.post(
+					`${apiUrl}/comments/${restaurants[currentRest].id}`,
+					{
+						comment: comment,
+						restaurant: likedRestaurant,
 					},
-				}
-			)
-			.then((restaurant) => {
-				setLikedRestaurant(restaurant.data)
-			})
+					{
+						headers: {
+							Authorization: `Bearer ${user.token}`,
+						}
+					}
+				)
+				.then((restaurant) => {
+					setLikedRestaurant(restaurant.data)
+					setComment({ body: '', userId: null })
+				})
+		}
 
 	}
-
+	// Request to post new restaurant or update existing restaurants user array
 	const restaurantCall = () => {
 		return axios.post(
 			`${apiUrl}/restaurants`,
@@ -282,12 +302,14 @@ const App = () => {
 								user={user}
 								msgAlert={msgAlert}
 								mapRestaurants={mapRestaurants}
+								setLikedRestaurant={setLikedRestaurant}
 								likedRestaurant={likedRestaurant}
 								heartButton={heartButton}
 								postComment={postComment}
 								setComment={setComment}
 								restaurantLikers={restaurantLikers}
 								addPendingMatch={addPendingMatch}
+								commentInput={comment}
 							/>
 						</RequireAuth>
 					}
@@ -366,6 +388,8 @@ const App = () => {
 								mapRestaurants={mapRestaurants}
 								likedRestaurant={likedRestaurant}
 								setProfile={setProfile}
+								setMatches={setMatches}
+								setPendingMatches={setPendingMatches}
 							/>
 						</RequireAuth>
 					}

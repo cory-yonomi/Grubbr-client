@@ -1,14 +1,10 @@
 import '../css/RestaurantProfile.css'
-import axios from "axios"
-import { useState } from "react"
-import RestaurantProfile from "./RestaurantProfile"
 import '../css/RestaurantProfile.css'
 
 const CreateComment = (props) => {
 
 
     const inputComment = (e) => {
-
         props.setComment({
             body: e.target.value,
             user: props.user._id
@@ -22,7 +18,7 @@ const CreateComment = (props) => {
             <label className='commentLabel' htmlFor="">Make a comment:</label>
             <br />
 
-            <input type="text" onChange={inputComment} />
+            <input type="text" value={props.commentInput.body} onChange={inputComment} />
             <br />
             <button onClick={props.comment}>Submit</button>
         </form>
