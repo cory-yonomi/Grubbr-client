@@ -36,7 +36,7 @@ const RestaurantProfile = (props) => {
 			)
 			.then(restaurant => {
 				console.log('rest info', restaurant)
-				props.setLikedRestaurant(restaurant.data)
+                props.setLikedRestaurant(restaurant.data[0])
 			})
 			.catch((err) => console.log(err))
 	}
@@ -63,7 +63,7 @@ const RestaurantProfile = (props) => {
 		return (
 			<div className="likerDiv">
 				<p className="likerName">{liker.firstName}</p>
-				<button className='plusButton' value={liker.userId} onClick={props.addPendingMatch}><img src={Plus} alt='add a match' /></button>
+				<button className='plusButton' value={liker._id} onClick={props.addPendingMatch}><img src={Plus} alt='add a match' /></button>
 			</div>
 		)
 	})

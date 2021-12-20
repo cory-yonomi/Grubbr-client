@@ -93,21 +93,20 @@ const App = () => {
 	const addPendingMatch = (e) => {
 		e.preventDefault()
 
-		axios.post(`${apiUrl}/pendingMatches/${profile._id}`, {
-			userId: e.target.value
-		},
-
+		axios.post(`${apiUrl}/pendingMatches/${profile._id}`,
 			{
-
+			senderProfile: e.target.value
+			},
+			{
 				headers: {
 					"Authorization": `Bearer ${user.token}`
-				},
+				}
 			}
 		)
 			.then(resp => {
 				console.log('resp add pending match', resp)
+				setPendingMatches(resp.data.pendingMatches)
 			})
-		// setPendingMatches([...pendingMatches, e.target.value])
 	}
 
 	const postComment = (e) => {
@@ -126,7 +125,7 @@ const App = () => {
 					{
 						headers: {
 							Authorization: `Bearer ${user.token}`,
-						},
+						}
 					}
 				)
 				.then((restaurant) => {
@@ -390,6 +389,8 @@ const App = () => {
 								mapRestaurants={mapRestaurants}
 								likedRestaurant={likedRestaurant}
 								setProfile={setProfile}
+								setMatches={setMatches}
+								setPendingMatches={setPendingMatches}
 							/>
 						</RequireAuth>
 					}

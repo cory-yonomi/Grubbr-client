@@ -91,7 +91,7 @@ const CreateProfile = (props) => {
                 <h3 htmlFor="Bio">Bio: </h3>
                 <input type="text" onChange={bioInput} />
                 <br />
-                <div>
+                {/* <div>
                     <h3 htmlFor="Profile Photo">Profile Photo: </h3>
                     <input type="file" accept='image/*' multiple='false' onChange={photoInput} />
                     <div
@@ -109,7 +109,7 @@ const CreateProfile = (props) => {
                             }}
                         />
                     </div>
-                </div>
+                </div> */}
                 <br />
                 <button className='submitProfile' onClick={submitProfile}>Submit</button>
             </form>
