@@ -1,8 +1,8 @@
 // import React, { Component, Fragment } from 'react'
-import React, { useState, Fragment, useEffect } from 'react'
+import React, { useState, Fragment } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
-import { Navigate } from 'react-router-dom'
+// import { Navigate } from 'react-router-dom'
 
 // import AuthenticatedRoute from './components/shared/AuthenticatedRoute'
 import AutoDismissAlert from './components/shared/AutoDismissAlert/AutoDismissAlert'
@@ -90,29 +90,27 @@ const App = () => {
 		})
 	}
 
+	// add a pending match to the user's array and update state
 	const addPendingMatch = (e) => {
 		e.preventDefault()
-
-		axios.post(`${apiUrl}/pendingMatches/${profile._id}`, {
-			userId: e.target.value
-		},
-
+		axios.post(`${apiUrl}/pendingMatches/${profile._id}`,
 			{
-
+			senderProfile: e.target.value
+			},
+			{
 				headers: {
 					"Authorization": `Bearer ${user.token}`
-				},
+				}
 			}
 		)
 			.then(resp => {
 				console.log('resp add pending match', resp)
+				setPendingMatches(resp.data.pendingMatches)
 			})
-		// setPendingMatches([...pendingMatches, e.target.value])
 	}
 
 	const postComment = (e) => {
 		e.preventDefault()
-
 		if (comment.body.length === 0) {
 			return alert('Need to type something to post a comment!')
 		} else {
@@ -126,7 +124,7 @@ const App = () => {
 					{
 						headers: {
 							Authorization: `Bearer ${user.token}`,
-						},
+						}
 					}
 				)
 				.then((restaurant) => {
@@ -136,7 +134,7 @@ const App = () => {
 		}
 
 	}
-
+	// Request to post new restaurant or update existing restaurants user array
 	const restaurantCall = () => {
 		return axios.post(
 			`${apiUrl}/restaurants`,
@@ -390,6 +388,8 @@ const App = () => {
 								mapRestaurants={mapRestaurants}
 								likedRestaurant={likedRestaurant}
 								setProfile={setProfile}
+								setMatches={setMatches}
+								setPendingMatches={setPendingMatches}
 							/>
 						</RequireAuth>
 					}

@@ -10,7 +10,7 @@ const CreateProfile = (props) => {
     const [lastName, setLastName] = useState('')
     const [zipcode, setZipcode] = useState('')
     const [bio, setBio] = useState('')
-    const [photo, setPhoto] = useState('')
+    // const [photo, setPhoto] = useState('')
 
     const navigate = useNavigate()
 
@@ -37,10 +37,10 @@ const CreateProfile = (props) => {
         setBio(e.target.value)
     }
 
-    const photoInput = (e) => {
-        // console.log('input value first name', e.target.value)
-        setPhoto(e.target.value)
-    }
+    // const photoInput = (e) => {
+    //     // console.log('input value first name', e.target.value)
+    //     setPhoto(e.target.value)
+    // }
 
 
     const submitProfile = (e) => {
@@ -52,7 +52,7 @@ const CreateProfile = (props) => {
                 lastName: lastName,
                 zipCode: zipcode,
                 bio: bio,
-                photo: photo,
+                // photo: photo,
             },
                 {
                     headers: {
@@ -91,10 +91,25 @@ const CreateProfile = (props) => {
                 <h3 htmlFor="Bio">Bio: </h3>
                 <input type="text" onChange={bioInput} />
                 <br />
-                <div>
+                {/* <div>
                     <h3 htmlFor="Profile Photo">Profile Photo: </h3>
-                    <input type="text" onChange={photoInput} />
-                </div>
+                    <input type="file" accept='image/*' multiple='false' onChange={photoInput} />
+                    <div
+                        style={{
+                            height: "60px",
+                            width: "60px",
+                            border: "2px dashed black"
+                        }}
+                    >
+                        <img
+                            style={{
+                                width: "100%",
+                                height: "100%",
+                                position: "absolute"
+                            }}
+                        />
+                    </div>
+                </div> */}
                 <br />
                 <button className='submitProfile' onClick={submitProfile}>Submit</button>
             </form>

@@ -1,7 +1,4 @@
 import '../css/RestaurantProfile.css'
-import axios from "axios"
-import { useState } from "react"
-import RestaurantProfile from "./RestaurantProfile"
 import '../css/RestaurantProfile.css'
 
 const CreateComment = (props) => {

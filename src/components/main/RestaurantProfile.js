@@ -3,23 +3,23 @@ import axios from 'axios'
 // import apiUrl from '../../apiConfig'
 import '../css/RestaurantProfile.css'
 import CreateComment from './CreateComment'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 import apiUrl from '../../apiConfig'
-import drakeImg from '../images/DrakeExampleImg.jpeg'
+// import drakeImg from '../images/DrakeExampleImg.jpeg'
 import Plus from '../images/icon.png'
 
 const priceStyle = {
     color: 'lightgreen'
 }
 
-const hoursStyle = {
-    color: 'Yellow',
-	fontWeight: 'bold',
-}
+// const hoursStyle = {
+//     color: 'Yellow',
+// 	fontWeight: 'bold',
+// }
 
 const RestaurantProfile = (props) => {
 
-	const navigate = useNavigate()
+	// const navigate = useNavigate()
 
 
 	const deleteYourComment = (e) => {
@@ -36,7 +36,7 @@ const RestaurantProfile = (props) => {
 			)
 			.then(restaurant => {
 				console.log('rest info', restaurant)
-				props.setLikedRestaurant(restaurant.data)
+                props.setLikedRestaurant(restaurant.data[0])
 			})
 			.catch((err) => console.log(err))
 	}
@@ -63,7 +63,7 @@ const RestaurantProfile = (props) => {
 		return (
 			<div className="likerDiv">
 				<p className="likerName">{liker.firstName}</p>
-				<button className='plusButton' value={liker.userId} onClick={props.addPendingMatch}><img src={Plus} alt='add a match' /></button>
+				<button className='plusButton' value={liker._id} onClick={props.addPendingMatch}><img src={Plus} alt='add a match' /></button>
 			</div>
 		)
 	})
