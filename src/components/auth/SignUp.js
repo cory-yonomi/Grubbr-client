@@ -50,7 +50,7 @@ const SignUp = (props) => {
             })
     }
     return (
-        <div className='row'>
+        <div className='row signUp'>
             <div className='col-sm-10 col-md-8 mx-auto mt-5 signUp-div'>
                 <h3 className="form-label">Sign Up</h3>
                 <Form onSubmit={onSignUp}>

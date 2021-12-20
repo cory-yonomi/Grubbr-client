@@ -24,8 +24,6 @@ import DeleteProfile from './components/main/DeleteProfile'
 import MatchesDisplay from './components/main/MatchesDisplay'
 import apiUrl from './apiConfig'
 
-
-
 import axios from 'axios'
 require('dotenv').config()
 
@@ -60,7 +58,7 @@ const App = () => {
 		rating: '',
 		price: '',
 		users: [],
-		comments: []
+		comments: [],
 	})
 	// restaurant comment state
 	const [comment, setComment] = useState({ body: '', userId: null })
@@ -230,6 +228,16 @@ const App = () => {
 	return (
 		<Fragment>
 			<Header user={user} profile={profileName} />
+			{msgAlerts.map((msgAlert) => (
+				<AutoDismissAlert
+					key={msgAlert.id}
+					heading={msgAlert.heading}
+					variant={msgAlert.variant}
+					message={msgAlert.message}
+					id={msgAlert.id}
+					deleteAlert={deleteAlert}
+				/>
+			))}
 			<Routes>
 				<Route path="/" element={<Home msgAlert={msgAlert} user={user} />} />
 				<Route
@@ -385,7 +393,7 @@ const App = () => {
 					}
 				/>
 			</Routes>
-			{msgAlerts.map((msgAlert) => (
+			{/* {msgAlerts.map((msgAlert) => (
 				<AutoDismissAlert
 					key={msgAlert.id}
 					heading={msgAlert.heading}
@@ -394,7 +402,7 @@ const App = () => {
 					id={msgAlert.id}
 					deleteAlert={deleteAlert}
 				/>
-			))}
+			))} */}
 		</Fragment>
 	)
 }

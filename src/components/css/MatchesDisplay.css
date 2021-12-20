@@ -1,0 +1,27 @@
+.matchesDisplay {
+    height: 100vh;
+    text-align: center;
+    background-image: url('../images/background.jpeg');
+    background-size: cover;
+    color: whitesmoke;
+}
+
+.matchesContainer {
+    margin: 20px;
+    margin-top: 90px;
+    background-color: rgba(62, 33, 93, 0.7);
+    color: white;
+    padding: 2% 1%;
+    display: inline-block;
+    border-radius: 20px;
+}
+
+.pendingMatches {
+    height: 200px;
+    width: 600px;
+}
+
+.yourMatches {
+    height: 200px;
+    width: 600px;
+}

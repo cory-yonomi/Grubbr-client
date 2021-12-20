@@ -1,6 +1,8 @@
+import '../css/RestaurantProfile.css'
 import axios from "axios"
 import { useState } from "react"
 import RestaurantProfile from "./RestaurantProfile"
+import '../css/RestaurantProfile.css'
 
 const CreateComment = (props) => {
 
@@ -14,11 +16,16 @@ const CreateComment = (props) => {
 
 
     return (
+        <div className='addAComment'>
         <form action="">
-            <label htmlFor="">Make a comment:</label>
+            <label className='commentLabel' htmlFor="">Make a comment:</label>
+            <br />
+
             <input type="text" value={props.commentInput.body} onChange={inputComment} />
+            <br />
             <button onClick={props.comment}>Submit</button>
         </form>
+        </div>
     )
 }
 

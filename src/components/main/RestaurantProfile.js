@@ -4,7 +4,8 @@ import axios from 'axios'
 import '../css/RestaurantProfile.css'
 import CreateComment from './CreateComment'
 import apiUrl from '../../apiConfig'
-// import Plus from '../images/icon.png'
+import drakeImg from '../images/DrakeExampleImg.jpeg'
+import Plus from '../images/icon.png'
 
 const priceStyle = {
     color: 'lightgreen'
@@ -15,10 +16,7 @@ const hoursStyle = {
 	fontWeight: 'bold',
 }
 
-
 const RestaurantProfile = (props) => {
-
-	
 	const deleteYourComment = (e) => {
 		e.preventDefault()
 
@@ -59,7 +57,7 @@ const RestaurantProfile = (props) => {
 		return (
 			<div className="likerDiv">
 				<p className="likerName">{liker.firstName}</p>
-				{/* <button className='plusButton' onClick={props.addPendingMatch}><img src={Plus} alt='add a match' /></button> */}
+				<button className='plusButton' onClick={props.addPendingMatch}><img src={Plus} alt='add a match' /></button>
 			</div>
 		)
 	})
@@ -91,10 +89,9 @@ const RestaurantProfile = (props) => {
 						comment={props.postComment}
 						user={props.user}
 						setComment={props.setComment}
-                        commentInput={props.commentInput}
+						commentInput={props.commentInput}
 					/>
 					{commentArray}
-							{/* <DeleteComment likedRestaurant={props.likedRestaurant} user={props.user} commentIdArray={commentIdArray} setComment={props.setComment} /> */}
 				</span>
 			</div>
 		</div>

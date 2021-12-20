@@ -4,12 +4,6 @@ import axios from "axios"
 import '../css/SeachZipcode.css'
 import apiUrl from "../../apiConfig"
 
-const backgroundStyle = {
-    backgroundColor: `rgba(93, 130, 51, .8)`,
-    height: '100vh',
-    padding: '10%'
-}
-
 const SearchZipcode = (props) => {
 
     const [input, setInput] = useState('')
@@ -62,7 +56,6 @@ const SearchZipcode = (props) => {
 
     return (
         <div className="rest-slide">
-            <div style={backgroundStyle}>
                 <div id='zipcode-search'>
                     <form>
                         <label htmlFor="zipcode">Search by Zipcode:</label>
@@ -72,7 +65,6 @@ const SearchZipcode = (props) => {
                     </form>
                     {/* <Link to='/restaurant-slide'></Link> */}
                 </div>
-            </div>
         </div>
     )
 }
